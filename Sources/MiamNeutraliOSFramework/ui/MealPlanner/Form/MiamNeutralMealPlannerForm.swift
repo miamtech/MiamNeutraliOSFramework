@@ -10,7 +10,7 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamNeutralBudgetForm: MealPlannerForm {
+public struct MiamNeutralMealPlannerForm: MealPlannerForm {
     let dimension = Dimension.sharedInstance
     public init() {}
     public func content(budgetInfos: Binding<BudgetInfos>,
@@ -38,7 +38,7 @@ public struct MiamNeutralBudgetForm: MealPlannerForm {
 }
 
 @available(iOS 14, *)
-struct MiamNeutralBudgetFormPreview: PreviewProvider {
+struct MiamNeutralMealPlannerFormPreview: PreviewProvider {
     static var previews: some View {
         BudgetFormPreview()
     }

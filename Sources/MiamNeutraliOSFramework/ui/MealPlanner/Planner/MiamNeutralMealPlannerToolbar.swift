@@ -10,7 +10,7 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamBudgetPlannerToolbar: MealPlannerToolbar {
+public struct MiamNeutralMealPlannerToolbar: MealPlannerToolbar {
     @State var budget = 23.0
     @State var numberGuests = 4
     @State var numberMeals = 4
@@ -67,7 +67,7 @@ internal struct SubmitButtonCollapsed: View {
 }
 
 @available(iOS 14, *)
-struct MiamBudgetPlannerToolbar_Previews: PreviewProvider {
+struct MiamNeutralMealPlannerToolbar_Previews: PreviewProvider {
     static var previews: some View {
         Preview()
     }
@@ -76,7 +76,7 @@ struct MiamBudgetPlannerToolbar_Previews: PreviewProvider {
         @State var loading = false
         @State var budgetInfos = BudgetInfos(moneyBudget: 30.0, numberOfGuests: 4, numberOfMeals: 4)
         var body: some View {
-            MiamBudgetPlannerToolbar().content(budgetInfos: $budgetInfos,
+            MiamNeutralMealPlannerToolbar().content(budgetInfos: $budgetInfos,
                                                isLoadingRecipes: $loading, onValidateTapped: {_ in})
         }
     }

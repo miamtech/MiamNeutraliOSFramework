@@ -11,7 +11,7 @@ import miamCore
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamBudgetPlannerSuccess: MealPlannerSuccess {
+public struct MiamNeutralMealPlannerSuccess: MealPlannerSuccess {
     public init() {}
     public func content(budgetPlannerInfos: MealPlannerInfos, onValidate: @escaping () -> Void) -> some View {
 
@@ -47,7 +47,7 @@ public struct MiamBudgetPlannerSuccess: MealPlannerSuccess {
 }
 
 @available(iOS 14, *)
-struct MiamBudgetPlannerSuccessPreview: PreviewProvider {
+struct MiamNeutralMealPlannerSuccessPreview: PreviewProvider {
     static var previews: some View {
         let recipeAttributes = RecipeAttributes(title: "Salade grecque sur deux lignes",
             recipeDescription: "Coconut based recipe",
