@@ -1,15 +1,14 @@
 //
-//  UIConstants.swift
-//  iosApp
+//  Dimension.swift
+//  MiamIOSFramework
 //
-//  Created by didi on 1/13/23.
-//  Copyright © 2023 orgName. All rights reserved.
+//  Created by Miam on 28/04/2022.
 //
 
 import Foundation
 import SwiftUI
 
-@available(iOS 13, *)
+@available(iOS 14, *)
 public class Dimension {
     public static let sharedInstance = Dimension()
 
@@ -52,11 +51,6 @@ public class Dimension {
      mButtonHeight: default value 16
      */
     public var mButtonHeight: CGFloat = 16
-    
-    /**
-     mlButtonHeight: default value 24
-     */
-    public var mlButtonHeight: CGFloat = 24
 
     /**
      lButtonHeight: default value 32
@@ -82,14 +76,4 @@ public class Dimension {
      lCornerRadius: default value 12
      */
     public var lCornerRadius: CGFloat = 12
-    
-    /**
-     xlCornerRadius: default value 20
-     */
-    public var xlCornerRadius: CGFloat = 25
-    
-    /**
-     mealPlannerRecipeCardHeight: default value 220
-     */
-    public var mealPlannerRecipeCardHeight: CGFloat = 220
 }

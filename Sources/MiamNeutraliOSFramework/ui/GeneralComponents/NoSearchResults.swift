@@ -18,7 +18,7 @@ public struct NoSearchResults: View {
                 .frame(width: 5, height: 25)
                 .padding(.trailing, Dimension.sharedInstance.lPadding)
             Text(message)
-                .coursesUFontStyle(style: CoursesUFontStyleProvider().bodyBigStyle)
+//                .coursesUFontStyle(style: CoursesUFontStyleProvider().bodyBigStyle)
         }
         .padding(.vertical, Dimension.sharedInstance.lPadding)
         .padding(.horizontal, Dimension.sharedInstance.xlPadding)
