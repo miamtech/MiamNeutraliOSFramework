@@ -1,0 +1,86 @@
+//
+//  MealPlannerBudget.swift
+//  MiamIOSFramework
+//
+//  Created by didi on 5/9/23.
+//  Copyright © 2023 Miam. All rights reserved.
+//
+
+import SwiftUI
+@available(iOS 14, *)
+internal struct MealPlannerBudget: View {
+    @Binding var budget: Double
+    let caption: String?
+    let currency: String
+    init(
+        budget: Binding<Double>,
+        caption: String? = nil,
+        currency: String
+    ) {
+        self._budget = budget
+        self.caption = caption
+        self.currency = currency
+    }
+    var body: some View {
+        VStack(spacing: Dimension.sharedInstance.sPadding) {
+            if let caption = caption {
+                MandatoryTextField(caption: caption)
+            }
+            HStack(spacing: 0) {
+                Currency(currency: currency)
+                Divider()
+                    .background(Color.miamColor(.grey))
+                Budget(budget: $budget, onBudgetChanged: { _ in })
+            }
+            .frame(maxWidth: .infinity)
+            .frame(height: 50)
+            .overlay(RoundedRectangle(cornerRadius: Dimension.sharedInstance.sCornerRadius)
+                .stroke(Color.miamColor(.grey), lineWidth: 0.5))
+        }
+    }
+}
+
+@available(iOS 14, *)
+internal struct Currency: View {
+    let currency: String
+    var body: some View {
+        Text(currency)
+            .miamFontStyle(style: MiamFontStyleProvider().bodyBigStyle)
+            .padding(Dimension.sharedInstance.mPadding)
+    }
+}
+
+@available(iOS 14, *)
+internal struct Budget: View {
+    @Binding public var budget: Double
+    public var onBudgetChanged: (Double) -> Void
+
+    var body: some View {
+        TextField("", value: $budget, formatter: NumberFormatter())
+            .miamFontStyle(style: MiamFontStyleProvider().bodyBigBoldStyle)
+            .multilineTextAlignment(.leading)
+            .keyboardType(.numberPad)
+            .padding(Dimension.sharedInstance.mPadding)
+            .onChange(of: budget) { newValue in
+                onBudgetChanged(newValue)
+            }
+    }
+}
+
+@available(iOS 14, *)
+struct MealPlannerBudget_Previews: PreviewProvider {
+    static var previews: some View {
+        PreviewWrapper()
+    }
+
+    struct PreviewWrapper: View {
+        @State var value = 0.0
+        var body: some View {
+            MealPlannerBudget(
+                budget: $value,
+                caption: "Total Budget",
+                currency: "EUR")
+                .background(Color.white)
+        }
+    }
+}
