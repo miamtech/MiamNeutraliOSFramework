@@ -10,7 +10,7 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamMealPlannerBasketPreviewSectionProduct: MealPlannerBaskletPreviewSectionProduct {
+public struct MiamNeutralMealPlannerBasketPreviewSectionProduct: MealPlannerBaskletPreviewSectionProduct {
     public init() {}
     public func content(name: String, canBeAdded: Bool, addIngredientAction: @escaping () -> Void) -> some View {
         HStack {
@@ -40,9 +40,9 @@ public struct MiamMealPlannerBasketPreviewSectionProduct: MealPlannerBaskletPrev
 }
 
 @available(iOS 14, *)
-struct MiamMealPlannerBasketPreviewSectionProduct_Previews: PreviewProvider {
+struct MiamNeutralMealPlannerBasketPreviewSectionProduct_Previews: PreviewProvider {
     static var previews: some View {
-        MiamMealPlannerBasketPreviewSectionProduct().content(name: "Farine de blé", canBeAdded: true,
+        MiamNeutralMealPlannerBasketPreviewSectionProduct().content(name: "Farine de blé", canBeAdded: true,
                                                              addIngredientAction: {})
     }
 }

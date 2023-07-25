@@ -11,7 +11,7 @@ import miamCore
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamMealPlannerBasketPreviewRecipeOverview: MealPlannerBasketPreviewRecipeOverview {
+public struct MiamNeutralMealPlannerBasketPreviewRecipeOverview: MealPlannerBasketPreviewRecipeOverview {
     public init() {
     }
     public func content(basketPreviewInfos: BasketPreviewInfos,
@@ -87,7 +87,7 @@ public struct MiamMealPlannerBasketPreviewRecipeOverview: MealPlannerBasketPrevi
 }
 
 //@available(iOS 14, *)
-//struct MiamMealPlannerBasketPreviewRecipeOverview_Previews: PreviewProvider {
+//struct MiamNeutralMealPlannerBasketPreviewRecipeOverview_Previews: PreviewProvider {
 //    static var previews: some View {
 //        let recipeAttributes = RecipeAttributes(title: "Salade grecque sur deux lignes",
 //                                                recipeDescription: "Coconut based recipe",
@@ -109,7 +109,7 @@ public struct MiamMealPlannerBasketPreviewRecipeOverview: MealPlannerBasketPrevi
 //                                                attributes: recipeAttributes,
 //                                                relationships: recipeRelationships)
 //        let basketInfos = BasketPreviewInfos(recipe: recipe, price: Price(price: 14.56, currency: "EUR"))
-//        MiamMealPlannerBasketPreviewRecipeOverview().content(basketPreviewInfo: basketInfos,
+//        MiamNeutralMealPlannerBasketPreviewRecipeOverview().content(basketPreviewInfo: basketInfos,
 //                                                             basketPreviewActions: BasketPreviewRecipeActions(delete: {},
 //                                                                                                              expand: {},
 //                                                                                                              updateGuests: { _ in}))

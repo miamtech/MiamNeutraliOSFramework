@@ -10,7 +10,7 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamMealPlannerRecipeCardLoading: MealPlannerRecipeCardLoading {
+public struct MiamNeutralMealPlannerRecipeCardLoading: MealPlannerRecipeCardLoading {
     private struct Constants {
         static let duration: Double = 1.3
         static let minOpacity: Double = 0.25
@@ -85,8 +85,8 @@ public struct MiamMealPlannerRecipeCardLoading: MealPlannerRecipeCardLoading {
 }
 
 @available(iOS 14, *)
-struct BudgetRecipeCardLoadingView_Previews: PreviewProvider {
+struct MiamNeutralMealPlannerRecipeCardLoadingView_Previews: PreviewProvider {
     static var previews: some View {
-        MiamMealPlannerRecipeCardLoading().content()
+        MiamNeutralMealPlannerRecipeCardLoading().content()
     }
 }

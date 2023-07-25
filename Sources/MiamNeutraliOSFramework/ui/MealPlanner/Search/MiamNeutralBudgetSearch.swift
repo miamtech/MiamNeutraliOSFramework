@@ -10,7 +10,7 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamBudgetSearch: MealPlannerSearch {
+public struct MiamNeutralBudgetSearch: MealPlannerSearch {
     public init() {}
     public func content(searchText: Binding<String>, filtersTapped: @escaping () -> Void) -> some View {
         HStack(spacing: 8.0) {

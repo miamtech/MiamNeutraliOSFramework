@@ -10,7 +10,7 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamBudgetPlannerEmpty: MealPlannerEmpty {
+public struct MiamNeutralBudgetPlannerEmpty: MealPlannerEmpty {
     public init() {}
     public func content(bugetInfos: BudgetInfos, reason: String) -> some View {
         

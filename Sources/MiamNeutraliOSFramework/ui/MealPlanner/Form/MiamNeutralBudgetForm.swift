@@ -10,14 +10,14 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamBudgetForm: MealPlannerForm {
+public struct MiamNeutralBudgetForm: MealPlannerForm {
     let dimension = Dimension.sharedInstance
     public init() {}
     public func content(budgetInfos: Binding<BudgetInfos>,
                         isFetchingRecipes: Bool,
                         onFormValidated: @escaping (BudgetInfos) -> Void) -> some View {
         VStack(spacing: 24.0) {
-            MealPlannerBudget(
+            MiamNeutralMealPlannerBudget(
                 budget: budgetInfos.moneyBudget,
                 caption: Localization.myBudget.totalBudgetTitle.localised,
                 currency: Localization.price.currency.localised)
@@ -38,7 +38,7 @@ public struct MiamBudgetForm: MealPlannerForm {
 }
 
 @available(iOS 14, *)
-struct MiamBudgetFormPreview: PreviewProvider {
+struct MiamNeutralBudgetFormPreview: PreviewProvider {
     static var previews: some View {
         BudgetFormPreview()
     }

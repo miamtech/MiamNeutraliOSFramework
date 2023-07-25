@@ -20,7 +20,7 @@ public struct MiamBudgetPlannerToolbar: MealPlannerToolbar {
                         isLoadingRecipes: Binding<Bool>,
                         onValidateTapped: @escaping (BudgetInfos) -> Void) -> some View {
         HStack {
-            MealPlannerBudget(
+            MiamNeutralMealPlannerBudget(
                 budget: budgetInfos.moneyBudget,
                 currency: Localization.price.currency.localised)
             MiamNeutralStepperCollapsed(

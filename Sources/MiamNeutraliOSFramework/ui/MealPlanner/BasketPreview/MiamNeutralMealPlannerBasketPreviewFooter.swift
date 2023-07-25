@@ -10,7 +10,7 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamMealPlannerBasketPreviewFooter: MealPlannerBasketPreviewFooter {
+public struct MiamNeutralMealPlannerBasketPreviewFooter: MealPlannerBasketPreviewFooter {
     public init() {}
     public func content(actions: BasketPreviewFooterActions) -> some View {
         VStack {
@@ -44,8 +44,8 @@ public struct MiamMealPlannerBasketPreviewFooter: MealPlannerBasketPreviewFooter
 }
 
 @available(iOS 14, *)
-struct MiamMealPlannerBasketPreviewFooter_Previews: PreviewProvider {
+struct MiamNeutralMealPlannerBasketPreviewFooter_Previews: PreviewProvider {
     static var previews: some View {
-        MiamMealPlannerBasketPreviewFooter().content(actions: .init(continueShopping: {}, showBasket: {}))
+        MiamNeutralMealPlannerBasketPreviewFooter().content(actions: .init(continueShopping: {}, showBasket: {}))
     }
 }

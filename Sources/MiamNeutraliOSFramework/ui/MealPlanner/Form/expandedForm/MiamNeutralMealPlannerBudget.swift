@@ -8,7 +8,7 @@
 
 import SwiftUI
 @available(iOS 14, *)
-internal struct MealPlannerBudget: View {
+internal struct MiamNeutralMealPlannerBudget: View {
     @Binding var budget: Double
     let caption: String?
     let currency: String
@@ -68,7 +68,7 @@ internal struct Budget: View {
 }
 
 @available(iOS 14, *)
-struct MealPlannerBudget_Previews: PreviewProvider {
+struct MiamNeutralMealPlannerBudget_Previews: PreviewProvider {
     static var previews: some View {
         PreviewWrapper()
     }
@@ -76,7 +76,7 @@ struct MealPlannerBudget_Previews: PreviewProvider {
     struct PreviewWrapper: View {
         @State var value = 0.0
         var body: some View {
-            MealPlannerBudget(
+            MiamNeutralMealPlannerBudget(
                 budget: $value,
                 caption: "Total Budget",
                 currency: "EUR")

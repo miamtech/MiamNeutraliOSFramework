@@ -10,20 +10,20 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamBudgetPlannerStickyFooter: MealPlannerFooter {
+public struct MiamNeutralMealPlannerStickyFooter: MealPlannerFooter {
     let dimension = Dimension.sharedInstance
     public init() {}
     public func content(budgetInfos: BudgetInfos, budgetSpent: Binding<Double>,
                         validateTapped: @escaping () -> Void) -> some View {
         VStack {
-            MiamBudgetPlannerBudgetFooter(budgetSpent: budgetSpent.wrappedValue, totalBudgetPermitted: budgetInfos.moneyBudget)
-            MiamBudgetPlannerCTAFooter(buttonAction: validateTapped)
+            MiamNeutralMealPlannerBudgetFooter(budgetSpent: budgetSpent.wrappedValue, totalBudgetPermitted: budgetInfos.moneyBudget)
+            MiamNeutralMealPlannerCTAFooter(buttonAction: validateTapped)
         }
     }
 }
 
 @available(iOS 14, *)
-struct MiamBudgetPlannerCTAFooter: View {
+struct MiamNeutralMealPlannerCTAFooter: View {
     let buttonAction: () -> Void
     let dimension = Dimension.sharedInstance
     var body: some View {
@@ -81,7 +81,7 @@ struct WithRoundedCornersProgressViewStyle: ProgressViewStyle {
 }
 
 @available(iOS 14, *)
-struct MiamBudgetPlannerBudgetFooter: View {
+struct MiamNeutralMealPlannerBudgetFooter: View {
     var budgetSpent: Double
     var totalBudgetPermitted: Double
     let dimension = Dimension.sharedInstance
@@ -102,7 +102,7 @@ struct MiamBudgetPlannerBudgetFooter: View {
 }
 
 @available(iOS 14, *)
-struct MiamBudgetPlannerStickyFooter_Previews: PreviewProvider {
+struct MiamNeutralMealPlannerStickyFooter_Previews: PreviewProvider {
 
     static var previews: some View {
         let budgetInfos = BudgetInfos(moneyBudget: 50.0, numberOfGuests: 4, numberOfMeals: 4)
@@ -128,7 +128,7 @@ struct MiamBudgetPlannerStickyFooter_Previews: PreviewProvider {
                     }
                 }
 //                StickyFooter(safeArea: safeArea) {
-                MiamBudgetPlannerStickyFooter().content(budgetInfos: budgetInfos, budgetSpent: .constant(50.0)) {
+                MiamNeutralMealPlannerStickyFooter().content(budgetInfos: budgetInfos, budgetSpent: .constant(50.0)) {
                         print("hello world")
                     }
 //                }

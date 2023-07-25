@@ -11,7 +11,7 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamMealPlannerBasketPreviewProduct: MealPlannerBasketPreviewProduct {
+public struct MiamNeutralMealPlannerBasketPreviewProduct: MealPlannerBasketPreviewProduct {
     public init() {}
     public func content(quantity: Binding<Int>, productInfo: MealPlannerBasketPreviewProductInfos,
                  actions: MealPlannerBudgetPreviewProductActions) -> some View {
@@ -82,7 +82,7 @@ public struct MiamMealPlannerBasketPreviewProduct: MealPlannerBasketPreviewProdu
 }
 
 @available(iOS 14, *)
-struct MealPlannerBasketPreviewProductPreviews: PreviewProvider {
+struct MealNeutralPlannerBasketPreviewProductPreviews: PreviewProvider {
     static var previews: some View {
         PreviewWrapper()
             .padding()

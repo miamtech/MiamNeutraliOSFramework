@@ -10,7 +10,7 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamMealPlannerBasketPreviewLoading: MealPlannerBasketPreviewLoading {
+public struct MiamNeutralMealPlannerBasketPreviewLoading: MealPlannerBasketPreviewLoading {
     public init() {}
     public func content() -> some View {
         ProgressLoader(color: Color.miamNeutralColor(.primary))

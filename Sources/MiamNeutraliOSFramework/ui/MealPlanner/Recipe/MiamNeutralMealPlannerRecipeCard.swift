@@ -11,7 +11,7 @@ import miamCore
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamMealPlannerRecipeCard: MealPlannerRecipeCard {
+public struct MiamNeutralMealPlannerRecipeCard: MealPlannerRecipeCard {
     
     let dimensions = Dimension.sharedInstance
     let cardHeight = 200.0
@@ -81,7 +81,7 @@ public struct MiamMealPlannerRecipeCard: MealPlannerRecipeCard {
 }
 
 @available(iOS 14, *)
-struct MiamBudgetRecipeCardPreview: PreviewProvider {
+struct MiamNeutralBudgetRecipeCardPreview: PreviewProvider {
     static var previews: some View {
         let recipeAttributes = RecipeAttributes(
             title: "Salade grecque sur deux lignes",
@@ -101,7 +101,7 @@ struct MiamBudgetRecipeCardPreview: PreviewProvider {
             recipe: recipe,
             price: Price(price: 21.34, currency: "EUR"),
             isInBasket: false)
-        MiamMealPlannerRecipeCard().content(
+        MiamNeutralMealPlannerRecipeCard().content(
             recipeInfos: recipeInfos,
             actions: BudgetRecipeCardActions(
                 recipeTapped: { _ in},
