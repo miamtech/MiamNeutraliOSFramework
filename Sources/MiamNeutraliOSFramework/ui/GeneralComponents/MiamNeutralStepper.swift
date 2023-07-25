@@ -9,7 +9,7 @@
 import SwiftUI
 
 @available(iOS 14, *)
-internal struct MiamStepper: View {
+internal struct MiamNeutralStepper: View {
     @Binding public var value: Int
     let caption: String?
     let minValue: Int
@@ -78,7 +78,7 @@ internal struct MandatoryTextField: View {
 }
 
 @available(iOS 14, *)
-internal struct MiamStepperCollapsed: View {
+internal struct MiamNeutralStepperCollapsed: View {
     @Binding public var value: Int
     let icon: Image
     let minValue: Int = 1
@@ -128,7 +128,7 @@ internal struct MiamStepperCollapsed: View {
 }
 
 @available(iOS 14, *)
-struct MiamStepper_Previews: PreviewProvider {
+struct MiamNeutralStepper_Previews: PreviewProvider {
     static var previews: some View {
             StepperPreviewWrapper()
         }
@@ -138,8 +138,8 @@ struct MiamStepper_Previews: PreviewProvider {
 
             var body: some View {
                 VStack {
-                    MiamStepper(value: $value, caption: "Number of meals")
-                    MiamStepperCollapsed(value: $value, icon: Image.miamNeutralImage(icon: .guests))
+                    MiamNeutralStepper(value: $value, caption: "Number of meals")
+                    MiamNeutralStepperCollapsed(value: $value, icon: Image.miamNeutralImage(icon: .guests))
                 }
             }
     }

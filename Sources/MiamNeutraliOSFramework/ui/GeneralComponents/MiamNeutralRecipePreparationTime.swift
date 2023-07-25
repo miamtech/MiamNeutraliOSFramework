@@ -9,7 +9,7 @@
 import SwiftUI
 
 @available(iOS 14, *)
-public struct MiamRecipePreparationTime: View {
+public struct MiamNeutralRecipePreparationTime: View {
     let duration: String
 
     public init(duration: String) {
@@ -28,8 +28,8 @@ public struct MiamRecipePreparationTime: View {
 }
 
 @available(iOS 14, *)
-struct MiamRecipePreparationTime_Previews: PreviewProvider {
+struct MiamNeutralRecipePreparationTime_Previews: PreviewProvider {
     static var previews: some View {
-        MiamRecipePreparationTime(duration: "10 min.")
+        MiamNeutralRecipePreparationTime(duration: "10 min.")
     }
 }

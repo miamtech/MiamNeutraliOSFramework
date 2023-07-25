@@ -11,7 +11,7 @@ import miamCore
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamRecipeDifficulty: View {
+public struct MiamNeutralRecipeDifficulty: View {
     let difficulty: Int
 
     public init(difficulty: Int) {
@@ -39,8 +39,8 @@ public struct MiamRecipeDifficulty: View {
 }
 
 @available(iOS 14, *)
-struct MiamRecipeDifficulty_Previews: PreviewProvider {
+struct MiamNeutralRecipeDifficulty_Previews: PreviewProvider {
     static var previews: some View {
-        MiamRecipeDifficulty(difficulty: 1)
+        MiamNeutralRecipeDifficulty(difficulty: 1)
     }
 }

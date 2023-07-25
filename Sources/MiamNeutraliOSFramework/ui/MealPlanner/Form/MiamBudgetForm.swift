@@ -22,10 +22,10 @@ public struct MiamBudgetForm: MealPlannerForm {
                 caption: Localization.myBudget.totalBudgetTitle.localised,
                 currency: Localization.price.currency.localised)
 
-            MiamStepper(
+            MiamNeutralStepper(
                 value: budgetInfos.numberOfGuests,
                 caption: Localization.myBudget.numberOfGuestsTitle.localised)
-            MiamStepper(
+            MiamNeutralStepper(
                 value: budgetInfos.numberOfMeals,
                 caption: Localization.myBudget.numberOfMealsTitle.localised)
 

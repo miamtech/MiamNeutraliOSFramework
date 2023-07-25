@@ -9,7 +9,7 @@
 import SwiftUI
 
 @available(iOS 14, *)
-struct MiamDynamicHeader<ExpandedHeader: View, CollapsedHeader: View, Content: View>: View {
+struct MiamNeutralDynamicHeader<ExpandedHeader: View, CollapsedHeader: View, Content: View>: View {
     var safeArea: EdgeInsets
     let expandedHeader: () -> ExpandedHeader
     let collapsedHeader: () -> CollapsedHeader
@@ -57,11 +57,11 @@ struct MiamDynamicHeader<ExpandedHeader: View, CollapsedHeader: View, Content: V
 }
 
 @available(iOS 14.0, *)
-struct MiamDynamicHeader_Previews: PreviewProvider {
+struct MiamNeutralDynamicHeader_Previews: PreviewProvider {
     static var previews: some View {
         GeometryReader {
             let safeArea = $0.safeAreaInsets
-            MiamDynamicHeader(
+            MiamNeutralDynamicHeader(
                 safeArea: safeArea,
                 expandedHeader: {
                     Text("Expanded")

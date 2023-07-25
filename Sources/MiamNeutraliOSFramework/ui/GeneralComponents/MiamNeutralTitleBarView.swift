@@ -9,7 +9,7 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct TitleBarView: View {
+public struct MiamNeutralTitleBarView: View {
     let barHeight = 55.0
 
     let showBackButton: Bool
@@ -45,8 +45,8 @@ public struct TitleBarView: View {
 }
 
 @available(iOS 14, *)
-struct TitleBarView_Previews: PreviewProvider {
+struct MiamNeutralTitleBarView_Previews: PreviewProvider {
     static var previews: some View {
-        TitleBarView(showBackButton: true, backAction: nil, titleView: AnyView(Text("Sample view")))
+        MiamNeutralTitleBarView(showBackButton: true, backAction: nil, titleView: AnyView(Text("Sample view")))
     }
 }

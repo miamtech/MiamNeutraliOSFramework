@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(iOS 14, *)
-public struct NoSearchResults: View {
+public struct MiamNeutralNoSearchResults: View {
     var message: String
     public var body: some View {
         HStack {

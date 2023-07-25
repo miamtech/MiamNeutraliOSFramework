@@ -23,10 +23,10 @@ public struct MiamBudgetPlannerToolbar: MealPlannerToolbar {
             MealPlannerBudget(
                 budget: budgetInfos.moneyBudget,
                 currency: Localization.price.currency.localised)
-            MiamStepperCollapsed(
+            MiamNeutralStepperCollapsed(
                 value: budgetInfos.numberOfGuests,
                 icon: Image.miamNeutralImage(icon: .guests))
-            MiamStepperCollapsed(
+            MiamNeutralStepperCollapsed(
                 value: budgetInfos.numberOfMeals,
                 icon: Image.miamNeutralImage(icon: .fork))
             SubmitButtonCollapsed(isLoading: isLoadingRecipes) {

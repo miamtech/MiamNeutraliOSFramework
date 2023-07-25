@@ -68,7 +68,7 @@ public struct MiamMealPlannerBasketPreviewProduct: MealPlannerBasketPreviewProdu
                         }
                     }
 
-                    MiamStepper(value: quantity)
+                    MiamNeutralStepper(value: quantity)
                         .frame(width: 140.0)
                 }
             }
