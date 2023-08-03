@@ -14,51 +14,40 @@ public struct MiamNeutralRecipeDetailsIngredientsView: RecipeDetailsIngredientsV
     public init() {}
     
     public func content(infos: RecipeDetailsIngredientsInfos, updateGuestsAction: @escaping (Int) -> Void) -> some View {
-        
-        if let template = Template.sharedInstance.recipeDetailsIngredientsViewTemplate {
-            template(
-                infos.ingredients,
-                infos.recipeGuests,
-                infos.currentGuests,
-                infos.guestUpdating,
-                updateGuestsAction
-            )
-        } else {
+        HStack {
             HStack {
-                HStack {
-                    // TODO: RecipeDetails localize
-                    Text("\(infos.ingredients.count) ingrédients")
-                        .miamFontStyle(style: MiamFontStyleProvider().titleStyle)
-                        .foregroundColor(Color.black)
-                    Spacer()
-                }.padding(.horizontal, Dimension.sharedInstance.lPadding)
-            }
-            Divider()
-                .background(Color.miamColor(.borderLight))
-                .padding(.horizontal, Dimension.sharedInstance.lPadding)
-            // Ingredients ListView
+                // TODO: RecipeDetails localize
+                Text("\(infos.ingredients.count) ingrédients")
+                    .miamFontStyle(style: MiamFontStyleProvider().titleStyle)
+                    .foregroundColor(Color.black)
+                Spacer()
+            }.padding(.horizontal, Dimension.sharedInstance.lPadding)
+        }
+        Divider()
+            .background(Color.miamColor(.borderLight))
+            .padding(.horizontal, Dimension.sharedInstance.lPadding)
+        // Ingredients ListView
+        VStack {
             VStack {
-                VStack {
-                    ForEach(infos.ingredients, id: \.self) { ingredient in
-                        if let attributes = ingredient.attributes {
-                            let quantity = quantityForIngredient(
-                                ingredient,
-                                currentNumberOfGuests: infos.currentGuests,
-                                recipeNumberOfGuests: infos.recipeGuests)
-                            let formattedQuantity = formatQuantity(
-                                quantity: quantity,
-                                unit: attributes.unit)
-                            RecipeDetailsIngredientRow(
-                                ingredientName: attributes.name ?? "",
-                                quantity: formattedQuantity)
-                        }
+                ForEach(infos.ingredients, id: \.self) { ingredient in
+                    if let attributes = ingredient.attributes {
+                        let quantity = quantityForIngredient(
+                            ingredient,
+                            currentNumberOfGuests: infos.currentGuests,
+                            recipeNumberOfGuests: infos.recipeGuests)
+                        let formattedQuantity = formatQuantity(
+                            quantity: quantity,
+                            unit: attributes.unit)
+                        RecipeDetailsIngredientRow(
+                            ingredientName: attributes.name ?? "",
+                            quantity: formattedQuantity)
                     }
                 }
-                .padding(.vertical, Dimension.sharedInstance.lPadding)
             }
-            .background(Color.miamColor(.greyLighter)).cornerRadius(15.0)
-            .padding( .horizontal,Dimension.sharedInstance.lPadding)
+            .padding(.vertical, Dimension.sharedInstance.lPadding)
         }
+        .background(Color.miamColor(.greyLighter)).cornerRadius(15.0)
+        .padding( .horizontal,Dimension.sharedInstance.lPadding)
     }
     
     func formatQuantity(quantity: Float, unit: String?) -> String {
@@ -79,7 +68,6 @@ public struct MiamNeutralRecipeDetailsIngredientsView: RecipeDetailsIngredientsV
             currentGuest: Int32(currentNumberOfGuests),
             recipeGuest: Int32(recipeNumberOfGuests)
         )
-        
         return realQuantities
     }
 }

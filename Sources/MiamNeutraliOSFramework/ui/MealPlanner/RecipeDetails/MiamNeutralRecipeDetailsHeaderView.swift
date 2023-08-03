@@ -15,18 +15,8 @@ public struct MiamNeutralRecipeDetailsHeaderView: RecipeDetailsHeaderViewTemplat
     public init() {}
     let imageHeight = 280.0
     
-    public func content(infos: RecipeDetailsHeaderInfos, showTitleInHeader: Binding<Bool>) -> some View {
+    public func content(infos: RecipeDetailsHeaderInfos) -> some View {
         VStack {
-            if let template = Template.sharedInstance.recipeDetailsHeaderTemplate {
-                template(infos.mediaURL,
-                         infos.title,
-                         infos.difficulty,
-                         infos.totalTime,
-                         showTitleInHeader,
-                         infos.isLikeEnabled,
-                         infos.recipeId)
-            } else {
-                
                 if let picture =  URL(string: infos.mediaURL ?? "") {
                     AsyncImage(url: picture) { image in
                         image
@@ -66,7 +56,6 @@ public struct MiamNeutralRecipeDetailsHeaderView: RecipeDetailsHeaderViewTemplat
                 }.padding(.horizontal, Dimension.sharedInstance.lPadding)
             }
         }
-    }
 }
 
 @available(iOS 14, *)

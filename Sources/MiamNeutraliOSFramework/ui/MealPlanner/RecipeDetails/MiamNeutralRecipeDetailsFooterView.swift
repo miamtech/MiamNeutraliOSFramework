@@ -21,7 +21,6 @@ public struct MiamNeutralRecipeDetailsFooterView: RecipeDetailsFooterTemplate {
         VStack {
            Divider()
             Button(action: {
-                
             }, label: {
                 // TODO: recipeDetails localize
                 Text("Voir plus d'idées repas")
