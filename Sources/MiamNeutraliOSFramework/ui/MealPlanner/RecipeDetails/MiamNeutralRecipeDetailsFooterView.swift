@@ -25,16 +25,15 @@ public struct MiamNeutralRecipeDetailsFooterView: RecipeDetailsFooterTemplate {
             }, label: {
                 // TODO: recipeDetails localize
                 Text("Voir plus d'idées repas")
-//                    .foregroundColor(Color.miamNeutralColor(.errorBackground))
+                    .foregroundColor(Color.miamNeutralColor(.primary))
                     .miamFontStyle(style: MiamFontStyleProvider().bodyStyle)
             })
             Divider()
             Text(pricePerPerson)
-//                .foregroundColor(Color.miamNeutralColor(.primary))
+                .foregroundColor(Color.miamNeutralColor(.primary))
                 .miamFontStyle(style: MiamFontStyleProvider().titleStyle)
             // TODO: recipeDetails localize
             Text("Voir plus d'idées repas")
-//                .foregroundColor(Color.miamNeutralColor(.lightBackground))
                 .miamFontStyle(style: MiamFontStyleProvider().bodySmallStyle)
         }
         .frame(maxWidth: .infinity)

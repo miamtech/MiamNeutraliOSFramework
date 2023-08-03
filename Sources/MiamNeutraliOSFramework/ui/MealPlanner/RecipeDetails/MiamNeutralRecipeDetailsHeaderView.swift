@@ -16,16 +16,17 @@ public struct MiamNeutralRecipeDetailsHeaderView: RecipeDetailsHeaderViewTemplat
     let imageHeight = 280.0
     
     public func content(infos: RecipeDetailsHeaderInfos, showTitleInHeader: Binding<Bool>) -> some View {
-        if let template = Template.sharedInstance.recipeDetailsHeaderTemplate {
-            template(infos.mediaURL,
-                     infos.title,
-                     infos.difficulty,
-                     infos.totalTime,
-                     showTitleInHeader,
-                     infos.isLikeEnabled,
-                     infos.recipeId)
-        } else {
-           
+        VStack {
+            if let template = Template.sharedInstance.recipeDetailsHeaderTemplate {
+                template(infos.mediaURL,
+                         infos.title,
+                         infos.difficulty,
+                         infos.totalTime,
+                         showTitleInHeader,
+                         infos.isLikeEnabled,
+                         infos.recipeId)
+            } else {
+                
                 if let picture =  URL(string: infos.mediaURL ?? "") {
                     AsyncImage(url: picture) { image in
                         image
@@ -38,39 +39,32 @@ public struct MiamNeutralRecipeDetailsHeaderView: RecipeDetailsHeaderViewTemplat
                 } else {
                     Image.miamImage(icon: .empty).frame( height: imageHeight)
                 }
-            HStack {
-                if infos.isLikeEnabled {
-                    HStack {
-                        Spacer()
+                HStack {
+                    if infos.isLikeEnabled {
                         MiamNeutralLikeButton(recipeId: infos.recipeId)
                     }
-                    //                    .frame(height: 50.0, alignment: .topLeading)
-                    .padding(Dimension.sharedInstance.lPadding)
+                    Spacer()
+                    // question mark
                 }
-             Spacer()
-                // question mark
-                
-            }
-            
-            HStack {
-                Text(infos.title)
-                    .miamFontStyle(style: MiamFontStyleProvider().titleStyle)
-                    .foregroundColor(Color.miamColor(.black))
-                    .padding(.horizontal, Dimension.sharedInstance.lPadding)
-                    .frame( alignment: .topLeading)
+                .padding(.horizontal, Dimension.sharedInstance.sPadding)
+                Divider()
+                VStack(alignment: .leading, spacing: Dimension.sharedInstance.mPadding) {
+                    Text(infos.title)
+                            .bold()
+                            .miamFontStyle(style: MiamFontStyleProvider().titleStyle)
+                            .padding(.bottom, Dimension.sharedInstance.sPadding)
+                    HStack(alignment: .center, spacing: Dimension.sharedInstance.xlPadding) {
+                        MiamNeutralRecipeDifficulty(difficulty: infos.difficulty)
+                        MiamNeutralRecipePreparationTime(duration: infos.totalTime)
+                        Spacer()
+                    }
+                        MiamNeutralRecipeTimeView(
+                            preparationTime: infos.preparationTime,
+                            cookingTime: infos.cookingTime,
+                            restingTime: infos.restingTime)
                     
-                Spacer()
+                }.padding(.horizontal, Dimension.sharedInstance.lPadding)
             }
-
-            HStack(alignment: .center) {
-                MiamNeutralRecipePreparationTime(duration: infos.totalTime)
-                MiamNeutralRecipeDifficulty(difficulty: infos.difficulty)
-                Spacer()
-            }.padding(.vertical, Dimension.sharedInstance.lPadding)
-            MiamNeutralRecipeTimeView(preparationTime: infos.preparationTime,
-                           cookingTime: infos.cookingTime,
-                           restingTime: infos.restingTime)
-//                .padding(.horizontal, Dimension.sharedInstance.lPadding)
         }
     }
 }
@@ -115,8 +109,7 @@ struct MiamNeutralRecipeTimeView: View {
                     }
                 }
                 Spacer()
-            }.padding(.horizontal, Dimension.sharedInstance.lPadding)
+            }
         }
-
     }
 }
