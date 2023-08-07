@@ -9,9 +9,11 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-struct MiamNeutralCatalogFilterTitleAndClose: CatalogFilterTitleAndCloseViewTemplate {
+public struct MiamNeutralCatalogFilterTitleAndClose: CatalogFilterTitleAndCloseViewTemplate {
     
-    func content(
+    public init() {}
+    
+    public func content(
         closeFilters: @escaping () -> Void
     ) -> some View {
         HStack {

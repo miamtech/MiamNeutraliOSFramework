@@ -10,8 +10,9 @@ import miamCore
 import MiamIOSFramework
 
 @available(iOS 14, *)
-struct MiamNeutralCatalogFilterRow: CatalogFilterRowViewTemplate {
-    func content(
+public struct MiamNeutralCatalogFilterRow: CatalogFilterRowViewTemplate {
+    public init() {}
+    public func content(
         filter: CatalogFilterOptions,
         filterSelected: @escaping (CatalogFilterOptions) -> Void
     ) -> some View {

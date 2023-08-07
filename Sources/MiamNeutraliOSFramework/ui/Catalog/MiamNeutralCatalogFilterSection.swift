@@ -10,8 +10,9 @@ import MiamIOSFramework
 import miamCore
 
 @available(iOS 14, *)
-struct MiamNeutralCatalogFilterSectionTitle: CatalogFilterSectionTitleViewTemplate {
-    func content(
+public struct MiamNeutralCatalogFilterSectionTitle: CatalogFilterSectionTitleViewTemplate {
+    public init() {}
+    public func content(
         title: String
     ) -> some View {
         Text(title)
