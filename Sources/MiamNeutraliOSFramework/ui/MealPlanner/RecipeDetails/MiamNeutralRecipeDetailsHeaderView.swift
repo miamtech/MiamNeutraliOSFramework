@@ -15,7 +15,7 @@ public struct MiamNeutralRecipeDetailsHeaderView: RecipeDetailsHeaderViewTemplat
     public init() {}
     let imageHeight = 280.0
     
-    public func content(infos: RecipeDetailsHeaderInfos, showTitleInHeader: Binding<Bool>) -> some View {
+    public func content(infos: RecipeDetailsHeaderInfos) -> some View {
         VStack {
                 if let picture =  URL(string: infos.mediaURL ?? "") {
                     AsyncImage(url: picture) { image in
