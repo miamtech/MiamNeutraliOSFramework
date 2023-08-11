@@ -10,7 +10,7 @@ import MiamIOSFramework
 import miamCore
 
 @available(iOS 14, *)
-public struct MiamNeutralCatalogRecipesListNoResults: CatalogRecipesListNoResultsViewTemplate {
+public struct MiamNeutralCatalogCarouselNoResults: CatalogCarouselNoResultsViewTemplate {
     let searchString: String = FilterViewModelInstance.shared.instance.currentState.searchString ?? ""
     public init() {}
     public func content(
@@ -55,8 +55,8 @@ public struct MiamNeutralCatalogRecipesListNoResults: CatalogRecipesListNoResult
 }
 
 @available(iOS 14, *)
-struct MiamNeutralCatalogRecipesListNoResults_Previews: PreviewProvider {
+struct MiamNeutralCatalogCarouselNoResults_Previews: PreviewProvider {
     static var previews: some View {
-        MiamNeutralCatalogRecipesListNoResults().content(showingFavorites: false, browseCatalogAction: {})
+        MiamNeutralCatalogCarouselNoResults().content(showingFavorites: false, browseCatalogAction: {})
     }
 }

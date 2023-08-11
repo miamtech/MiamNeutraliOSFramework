@@ -9,7 +9,7 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamNeutralCatalogRecipesListTitle: CatalogRecipesListTitleViewTemplate {
+public struct MiamNeutralCatalogCarouselTitle: CatalogCarouselTitleViewTemplate {
     public init() {}
     public func content(title: String, subtitle: String) -> some View {
         HStack {
@@ -25,6 +25,6 @@ public struct MiamNeutralCatalogRecipesListTitle: CatalogRecipesListTitleViewTem
 @available(iOS 14, *)
 struct MiamNeutralCatalogRecipesListTitle_Previews: PreviewProvider {
     static var previews: some View {
-        MiamNeutralCatalogRecipesListTitle().content(title: "Test", subtitle: "Subtitle")
+        MiamNeutralCatalogCarouselTitle().content(title: "Test", subtitle: "Subtitle")
     }
 }
