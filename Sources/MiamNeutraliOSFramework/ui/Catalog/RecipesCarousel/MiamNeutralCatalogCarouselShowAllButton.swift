@@ -10,6 +10,7 @@ import MiamIOSFramework
 
 @available(iOS 14, *)
 public struct MiamNeutralCatalogCarouselShowAllButton: CatalogCarouselShowAllButtonViewTemplate {
+    public init () {}
     public func content(
         showAll: @escaping (CatalogPackage) -> Void
     ) -> some View {
