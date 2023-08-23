@@ -14,7 +14,11 @@ public struct MiamNeutralCatalogCarouselShowAllButton: CatalogCarouselShowAllBut
     public func content(
         showAll: @escaping (CatalogPackage) -> Void
     ) -> some View {
-        HStack {}
+        Button( action: {
+//            showAll
+        }, label: {
+            Text("Tout voir")
+        })
     }
 }
 
