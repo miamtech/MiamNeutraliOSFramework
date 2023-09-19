@@ -30,7 +30,7 @@ public struct MiamNeutralMealPlannerBasketPreviewRecipeOverview: MealPlannerBask
                     VStack(alignment: .leading) {
                         Text(basketPreviewInfos.recipe.title)
                             .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBoldStyle)
-                        Text("\(basketPreviewInfos.numberOfProductsInBasket) articles")
+                        Text("\(basketPreviewInfos.totalProductCount) articles")
                             .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodySmallStyle)
 
 //                        HStack {

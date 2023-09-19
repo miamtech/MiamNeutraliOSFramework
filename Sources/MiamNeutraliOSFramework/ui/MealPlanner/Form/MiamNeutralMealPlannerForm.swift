@@ -13,9 +13,12 @@ import MiamIOSFramework
 public struct MiamNeutralMealPlannerForm: MealPlannerForm {
     let dimension = Dimension.sharedInstance
     public init() {}
-    public func content(budgetInfos: Binding<BudgetInfos>,
-                        isFetchingRecipes: Bool,
-                        onFormValidated: @escaping (BudgetInfos) -> Void) -> some View {
+    public func content(
+        budgetInfos: Binding<BudgetInfos>,
+        activelyUpdatingTextField: Binding<Bool>,
+        isFetchingRecipes: Bool,
+        onFormValidated: @escaping (BudgetInfos) -> Void
+    ) -> some View {
         VStack(spacing: 24.0) {
             MiamNeutralMealPlannerBudget(
                 budget: budgetInfos.moneyBudget,
@@ -47,7 +50,11 @@ struct MiamNeutralMealPlannerFormPreview: PreviewProvider {
         @State var budgetInfos = BudgetInfos(moneyBudget: 40.0, numberOfGuests: 3, numberOfMeals: 2)
 
         var body: some View {
-            MiamBudgetForm().content(budgetInfos: $budgetInfos, isFetchingRecipes: false, onFormValidated: { _ in })
+            MiamBudgetForm().content(
+                budgetInfos: $budgetInfos,
+                activelyUpdatingTextField: .constant(false),
+                isFetchingRecipes: false,
+                onFormValidated: { _ in })
         }
     }
 }

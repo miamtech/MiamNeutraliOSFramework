@@ -1,30 +1,30 @@
+////
+////  SwiftUIView.swift
+////  
+////
+////  Created by didi on 11/08/2023.
+////
 //
-//  SwiftUIView.swift
-//  
+//import SwiftUI
+//import MiamIOSFramework
 //
-//  Created by didi on 11/08/2023.
+//@available(iOS 14, *)
+//public struct MiamNeutralCatalogCarouselShowAllButton: CatalogCarouselShowAllButtonViewTemplate {
+//    public init () {}
+//    public func content(
+//        showAll: @escaping (CatalogPackage) -> Void
+//    ) -> some View {
+//        Button( action: {
+////            showAll
+//        }, label: {
+//            Text("Tout voir")
+//        })
+//    }
+//}
 //
-
-import SwiftUI
-import MiamIOSFramework
-
-@available(iOS 14, *)
-public struct MiamNeutralCatalogCarouselShowAllButton: CatalogCarouselShowAllButtonViewTemplate {
-    public init () {}
-    public func content(
-        showAll: @escaping (CatalogPackage) -> Void
-    ) -> some View {
-        Button( action: {
-//            showAll
-        }, label: {
-            Text("Tout voir")
-        })
-    }
-}
-
-@available(iOS 14, *)
-struct MiamNeutralCatalogCarouselShowAllButton_Previews: PreviewProvider {
-    static var previews: some View {
-        MiamNeutralCatalogCarouselShowAllButton().content(showAll: {_ in})
-    }
-}
+//@available(iOS 14, *)
+//struct MiamNeutralCatalogCarouselShowAllButton_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MiamNeutralCatalogCarouselShowAllButton().content(showAll: {_ in})
+//    }
+//}

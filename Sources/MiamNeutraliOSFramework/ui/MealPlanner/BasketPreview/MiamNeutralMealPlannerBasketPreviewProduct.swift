@@ -49,7 +49,7 @@ public struct MiamNeutralMealPlannerBasketPreviewProduct: MealPlannerBasketPrevi
                     Text(productInfo.price.formattedPrice())
                         .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigBoldStyle)
                         .foregroundColor(Color.miamNeutralColor(.primary))
-                    Text(formatPricePerUnit(pricePerUnit: productInfo.pricePerUnit.price, unit: productInfo.unit))
+                    Text(formatPricePerUnit(pricePerUnit: productInfo.pricePerUnit.price, unit: Localization.price.currency.localised))
                         .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodySmallStyle)
                 }
                 Spacer()
@@ -82,7 +82,7 @@ public struct MiamNeutralMealPlannerBasketPreviewProduct: MealPlannerBasketPrevi
 }
 
 @available(iOS 14, *)
-struct MealNeutralPlannerBasketPreviewProductPreviews: PreviewProvider {
+struct MiamNeutralPlannerBasketPreviewProduct_Previews: PreviewProvider {
     static var previews: some View {
         PreviewWrapper()
             .padding()
@@ -98,8 +98,8 @@ struct MealNeutralPlannerBasketPreviewProductPreviews: PreviewProvider {
                                                              pictureURL: URL(string: "https://www.mon-herboristerie.com/blog_uploads/2023/01/SP-Ail-bienfaits-1024x783.jpg")!,
                                                              sharedRecipeCount: 2,
                                                              isSubstitutable: true,
-                                                             pricePerUnit: Price(price: 23.4, currency: "EUR"), unit: "kg")
-            let actions = MealPlannerBudgetPreviewProductActions(delete: {}, changeProduct: {})
+                                                             pricePerUnit: Price(price: 23.4, currency: "EUR"), isLoading: false)
+            let actions = MealPlannerBudgetPreviewProductActions(delete: {}, changeProduct: {}, updateGuests: { _ in })
 
             MiamMealPlannerBasketPreviewProduct().content(quantity: $quantity,
                                                           productInfo: infos,

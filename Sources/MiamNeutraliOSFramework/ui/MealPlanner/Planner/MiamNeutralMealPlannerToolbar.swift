@@ -16,9 +16,12 @@ public struct MiamNeutralMealPlannerToolbar: MealPlannerToolbar {
     @State var numberMeals = 4
     let dimension = Dimension.sharedInstance
     public init() {}
-    public func content(budgetInfos: Binding<BudgetInfos>,
-                        isLoadingRecipes: Binding<Bool>,
-                        onValidateTapped: @escaping (BudgetInfos) -> Void) -> some View {
+    public func content(
+        budgetInfos: Binding<BudgetInfos>,
+        activelyEditingTextField: Binding<Bool>,
+        isLoadingRecipes: Binding<Bool>,
+        onValidateTapped: @escaping (BudgetInfos) -> Void
+    ) -> some View {
         HStack {
             MiamNeutralMealPlannerBudget(
                 budget: budgetInfos.moneyBudget,
@@ -29,7 +32,9 @@ public struct MiamNeutralMealPlannerToolbar: MealPlannerToolbar {
             MiamNeutralStepperCollapsed(
                 value: budgetInfos.numberOfMeals,
                 icon: Image.miamNeutralImage(icon: .fork))
-            SubmitButtonCollapsed(isLoading: isLoadingRecipes) {
+            SubmitButtonCollapsed(
+                isLoading: isLoadingRecipes,
+                activelyEditingTextField: activelyEditingTextField.wrappedValue) {
                 let infos = BudgetInfos(moneyBudget: budget, numberOfGuests: numberGuests, numberOfMeals: numberMeals)
                 onValidateTapped(infos)
             }
@@ -40,6 +45,7 @@ public struct MiamNeutralMealPlannerToolbar: MealPlannerToolbar {
 @available (iOS 14, *)
 internal struct SubmitButtonCollapsed: View {
     @Binding var isLoading: Bool
+    var activelyEditingTextField: Bool
     let buttonAction: () -> Void
     let dimension = Dimension.sharedInstance
     var body: some View {
@@ -63,11 +69,13 @@ internal struct SubmitButtonCollapsed: View {
         .frame(width: 50, height: 50)
         .background(Color.miamColor(.primary))
         .cornerRadius(dimension.mCornerRadius)
+        .disabled(activelyEditingTextField)
+        .darkenView(activelyEditingTextField)
     }
 }
 
 @available(iOS 14, *)
-struct MiamNeutralMealPlannerToolbar_Previews: PreviewProvider {
+struct MiamBudgetPlannerToolbar_Previews: PreviewProvider {
     static var previews: some View {
         Preview()
     }
@@ -76,7 +84,7 @@ struct MiamNeutralMealPlannerToolbar_Previews: PreviewProvider {
         @State var loading = false
         @State var budgetInfos = BudgetInfos(moneyBudget: 30.0, numberOfGuests: 4, numberOfMeals: 4)
         var body: some View {
-            MiamNeutralMealPlannerToolbar().content(budgetInfos: $budgetInfos,
+            MiamBudgetPlannerToolbar().content(budgetInfos: $budgetInfos, activelyEditingTextField: .constant(false),
                                                isLoadingRecipes: $loading, onValidateTapped: {_ in})
         }
     }
