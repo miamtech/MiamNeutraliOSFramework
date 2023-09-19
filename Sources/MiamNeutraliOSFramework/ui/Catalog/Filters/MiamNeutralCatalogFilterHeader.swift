@@ -9,7 +9,7 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamNeutralCatalogFilterTitleAndClose: CatalogFilterTitleAndCloseViewTemplate {
+public struct MiamNeutralCatalogFilterHeader: CatalogFilterHeaderViewTemplate {
     
     public init() {}
     
@@ -32,6 +32,6 @@ public struct MiamNeutralCatalogFilterTitleAndClose: CatalogFilterTitleAndCloseV
 @available(iOS 14, *)
 struct MiamNeutralCatalogFilterTitleAndClose_Previews: PreviewProvider {
     static var previews: some View {
-        MiamNeutralCatalogFilterTitleAndClose().content(closeFilters: {})
+        MiamNeutralCatalogFilterHeader().content(closeFilters: {})
     }
 }

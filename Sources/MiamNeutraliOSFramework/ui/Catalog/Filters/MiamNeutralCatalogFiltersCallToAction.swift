@@ -9,7 +9,7 @@ import MiamIOSFramework
 import miamCore
 
 @available(iOS 14, *)
-public struct MiamNeutralCatalogFilterSubmitAndClearButton: CatalogFilterSubmitAndClearButtonsViewTemplate {
+public struct MiamNeutralCatalogFiltersCallToAction: CatalogFiltersCallToActionViewTemplate {
     public init() {}
     public func content(
         numberOfRecipes: Int,
@@ -40,8 +40,8 @@ public struct MiamNeutralCatalogFilterSubmitAndClearButton: CatalogFilterSubmitA
 }
 
 @available(iOS 14, *)
-struct MiamNeutralCatalogFilterSubmitAndClearButton_Previews: PreviewProvider {
+struct MiamNeutralCatalogFiltersCallToAction_Previews: PreviewProvider {
     static var previews: some View {
-        MiamNeutralCatalogFilterSubmitAndClearButton().content(numberOfRecipes: 8, submit: {}, clear: {})
+        MiamNeutralCatalogFiltersCallToAction().content(numberOfRecipes: 8, submit: {}, clear: {})
     }
 }
