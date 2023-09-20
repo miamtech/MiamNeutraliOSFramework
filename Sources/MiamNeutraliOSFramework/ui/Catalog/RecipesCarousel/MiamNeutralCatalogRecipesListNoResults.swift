@@ -1,6 +1,6 @@
 ////
 ////  MiamNeutralCatalogRecipesListNoResults.swift
-////  
+////
 ////
 ////  Created by didi on 10/08/2023.
 ////
