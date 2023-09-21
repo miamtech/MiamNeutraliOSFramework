@@ -9,9 +9,9 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamNeutralCatalogPackageTitle: CatalogPackageTitleViewTemplate {
+public struct MiamNeutralCatalogPackageTitle: GeneralTitleViewTemplate {
     public init() {}
-    public func content(title: String, subtitle: String) -> some View {
+    public func content(title: String, subtitle: String?) -> some View {
         HStack {
             Text(title)
                 .foregroundColor(Color.blue)
