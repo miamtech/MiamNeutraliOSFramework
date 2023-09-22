@@ -13,7 +13,7 @@ public struct MiamNeutralCatalogFiltersCallToAction: CatalogFiltersCallToActionV
     public init() {}
     public func content(
         numberOfRecipes: Int,
-        submit: @escaping () -> Void,
+        apply: @escaping () -> Void,
         clear: @escaping () -> Void
     ) -> some View {
         VStack {
@@ -26,7 +26,7 @@ public struct MiamNeutralCatalogFiltersCallToAction: CatalogFiltersCallToActionV
             }.padding(EdgeInsets(top: 9, leading: 20, bottom: 9, trailing: 20))
             Divider().padding([.bottom, .top], 10)
             Button {
-                submit()
+                apply()
             } label: {
                 Text("Voir les \(numberOfRecipes) idées repas")
                     .padding(EdgeInsets(top: 9, leading: 20, bottom: 9, trailing: 20))
@@ -42,6 +42,6 @@ public struct MiamNeutralCatalogFiltersCallToAction: CatalogFiltersCallToActionV
 @available(iOS 14, *)
 struct MiamNeutralCatalogFiltersCallToAction_Previews: PreviewProvider {
     static var previews: some View {
-        MiamNeutralCatalogFiltersCallToAction().content(numberOfRecipes: 8, submit: {}, clear: {})
+        MiamNeutralCatalogFiltersCallToAction().content(numberOfRecipes: 8, apply: {}, clear: {})
     }
 }
