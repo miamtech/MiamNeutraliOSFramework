@@ -21,10 +21,6 @@ public struct MiamNeutralCatalogToolbar: CatalogToolbarViewTemplate {
         VStack(alignment: .center, spacing: 0) {
             MiamNeutralCatalogViewHeader(closeCatalogAction: {backTapped()})
             MiamNeutralCatalogToolbarView(
-                showBackButton: false,
-                favoritesFilterActive: false,
-                useFilters: true,
-                usePreferences: true,
                 backTapped: {backTapped()},
                 filtersTapped: {filtersTapped()},
                 searchTapped: {searchTapped()},
@@ -47,7 +43,6 @@ public struct MiamNeutralCatalogToolbar: CatalogToolbarViewTemplate {
                 VStack(alignment: .leading) {
                     Spacer()
                     Text(Localization.catalog.title.localised)
-                    //                        Text(MiamText.sharedInstance.mealIdeas)
                         .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleStyle)
                         .foregroundColor(.white)
                     Image.miamImage(icon: .yellowUnderline)
@@ -63,10 +58,6 @@ public struct MiamNeutralCatalogToolbar: CatalogToolbarViewTemplate {
     
     @available(iOS 14, *)
     internal struct MiamNeutralCatalogToolbarView: View {
-        let showBackButton: Bool
-        let favoritesFilterActive: Bool
-        let useFilters: Bool
-        let usePreferences: Bool
         let backTapped: () -> Void
         let filtersTapped: () -> Void
         let searchTapped: () -> Void
@@ -75,68 +66,58 @@ public struct MiamNeutralCatalogToolbar: CatalogToolbarViewTemplate {
         
         var body: some View {
             HStack(spacing: 16.0) {
-                if showBackButton {
-                    Button {
-                        backTapped()
-                    } label: {
-                        Image.miamImage(icon: .back)
-                    }.frame(width: 40, height: 40)
-                    Spacer()
-                }
+                CatalogToolbarButtonFormat(
+                    icon: Image.miamImage(icon: .search),
+                    action: searchTapped)
+                Spacer()
+                CatalogToolbarButtonFormat(
+                    icon: Image.miamImage(icon: .filters),
+                    action: filtersTapped)
+                CatalogToolbarButtonFormat(
+                    icon: Image.miamImage(icon: .preferences),
+                    action: preferencesTapped)
                 Button {
-                    searchTapped()
+                    favoritesTapped()
                 } label: {
-                    Image.miamImage(icon: .search)
+                    Image.miamImage(icon: .heart)
                         .renderingMode(.template)
-                        .foregroundColor(Color.miamColor(.primary))
-                }.frame(width: 40, height: 40).background(Color.white).clipShape(Circle())
-                if !showBackButton {
-                    Spacer()
+                        .foregroundColor(.white)
+                    Text(Localization.catalog.favoriteTitle.localised)
+                        .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigStyle)
+                        .foregroundColor(.white)
                 }
-                
-                if useFilters {
-                    Button {
-                        filtersTapped()
-                    } label: {
-                        Image.miamImage(icon: .filters)
-                            .renderingMode(.template)
-                            .foregroundColor(Color.miamColor(.primary))
-                    }.frame(width: 40, height: 40).background(Color.white).clipShape(Circle())
-                }
-                
-                if usePreferences {
-                    Button {
-                        preferencesTapped()
-                    } label: {
-                        Image.miamImage(icon: .preferences)
-                            .renderingMode(.template)
-                            .foregroundColor(Color.miamColor(.primary))
-                    }.frame(width: 40, height: 40).background(Color.white).clipShape(Circle())
-                }
-                
-                if !showBackButton {
-                    Button {
-                        favoritesTapped()
-                    } label: {
-                        Image.miamImage(icon: .heart)
-                            .renderingMode(.template)
-                            .foregroundColor(.white)
-                        Text(Localization.catalog.favoriteTitle.localised)
-                        //                                Text(MiamText.sharedInstance.myMealIdeas)
-                            .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigStyle)
-                            .foregroundColor(.white)
-                    }
-                    .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
-                    .overlay(Capsule().stroke(.white, lineWidth: 1.0))
-                }
-            }.padding(EdgeInsets(top: Dimension.sharedInstance.mlPadding,
-                                 leading: Dimension.sharedInstance.mlPadding, bottom: 16,
-                                 trailing: Dimension.sharedInstance.mlPadding))
+                .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                .overlay(Capsule().stroke(.white, lineWidth: 1.0))
+            }.padding(EdgeInsets(
+                top: Dimension.sharedInstance.mlPadding,
+                leading: Dimension.sharedInstance.mlPadding,
+                bottom: 16,
+                trailing: Dimension.sharedInstance.mlPadding))
             .background(Color.miamColor(.primaryDark))
         }
     }
 }
 
+
+@available(iOS 14, *)
+struct CatalogToolbarButtonFormat: View {
+    let icon: Image
+    let action: () -> Void
+    
+    var body: some View {
+        Button {
+            action()
+        } label: {
+            icon
+                .renderingMode(.template)
+                .foregroundColor(Color.miamColor(.primary))
+        }
+        .frame(width: 40, height: 40)
+        .background(Color.white)
+        .clipShape(Circle())
+    }
+}
+    
 @available(iOS 14, *)
 struct MiamNeutralCatalogToolbar_Previews: PreviewProvider {
     static var previews: some View {
