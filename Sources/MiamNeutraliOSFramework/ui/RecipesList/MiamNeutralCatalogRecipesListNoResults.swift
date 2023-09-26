@@ -14,15 +14,13 @@ public struct MiamNeutralRecipesListNoResults: RecipesListNoResultsViewTemplate 
     let searchString: String = FilterViewModelInstance.shared.instance.currentState.searchString ?? ""
     public init() {}
     public func content(
-        showingFavorites: Bool,
+        catalogContent: CatalogContent,
         noResultsRedirect: @escaping () -> Void
     ) -> some View {
         VStack(spacing: 32.0) {
             Image.miamImage(icon: .noResults)
-
-            if showingFavorites {
+            if catalogContent == CatalogContent.favorite {
                 Text(Localization.catalog.preferencesNoResult.localised)
-//                Text(MiamText.sharedInstance.noFavoritRecipeYet)
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleBigStyle)
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color.miamColor(.white))
@@ -42,7 +40,6 @@ public struct MiamNeutralRecipesListNoResults: RecipesListNoResultsViewTemplate 
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleBigStyle)
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color.miamColor(.white))
-                
                 Text(Localization.catalog.tryAnotherSearch.localised)
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigStyle)
                     .foregroundColor(Color.miamColor(.white))
@@ -57,6 +54,8 @@ public struct MiamNeutralRecipesListNoResults: RecipesListNoResultsViewTemplate 
 @available(iOS 14, *)
 struct MiamNeutralRecipesListNoResults_Previews: PreviewProvider {
     static var previews: some View {
-        MiamNeutralRecipesListNoResults().content(showingFavorites: false, noResultsRedirect: {})
+        MiamNeutralRecipesListNoResults().content(
+            catalogContent: CatalogContent.categoriesList,
+            noResultsRedirect: {})
     }
 }
