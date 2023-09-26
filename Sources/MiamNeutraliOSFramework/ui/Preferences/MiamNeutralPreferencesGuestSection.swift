@@ -12,10 +12,10 @@ import MiamIOSFramework
 public struct MiamNeutralPreferencesGuest: PreferencesGuestViewTemplate {
     public init() {}
     public func content(guests: Int?, guestChanged: @escaping (Int) -> Void) -> some View {
-        HStack {
+        return HStack {
             Text(Localization.preferences.numberOfGuests.localised)
             Spacer()
-            CounterView(count: guests ?? 4) { count in
+            CounterView(count: guests) { count in
                 guestChanged(count)
             }
         }.background(Color.miamColor(.greyLighter))
