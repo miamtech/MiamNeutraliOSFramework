@@ -12,11 +12,16 @@ import MiamIOSFramework
 public struct MiamNeutralPreferencesFooter: PreferencesFooterViewTemplate {
     public init() {}
     public func content(
-        recipesFound: Int,
+        recipesFound: Int?,
         applyPreferences: @escaping () -> Void,
         closePreferences: @escaping () -> Void
     ) -> some View {
-        HStack {
+        var createCTAText: String {
+            if let recipesFoundText = recipesFound {
+                return Localization.catalog.showResults(numberOfResults: Int32(recipesFoundText)).localised
+            } else { return Localization.catalog.showAll.localised }
+        }
+        return HStack {
             Button {
                 closePreferences()
             } label: {
@@ -34,8 +39,7 @@ public struct MiamNeutralPreferencesFooter: PreferencesFooterViewTemplate {
             Button {
                 applyPreferences()
             } label: {
-                let cta = Localization.catalog.showResults(numberOfResults: Int32(recipesFound)).localised
-                Text(cta)
+                Text(createCTAText)
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyMediumBoldStyle)
                     .foregroundColor(Color.miamColor(.white))
             }
