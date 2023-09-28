@@ -17,7 +17,12 @@ public struct MiamNeutralCatalogPackageCallToAction: CatalogPackageCallToActionV
         Button( action: {
 //            showAll
         }, label: {
-            Text("Tout voir")
+            Text(Localization.catalog.showAll.localised)
+                .underline()
+                .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigStyle)
+                .foregroundColor(Color.miamColor(.primary))
+                .padding([.trailing], 16.0).padding([.top], 8)
+                .frame(maxWidth: .infinity, alignment: .trailing)
         })
     }
 }

@@ -12,13 +12,17 @@ import MiamIOSFramework
 public struct MiamNeutralCatalogPackageTitle: GeneralTitleViewTemplate {
     public init() {}
     public func content(title: String, subtitle: String?) -> some View {
-        HStack {
+        VStack(alignment: .leading) {
             Text(title)
-                .foregroundColor(Color.blue)
-                .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleStyle)
-                .frame(height: 40.0)
-            Spacer()
+                .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleMediumStyle)
+                .padding(Dimension.sharedInstance.mlPadding)
+            if let subtitle = subtitle {
+                Text(subtitle)
+                    .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleSmallStyle)
+                    .padding(Dimension.sharedInstance.mlPadding)
+            }
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 
