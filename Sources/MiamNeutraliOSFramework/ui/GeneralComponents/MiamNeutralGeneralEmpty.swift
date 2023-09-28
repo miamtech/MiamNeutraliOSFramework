@@ -12,7 +12,7 @@ import MiamIOSFramework
 public struct MiamNeutralGeneralEmpty: GeneralEmptyViewTemplate {
     public init() {}
     public func content() -> some View {
-        HStack {}
+        Text("I am empty inside :/")
     }
 }
 

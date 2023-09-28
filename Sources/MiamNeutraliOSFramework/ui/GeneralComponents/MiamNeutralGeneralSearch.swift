@@ -10,7 +10,10 @@ import MiamIOSFramework
 
 @available(iOS 14, *)
 public struct MiamNeutralGeneralSearch: GeneralSearchViewTemplate {
-    public init() {}
+    private let hasButton: Bool
+    public init(hasButton: Bool = true) {
+        self.hasButton = hasButton
+    }
     public func content(
         searchText: Binding<String>,
         apply: @escaping () -> Void
@@ -20,15 +23,17 @@ public struct MiamNeutralGeneralSearch: GeneralSearchViewTemplate {
                 HStack(spacing: 10.0) {
                     TextField(Localization.catalog.searchTitle.localised, text: searchText).frame(height: 45.0)
                         .disableAutocorrection(true)
-                    Button {
-                        apply()
-                    } label: {
-                        Image.miamImage(icon: .search)
-                            .renderingMode(.template)
-                            .foregroundColor(Color.miamColor(.white))
-                            .padding(10)
-                            .background(Color.miamColor(.primary)).clipShape(Circle())
-                            .shadow(radius: 2.0)
+                    if hasButton {
+                        Button {
+                            apply()
+                        } label: {
+                            Image.miamImage(icon: .search)
+                                .renderingMode(.template)
+                                .foregroundColor(Color.miamColor(.white))
+                                .padding(10)
+                                .background(Color.miamColor(.primary)).clipShape(Circle())
+                                .shadow(radius: 2.0)
+                        }
                     }
                 }
                 .padding([.leading], 16).frame(height: 45.0)
