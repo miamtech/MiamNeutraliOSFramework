@@ -20,8 +20,8 @@ extension CatalogViewParameters {
         return MiamNeutralCatalogResultsToolbar()
     }
     
-    public var mealPlannerCTA: MiamNeutralMealPlannerCallToAction {
-        return MiamNeutralMealPlannerCallToAction()
+    public var mealPlannerCTA: DefaultMealPlannerCTA {
+        return DefaultMealPlannerCTA()
     }
     
     public var loading: MiamNeutralGeneralLoading {

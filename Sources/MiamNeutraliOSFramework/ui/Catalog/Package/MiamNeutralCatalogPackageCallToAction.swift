@@ -12,10 +12,10 @@ import MiamIOSFramework
 public struct MiamNeutralCatalogPackageCallToAction: CatalogPackageCallToActionViewTemplate {
     public init () {}
     public func content(
-        showAll: @escaping (CatalogPackage) -> Void
+        showAll: @escaping () -> Void
     ) -> some View {
         Button( action: {
-//            showAll
+            showAll()
         }, label: {
             Text(Localization.catalog.showAll.localised)
                 .underline()
@@ -30,6 +30,6 @@ public struct MiamNeutralCatalogPackageCallToAction: CatalogPackageCallToActionV
 @available(iOS 14, *)
 struct MiamNeutralCatalogPackageCallToAction_Previews: PreviewProvider {
     static var previews: some View {
-        MiamNeutralCatalogPackageCallToAction().content(showAll: {_ in})
+        MiamNeutralCatalogPackageCallToAction().content(showAll: {})
     }
 }

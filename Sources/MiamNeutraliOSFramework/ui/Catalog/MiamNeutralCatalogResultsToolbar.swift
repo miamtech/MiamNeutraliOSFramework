@@ -12,7 +12,6 @@ import MiamIOSFramework
 public struct MiamNeutralCatalogResultsToolbar: CatalogToolbarViewTemplate {
     public init () {}
     public func content(
-        backTapped: @escaping () -> Void,
         filtersTapped: @escaping () -> Void,
         searchTapped: @escaping () -> Void,
         favoritesTapped: @escaping () -> Void,
@@ -42,7 +41,6 @@ public struct MiamNeutralCatalogResultsToolbar: CatalogToolbarViewTemplate {
 struct MiamNeutralCatalogResultsToolbar_Previews: PreviewProvider {
     static var previews: some View {
         MiamNeutralCatalogToolbar().content(
-            backTapped: {},
             filtersTapped: {},
             searchTapped: {},
             favoritesTapped: {},

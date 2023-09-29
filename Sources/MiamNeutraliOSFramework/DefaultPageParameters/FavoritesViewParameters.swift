@@ -27,4 +27,8 @@ extension FavoritesViewParameters {
     public var empty: MiamNeutralCatalogEmpty {
         return MiamNeutralCatalogEmpty()
     }
+    
+    public var background: MiamNeutralGeneralBackground {
+        return MiamNeutralGeneralBackground()
+    }
 }

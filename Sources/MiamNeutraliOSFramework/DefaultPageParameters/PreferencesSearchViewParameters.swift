@@ -17,7 +17,7 @@ extension PreferencesSearchViewParameters {
     }
     
     public var search: MiamNeutralGeneralSearch {
-        return MiamNeutralGeneralSearch()
+        return MiamNeutralGeneralSearch(hasButton: false)
     }
     
     public var loading: MiamNeutralGeneralLoading {

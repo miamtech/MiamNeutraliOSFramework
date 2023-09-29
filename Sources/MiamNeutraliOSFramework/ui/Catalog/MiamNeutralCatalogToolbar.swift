@@ -12,16 +12,14 @@ import MiamIOSFramework
 public struct MiamNeutralCatalogToolbar: CatalogToolbarViewTemplate {
     public init () {}
     public func content(
-        backTapped: @escaping () -> Void,
         filtersTapped: @escaping () -> Void,
         searchTapped: @escaping () -> Void,
         favoritesTapped: @escaping () -> Void,
         preferencesTapped: @escaping () -> Void
     ) -> some View {
         VStack(alignment: .center, spacing: 0) {
-            MiamNeutralCatalogViewHeader(closeCatalogAction: {backTapped()})
+            MiamNeutralCatalogViewHeader()
             MiamNeutralCatalogToolbarView(
-                backTapped: {backTapped()},
                 filtersTapped: {filtersTapped()},
                 searchTapped: {searchTapped()},
                 favoritesTapped: {favoritesTapped()},
@@ -32,7 +30,6 @@ public struct MiamNeutralCatalogToolbar: CatalogToolbarViewTemplate {
     
     @available(iOS 14, *)
     internal struct MiamNeutralCatalogViewHeader: View {
-        let closeCatalogAction: (() -> Void)?
         var body: some View {
             HStack {
                 Image.miamImage(icon: .ideeRepas)
@@ -58,7 +55,6 @@ public struct MiamNeutralCatalogToolbar: CatalogToolbarViewTemplate {
     
     @available(iOS 14, *)
     internal struct MiamNeutralCatalogToolbarView: View {
-        let backTapped: () -> Void
         let filtersTapped: () -> Void
         let searchTapped: () -> Void
         let favoritesTapped: () -> Void
@@ -122,7 +118,6 @@ struct CatalogToolbarButtonFormat: View {
 struct MiamNeutralCatalogToolbar_Previews: PreviewProvider {
     static var previews: some View {
         MiamNeutralCatalogToolbar().content(
-            backTapped: {},
             filtersTapped: {},
             searchTapped: {},
             favoritesTapped: {},
