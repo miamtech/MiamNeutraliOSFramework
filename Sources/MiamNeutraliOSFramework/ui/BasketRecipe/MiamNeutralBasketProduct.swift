@@ -42,7 +42,10 @@ public struct MiamNeutralBasketProduct: BasketProductViewTemplate {
                             changeProduct: actions.changeProduct
                         )
                     }
-                    MiamNeutralStepper(value: quantity)
+                    MiamNeutralStepper(value: quantity, minValue: 0)
+                        .onChange(of: quantity.wrappedValue) { qty in
+                            actions.updateGuests(qty)
+                        }
                         .frame(width: 140.0)
                 }
             }

@@ -12,7 +12,6 @@ import MiamIOSFramework
 public struct MiamNeutralCatalogFilterHeader: CatalogFilterHeaderViewTemplate {
     
     public init() {}
-    
     public func content(
         closeFilters: @escaping () -> Void
     ) -> some View {
