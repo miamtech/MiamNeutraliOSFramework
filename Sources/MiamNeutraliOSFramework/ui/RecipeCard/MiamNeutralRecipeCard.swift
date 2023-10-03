@@ -90,7 +90,7 @@ struct MiamRecipeCard_Previews: PreviewProvider {
             attributes: RecipeFakeFactory().createAttributes(title: "Parmentier de Poulet",
             mediaUrl: "https://lh3.googleusercontent.com/tbMNuhJ4KxReIPF_aE0yve0akEHeN6O8hauty_XNUF2agWsmyprACLg0Zw6s8gW-QCS3A0QmplLVqBKiMmGf_Ctw4SdhARvwldZqAtMG"),
              relationships: nil)
-        let infos = RecipeInfos(recipe: recipe, price: Price(price: 30.0, currency: "EUR"), isInBasket: true)
+        let infos = RecipeInfos(recipe: recipe, isInBasket: true)
         MiamRecipeCard().content(recipeCardDimensions: CGSize(width: 380, height: 100), recipeInfos: infos, actions: RecipeCardActions(addToBasket: {_ in }, showDetails: {_ in}))
             .padding(80.0)
     }
