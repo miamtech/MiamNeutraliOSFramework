@@ -24,6 +24,10 @@ extension CatalogViewParameters {
         return DefaultMealPlannerCTA()
     }
     
+    public var myMealsButton: MiamNeutralMyMealsButtonParams {
+        return MiamNeutralMyMealsButtonParams()
+    }
+    
     public var loading: MiamNeutralGeneralLoading {
         return MiamNeutralGeneralLoading()
     }
