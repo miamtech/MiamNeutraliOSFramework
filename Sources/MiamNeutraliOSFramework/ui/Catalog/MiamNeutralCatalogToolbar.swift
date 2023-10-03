@@ -27,7 +27,6 @@ public struct MiamNeutralCatalogToolbar: CatalogToolbarViewTemplate {
         }
     }
     
-    
     @available(iOS 14, *)
     internal struct MiamNeutralCatalogViewHeader: View {
         var body: some View {

@@ -99,7 +99,6 @@ struct MiamNeutralBudgetRecipeCardPreview: PreviewProvider {
             relationships: nil)
         let recipeInfos = RecipeInfos(
             recipe: recipe,
-            price: Price(price: 21.34, currency: "EUR"),
             isInBasket: false)
         MiamNeutralMealPlannerRecipeCard().content(
             recipeInfos: recipeInfos,

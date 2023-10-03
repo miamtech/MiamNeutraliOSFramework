@@ -15,34 +15,27 @@ public struct MiamNeutralRecipeDetailsFooterView: RecipeDetailsFooterTemplate {
     public init() {}
     
     let dimension = Dimension.sharedInstance
-//    let color = MiamIOSFramework.Color
     
-   public func content(pricePerPerson: String, priceForMeal: String) -> some View {
+    public func content(recipeId: String, guestCount: Int) -> some View {
         VStack {
            Divider()
             Button(action: {
             }, label: {
-                // TODO: recipeDetails localize
-                Text("Voir plus d'idées repas")
+                Text(Localization.catalog.browseRecipes.localised)
                     .foregroundColor(Color.miamNeutralColor(.primary))
                     .miamFontStyle(style: MiamFontStyleProvider().bodyStyle)
             })
             Divider()
-            Text(pricePerPerson)
-                .foregroundColor(Color.miamNeutralColor(.primary))
-                .miamFontStyle(style: MiamFontStyleProvider().titleStyle)
-            // TODO: recipeDetails localize
-            Text("Voir plus d'idées repas")
+            PriceViewTemplate(params: MiamNeutralPriceViewTemplate(), recipeId: recipeId, guestNumber: guestCount)
+            Text(Localization.price.perGuest.localised)
+                .foregroundColor(Color.miamColor(.lightGrey))
                 .miamFontStyle(style: MiamFontStyleProvider().bodySmallStyle)
         }
         .frame(maxWidth: .infinity)
         .frame(height: 90)
-        .padding(.horizontal, dimension.lPadding)
         .background(Color.white)
     }
 }
-
-
 
 @available(iOS 14, *)
 struct CoursesURecipeDetailsFooterView_Previews: PreviewProvider {
@@ -50,12 +43,11 @@ struct CoursesURecipeDetailsFooterView_Previews: PreviewProvider {
         ZStack {
             Color.budgetBackgroundColor
             VStack {
-                MiamNeutralRecipeDetailsFooterView().content(pricePerPerson: "4.92", priceForMeal: "13.36")
-                MiamNeutralRecipeDetailsFooterView().content(pricePerPerson: "6.73", priceForMeal: "25.32")
-                MiamNeutralRecipeDetailsFooterView().content(pricePerPerson: "1.34", priceForMeal: "6.78")
+                MiamNeutralRecipeDetailsFooterView().content(recipeId: "34134321", guestCount: 4)
+                MiamNeutralRecipeDetailsFooterView().content(recipeId: "34134321", guestCount: 4)
+                MiamNeutralRecipeDetailsFooterView().content(recipeId: "34134321", guestCount: 4)
             }
         }
-        
         GeometryReader { geometry in
             let safeArea = geometry.safeAreaInsets
             ZStack(alignment: .bottom) {
@@ -77,7 +69,7 @@ struct CoursesURecipeDetailsFooterView_Previews: PreviewProvider {
                     }
                 }
                 StickyFooter(safeArea: safeArea) {
-                    MiamNeutralRecipeDetailsFooterView().content(pricePerPerson: "1.34", priceForMeal: "6.78")
+                    MiamNeutralRecipeDetailsFooterView().content(recipeId: "34134321", guestCount: 4)
                 }
                 .frame(maxWidth: .infinity)
             }
