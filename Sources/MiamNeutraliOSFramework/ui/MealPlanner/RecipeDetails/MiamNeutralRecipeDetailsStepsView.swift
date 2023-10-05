@@ -10,11 +10,14 @@ import MiamIOSFramework
 import miamCore
 
 @available(iOS 14, *)
-public struct MiamNeutralRecipeDetailsStepsView: RecipeDetailsStepsViewTemplate {
+public struct MiamNeutralRecipeDetailsStepsView: RecipeDetailsStepsProtocol {
     
     public init() {}
     
-    public func content(activeStep: Binding<Int>, steps: [RecipeStep]) -> some View {
+    public func content(
+        activeStep: Binding<Int>,
+        steps: [RecipeStep]
+    ) -> some View {
         HStack {
             // TODO: RecipeDetails localize
             Text("Étapes")

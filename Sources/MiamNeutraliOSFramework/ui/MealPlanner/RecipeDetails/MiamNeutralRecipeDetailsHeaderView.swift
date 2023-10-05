@@ -10,12 +10,14 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamNeutralRecipeDetailsHeaderView: RecipeDetailsHeaderViewTemplate {
+public struct MiamNeutralRecipeDetailsHeaderView: RecipeDetailsHeaderProtocol {
     
     public init() {}
     let imageHeight = 280.0
     
-    public func content(infos: RecipeDetailsHeaderInfos) -> some View {
+    public func content(
+        infos: RecipeDetailsHeaderParameters
+    ) -> some View {
         VStack {
                 if let picture =  URL(string: infos.mediaURL ?? "") {
                     AsyncImage(url: picture) { image in

@@ -17,7 +17,7 @@ public class MiamNeutralPriceViewTemplate: PriceViewParameters {
         self.pricePerPerson = pricePerPerson
     }
     
-    public lazy var priceSuccess = DefaultPriceView(pricePerPerson: pricePerPerson)
+//    public lazy var priceSuccess = DefaultPriceView(pricePerPerson: pricePerPerson)
 }
 
 @available(iOS 14, *)

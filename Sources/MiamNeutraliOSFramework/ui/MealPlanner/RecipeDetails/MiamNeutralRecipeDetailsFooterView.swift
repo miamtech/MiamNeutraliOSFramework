@@ -10,7 +10,7 @@ import miamCore
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamNeutralRecipeDetailsFooterView: RecipeDetailsFooterTemplate {
+public struct MiamNeutralRecipeDetailsFooterView: RecipeDetailsFooterProtocol {
     
     public init() {}
     

@@ -9,11 +9,14 @@ import MiamIOSFramework
 import miamCore
 
 @available(iOS 14.0, *)
-public struct MiamNeutralRecipeDetailsIngredientsView: RecipeDetailsIngredientsViewTemplate {
+public struct MiamNeutralRecipeDetailsIngredientsView: RecipeDetailsIngredientsProtocol {
     
     public init() {}
     
-    public func content(infos: RecipeDetailsIngredientsInfos, updateGuestsAction: @escaping (Int) -> Void) -> some View {
+    public func content(
+        infos: RecipeDetailsIngredientsParameters,
+        updateGuestsAction: @escaping (Int) -> Void
+    ) -> some View {
         HStack {
             HStack {
                 // TODO: RecipeDetails localize
@@ -75,7 +78,7 @@ public struct MiamNeutralRecipeDetailsIngredientsView: RecipeDetailsIngredientsV
 @available(iOS 14.0, *)
 struct MiamNeutralRecipeDetailsIngredientsView_Previews: PreviewProvider {
     static var previews: some View {
-        MiamNeutralRecipeDetailsIngredientsView().content(infos: RecipeDetailsIngredientsInfos(ingredients: [], recipeGuests: 4, currentGuests: 6, guestUpdating: false)) {_ in
+        MiamNeutralRecipeDetailsIngredientsView().content(infos: RecipeDetailsIngredientsParameters(ingredients: [], recipeGuests: 4, currentGuests: 6, guestUpdating: false)) {_ in
         }
     }
 }

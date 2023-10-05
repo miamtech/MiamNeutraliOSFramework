@@ -13,15 +13,15 @@ extension CatalogFilterViewParameters {
     public var header: MiamNeutralCatalogFilterHeader {
         return MiamNeutralCatalogFilterHeader()
     }
-    
+
     public var section: MiamNeutralCatalogFilterSection {
         return MiamNeutralCatalogFilterSection()
     }
-    
+
     public var callToAction: MiamNeutralCatalogFiltersCallToAction {
         return MiamNeutralCatalogFiltersCallToAction()
     }
-    
+
     public var background: MiamNeutralGeneralBackground {
         return MiamNeutralGeneralBackground()
     }
