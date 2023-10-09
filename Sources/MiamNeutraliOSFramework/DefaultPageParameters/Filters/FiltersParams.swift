@@ -10,7 +10,7 @@ import MiamIOSFramework
 
 @available(iOS 14, *)
 /// This sets the Templates for the Filters Overview
-public class FiltersParams: CatalogFilterViewParameters {
+public class FiltersParams: FiltersParameters {
     public var applyFilters: () -> Void
     public var closeFilters: () -> Void
     public var customHeader: TypeSafeFiltersHeader

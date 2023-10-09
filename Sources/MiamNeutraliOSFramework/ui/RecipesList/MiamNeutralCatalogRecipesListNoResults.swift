@@ -10,7 +10,7 @@ import MiamIOSFramework
 import miamCore
 
 @available(iOS 14, *)
-public struct MiamNeutralRecipesListNoResults: RecipesListNoResultsViewTemplate {
+public struct MiamNeutralRecipesListNoResults: RecipesListNoResultsProtocol {
     let searchString: String = FilterViewModelInstance.shared.instance.currentState.searchString ?? ""
     public init() {}
     public func content(

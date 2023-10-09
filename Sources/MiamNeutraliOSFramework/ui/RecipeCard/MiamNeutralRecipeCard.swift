@@ -11,7 +11,7 @@ import MiamIOSFramework
 import miamCore
 
 @available(iOS 14, *)
-public struct MiamNeutralRecipeCard: RecipeCard {
+public struct MiamNeutralRecipeCard: CatalogRecipeCardProtocol {
     public init() {}
     public func content(
         recipeCardDimensions: CGSize,
