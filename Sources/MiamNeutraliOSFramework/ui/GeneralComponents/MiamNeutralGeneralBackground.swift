@@ -9,7 +9,7 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamNeutralGeneralBackground: GeneralBackgroundViewTemplate {
+public struct MiamNeutralGeneralBackground: BackgroundProtocol {
     public init() {}
     public func content() -> some View {
         HStack {}

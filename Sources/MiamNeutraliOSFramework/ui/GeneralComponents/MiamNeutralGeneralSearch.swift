@@ -9,7 +9,8 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamNeutralGeneralSearch: GeneralSearchViewTemplate {
+public struct MiamNeutralGeneralSearch: SearchProtocol {
+    
     private let hasButton: Bool
     public init(hasButton: Bool = true) {
         self.hasButton = hasButton

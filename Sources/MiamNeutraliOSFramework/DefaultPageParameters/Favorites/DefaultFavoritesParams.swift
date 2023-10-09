@@ -7,6 +7,7 @@
 
 import MiamIOSFramework
 
+@available(iOS 14, *)
 /// This sets the Templates for the Favorites Overview
 public class DefaultFavoritesParams: FavoritesViewParameters {
     public var showRecipes: (MiamIOSFramework.CatalogPackage) -> Void

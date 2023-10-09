@@ -9,7 +9,7 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamNeutralCatalogPackageTitle: GeneralTitleViewTemplate {
+public struct MiamNeutralCatalogPackageTitle: BaseTitleProtocol {
     public init() {}
     public func content(title: String, subtitle: String?) -> some View {
         VStack(alignment: .leading) {

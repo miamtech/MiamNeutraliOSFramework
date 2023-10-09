@@ -1,5 +1,5 @@
 //
-//  DefaultRecipesListParameters.swift
+//  DefaultRecipesListParams.swift
 //  
 //
 //  Created by didi on 05/10/2023.
@@ -8,7 +8,7 @@
 import MiamIOSFramework
 
 /// This sets the Templates for the PreferencesSearchView Overview
-public class DefaultRecipesListParameters: RecipesListViewParameters {
+public class DefaultRecipesListParams: RecipesListViewParameters {
     public var showRecipes: (MiamIOSFramework.CatalogPackage) -> Void
     public var noResultsRedirect: () -> Void
     public var onRecipeTapped: (String) -> Void

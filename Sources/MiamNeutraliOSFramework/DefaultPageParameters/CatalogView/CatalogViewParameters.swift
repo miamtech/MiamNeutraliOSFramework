@@ -27,16 +27,4 @@ extension CatalogViewParameters {
     public var myMealsButton: MiamNeutralMyMealsButtonParams {
         return MiamNeutralMyMealsButtonParams()
     }
-    
-    public var loading: MiamNeutralGeneralLoading {
-        return MiamNeutralGeneralLoading()
-    }
-    
-    public var empty: MiamNeutralGeneralEmpty {
-        return MiamNeutralGeneralEmpty()
-    }
-    
-    public var background: MiamNeutralGeneralBackground {
-        return MiamNeutralGeneralBackground()
-    }
 }

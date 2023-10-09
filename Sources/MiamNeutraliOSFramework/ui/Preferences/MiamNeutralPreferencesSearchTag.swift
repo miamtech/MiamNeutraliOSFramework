@@ -10,7 +10,7 @@ import MiamIOSFramework
 import miamCore
 
 @available(iOS 14, *)
-public struct MiamNeutralPreferencesSearchTag: GeneralButtonViewTemplate {
+public struct MiamNeutralPreferencesSearchTag: BaseButtonProtocol {
     public init() {}
     public func content(buttonText: String, buttonAction: @escaping () -> Void) -> some View {
         Button {
