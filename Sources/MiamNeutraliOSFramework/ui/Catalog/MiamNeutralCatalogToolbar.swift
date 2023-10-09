@@ -9,7 +9,7 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamNeutralCatalogToolbar: CatalogToolbarViewTemplate {
+public struct MiamNeutralCatalogToolbar: CatalogToolbarProtocol {
     public init () {}
     public func content(
         filtersTapped: @escaping () -> Void,

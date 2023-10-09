@@ -1,5 +1,5 @@
 //
-//  MiamNeutralCatalogFilterTitleAndClose.swift
+//  MiamNeutralFiltersHeader.swift
 //  
 //
 //  Created by didi on 07/08/2023.
@@ -9,7 +9,7 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamNeutralCatalogFilterHeader: CatalogFilterHeaderViewTemplate {
+public struct MiamNeutralFiltersHeader: FiltersHeaderProtocol {
     
     public init() {}
     public func content(
@@ -29,8 +29,8 @@ public struct MiamNeutralCatalogFilterHeader: CatalogFilterHeaderViewTemplate {
 }
 
 @available(iOS 14, *)
-struct MiamNeutralCatalogFilterTitleAndClose_Previews: PreviewProvider {
+struct MiamNeutralFiltersHeader_Previews: PreviewProvider {
     static var previews: some View {
-        MiamNeutralCatalogFilterHeader().content(closeFilters: {})
+        MiamNeutralFiltersHeader().content(closeFilters: {})
     }
 }
