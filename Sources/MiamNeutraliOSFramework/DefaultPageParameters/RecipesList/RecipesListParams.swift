@@ -13,36 +13,47 @@ public class RecipesListParams: RecipesListParameters {
     public var showRecipes: (MiamIOSFramework.CatalogPackage) -> Void
     public var noResultsRedirect: () -> Void
     public var onRecipeTapped: (String) -> Void
-    public var customTitle: TypeSafeBaseTitle
-    public var customNoResults: TypeSafeRecipesListNoResults
-    public var customRecipeCard: TypeSafeCatalogRecipeCard
-    public var customRecipeCardLoading: TypeSafeRecipeCardLoading
-    public var customLoading: TypeSafeLoading
+    public var recipeCard: TypeSafeCatalogRecipeCard
+    public var recipeCardLoading: TypeSafeRecipeCardLoading
+    public var title: TypeSafeBaseTitle
+    public var noResults: TypeSafeRecipesListNoResults
+    public var loading: TypeSafeLoading
     public init(
         showRecipes: @escaping (MiamIOSFramework.CatalogPackage) -> Void,
         noResultsRedirect: @escaping () -> Void,
         onRecipeTapped: @escaping (String) -> Void,
-        customNoResults: TypeSafeRecipesListNoResults = TypeSafeRecipesListNoResults(MiamNeutralRecipesListNoResults()),
-        customTitle: TypeSafeBaseTitle = TypeSafeBaseTitle(MiamNeutralCatalogPackageTitle()),
-        customRecipeCard: TypeSafeCatalogRecipeCard = TypeSafeCatalogRecipeCard(MiamRecipeCard()),
-        customRecipeCardLoading: TypeSafeRecipeCardLoading = TypeSafeRecipeCardLoading(MiamRecipeCardLoading()),
-        customLoading: TypeSafeLoading = TypeSafeLoading(DefaultLoadingView())
+        viewOptions: RecipesListParamsViewOptions = RecipesListParamsViewOptions()
     ) {
         self.showRecipes = showRecipes
         self.noResultsRedirect = noResultsRedirect
         self.onRecipeTapped = onRecipeTapped
-        self.customNoResults = customNoResults
-        self.customTitle = customTitle
-        self.customRecipeCard = customRecipeCard
-        self.customRecipeCardLoading = customRecipeCardLoading
-        self.customLoading = customLoading
+        self.recipeCard = viewOptions.recipeCard
+        self.recipeCardLoading = viewOptions.recipeCardLoading
+        self.title = viewOptions.title
+        self.noResults = viewOptions.noResults
+        self.loading = viewOptions.loading
     }
+}
+
+@available(iOS 14, *)
+public struct RecipesListParamsViewOptions {
+    public var recipeCard: TypeSafeCatalogRecipeCard
+    public var recipeCardLoading: TypeSafeRecipeCardLoading
+    public var title: TypeSafeBaseTitle
+    public var noResults: TypeSafeRecipesListNoResults
+    public var loading: TypeSafeLoading
     
-    public var noResults: TypeSafeRecipesListNoResults { return self.customNoResults }
-    public var title: TypeSafeBaseTitle { return self.customTitle }
-    public var recipeCard: TypeSafeCatalogRecipeCard { return self.customRecipeCard }
-    public var recipeCardLoading: TypeSafeRecipeCardLoading {
-        return self.customRecipeCardLoading
+    public init(
+        recipeCard: TypeSafeCatalogRecipeCard = TypeSafeCatalogRecipeCard(MiamNeutralRecipeCard()),
+        recipeCardLoading: TypeSafeRecipeCardLoading = TypeSafeRecipeCardLoading(MiamNeutralRecipeCardLoading()),
+        title: TypeSafeBaseTitle = TypeSafeBaseTitle(MiamNeutralCatalogPackageTitle()),
+        noResults: TypeSafeRecipesListNoResults = TypeSafeRecipesListNoResults(MiamNeutralRecipesListNoResults()),
+        loading: TypeSafeLoading = TypeSafeLoading(DefaultLoadingView())
+    ) {
+        self.recipeCard = recipeCard
+        self.recipeCardLoading = recipeCardLoading
+        self.title = title
+        self.noResults = noResults
+        self.loading = loading
     }
-    public var loading: TypeSafeLoading { return self.customLoading }
 }

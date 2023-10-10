@@ -14,9 +14,9 @@ public struct MiamNeutralRecipeDetailsHeaderView: RecipeDetailsHeaderProtocol {
     
     public init() {}
     let imageHeight = 280.0
-    
     public func content(
-        infos: RecipeDetailsHeaderParameters
+        infos: RecipeDetailsHeaderParameters,
+        onRecipeDetailsClosed: @escaping () -> Void
     ) -> some View {
         VStack {
                 if let picture =  URL(string: infos.mediaURL ?? "") {
