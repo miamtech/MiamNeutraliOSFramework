@@ -1,5 +1,5 @@
 //
-//  MiamNeutralMyMealsSuccessView.swift
+//  MiamNeutralMealsInBasketButtonSuccess.swift
 //  
 //
 //  Created by didi on 03/10/2023.
@@ -10,14 +10,14 @@ import MiamIOSFramework
 import miamCore
 
 @available(iOS 14, *)
-public struct MiamNeutralMyMealsSuccessView: MyMealsButtonSuccessViewTemplate {
+public struct MiamNeutralMealsInBasketButtonSuccess: MealsInBasketButtonSuccessProtocol {
     public init() {}
     public func content(
         mealsCount: Int,
-        navigateToMyMeals: @escaping () -> Void
+        onNavigateToMyMeals: @escaping () -> Void
     ) -> some View {
         Button {
-            navigateToMyMeals()
+            onNavigateToMyMeals()
         } label: {
             VStack {
                 Image.miamImage(icon: .greyChevronDown)

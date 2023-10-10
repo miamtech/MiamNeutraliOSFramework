@@ -9,7 +9,7 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamNeutralBasketRecipeOverview: BasketRecipeOverviewViewTemplate {
+public struct MiamNeutralBasketRecipeOverview: BasketRecipeOverviewProtocol {
     public init() {}
     public func content(
         recipeCardDimensions: CGSize,
