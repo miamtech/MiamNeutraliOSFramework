@@ -1,5 +1,5 @@
 //
-//  MiamBudgetPlannerEmpty.swift
+//  MiamNeutralMealPlannerResultsEmpty.swift
 //  MiamIOSFramework
 //
 //  Created by Vincent Kergonna on 26/04/2023.
@@ -10,9 +10,10 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamNeutralBudgetPlannerEmpty: MealPlannerEmpty {
+public struct MiamNeutralMealPlannerResultsEmpty: MealPlannerResultsEmptyProtocol {
+    
     public init() {}
-    public func content(bugetInfos: BudgetInfos, reason: String) -> some View {
+    public func content(budgetInfos: BudgetInfos, reason: String) -> some View {
         
         VStack(alignment: .leading, spacing: 8.0) {
             Image.miamNeutralImage(icon: .alert)

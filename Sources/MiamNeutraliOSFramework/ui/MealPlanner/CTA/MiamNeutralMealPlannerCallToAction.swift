@@ -11,7 +11,7 @@ import miamCore
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamNeutralMealPlannerCallToAction: MealPlannerCallToAction {
+public struct MiamNeutralMealPlannerCallToAction: MealPlannerCTAProtocol {
     public init() {}
     public func content(onTapGesture: @escaping () -> Void) -> some View {
         Button {

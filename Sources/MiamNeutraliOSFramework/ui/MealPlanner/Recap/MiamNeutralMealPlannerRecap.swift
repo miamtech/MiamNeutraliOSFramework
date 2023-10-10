@@ -11,9 +11,13 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamNeutralMealPlannerRecap: MealPlannerRecap {
+public struct MiamNeutralMealPlannerRecap: MealPlannerRecapProtocol {
     public init() {}
-    public func content(numberOfMeals: Int, totalPrice: Price, onTapGesture: @escaping () -> Void) -> some View {
+    public func content(
+        numberOfMeals: Int,
+        totalPrice: Double,
+        onTapGesture: @escaping () -> Void
+    ) -> some View {
         VStack(alignment: .center, spacing: 32.0) {
             HStack {
                 Image.miamNeutralImage(icon: .success)
@@ -34,7 +38,7 @@ public struct MiamNeutralMealPlannerRecap: MealPlannerRecap {
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyStyle)
                 Spacer()
                     // Alternative Views and Spacers
-                Text(totalPrice.formattedPrice())
+                Text(totalPrice.currencyFormatted)
                     .foregroundColor(Color.miamNeutralColor(.primary))
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleStyle)
             }
@@ -70,9 +74,9 @@ public struct MiamNeutralMealPlannerRecap: MealPlannerRecap {
 @available(iOS 14, *)
 struct MiamNeutralMealPlannerRecapPreviews: PreviewProvider {
     static var previews: some View {
-        MiamNeutralMealPlannerRecap().content(numberOfMeals: 4,
-                                  totalPrice: Price(price: 34.32, currency: "EUR")) {
-
+        MiamNeutralMealPlannerRecap().content(
+            numberOfMeals: 4,
+            totalPrice: 34.32) {
         }
     }
 }

@@ -11,12 +11,16 @@ import miamCore
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamNeutralMealPlannerRecipeCard: MealPlannerRecipeCard {
-    
+public struct MiamNeutralMealPlannerRecipeCard: MealPlannerRecipeCardProtocol {
+   
     let dimensions = Dimension.sharedInstance
     let cardHeight = 200.0
     public init() {}
-    public func content(recipeInfos: MiamIOSFramework.RecipeInfos, actions: BudgetRecipeCardActions) -> some View {
+    public func content(
+        recipeCardDimensions: CGSize,
+        recipeInfos: MiamIOSFramework.RecipeInfos,
+        actions: BudgetRecipeCardActions
+    ) -> some View {
         VStack(spacing: 0.0) {
             Divider()
             HStack(spacing: 0.0) {
@@ -76,7 +80,7 @@ public struct MiamNeutralMealPlannerRecipeCard: MealPlannerRecipeCard {
         }
         .padding(0)
         .frame(maxWidth: .infinity)
-        .frame(height: cardHeight)
+        .frame(height: recipeCardDimensions.height)
     }
 }
 
@@ -101,6 +105,7 @@ struct MiamNeutralBudgetRecipeCardPreview: PreviewProvider {
             recipe: recipe,
             isInBasket: false)
         MiamNeutralMealPlannerRecipeCard().content(
+            recipeCardDimensions: CGSize(),
             recipeInfos: recipeInfos,
             actions: BudgetRecipeCardActions(
                 recipeTapped: { _ in},

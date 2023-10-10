@@ -10,14 +10,18 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamNeutralMealPlannerStickyFooter: MealPlannerFooter {
+public struct MiamNeutralMealPlannerStickyFooter: MealPlannerResultsFooterProtocol {
+    
     let dimension = Dimension.sharedInstance
     public init() {}
-    public func content(budgetInfos: BudgetInfos, budgetSpent: Binding<Double>,
-                        validateTapped: @escaping () -> Void) -> some View {
+    public func content(
+        budgetInfos: BudgetInfos,
+        budgetSpent: Binding<Double>,
+        onValidateTapped: @escaping () -> Void
+    ) -> some View {
         VStack {
             MiamNeutralMealPlannerBudgetFooter(budgetSpent: budgetSpent.wrappedValue, totalBudgetPermitted: budgetInfos.moneyBudget)
-            MiamNeutralMealPlannerCTAFooter(buttonAction: validateTapped)
+            MiamNeutralMealPlannerCTAFooter(buttonAction: onValidateTapped)
         }
     }
 }

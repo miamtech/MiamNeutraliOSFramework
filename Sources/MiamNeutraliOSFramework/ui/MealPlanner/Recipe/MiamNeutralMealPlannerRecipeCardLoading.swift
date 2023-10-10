@@ -10,7 +10,8 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamNeutralMealPlannerRecipeCardLoading: MealPlannerRecipeCardLoading {
+public struct MiamNeutralMealPlannerRecipeCardLoading: RecipeCardLoadingProtocol {
+    
     private struct Constants {
         static let duration: Double = 1.3
         static let minOpacity: Double = 0.25
@@ -43,7 +44,7 @@ public struct MiamNeutralMealPlannerRecipeCardLoading: MealPlannerRecipeCardLoad
         }
     }
 
-    public func content() -> some View {
+    public func content(recipeCardDimensions: CGSize) -> some View {
         HStack(alignment: .top, spacing: 0.0) {
             Rectangle()
                 .fill(Color.miamNeutralColor(.lightBackground))
@@ -72,7 +73,7 @@ public struct MiamNeutralMealPlannerRecipeCardLoading: MealPlannerRecipeCardLoad
             .padding([.leading, .trailing], dimensions.lPadding)
         }
         .frame(maxWidth: .infinity)
-        .frame(height: cardHeight)
+        .frame(height: recipeCardDimensions.height)
         .redacted(reason: .placeholder).opacity(opacity)
         .transition(.opacity).onAppear {
             let baseAnimation = Animation.easeInOut(duration: Constants.duration)
@@ -87,6 +88,6 @@ public struct MiamNeutralMealPlannerRecipeCardLoading: MealPlannerRecipeCardLoad
 @available(iOS 14, *)
 struct MiamNeutralMealPlannerRecipeCardLoadingView_Previews: PreviewProvider {
     static var previews: some View {
-        MiamNeutralMealPlannerRecipeCardLoading().content()
+        MiamNeutralMealPlannerRecipeCardLoading().content(recipeCardDimensions: CGSize())
     }
 }

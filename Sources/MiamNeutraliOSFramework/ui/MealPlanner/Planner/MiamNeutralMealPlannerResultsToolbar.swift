@@ -1,5 +1,5 @@
 //
-//  MiamBudgetPlannerToolbar.swift
+//  MiamNeutralMealPlannerResultsToolbar.swift
 //  MiamIOSFramework
 //
 //  Created by Vincent Kergonna on 26/04/2023.
@@ -10,7 +10,7 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamNeutralMealPlannerToolbar: MealPlannerToolbar {
+public struct MiamNeutralMealPlannerResultsToolbar: MealPlannerResultsToolbarProtocol {
     @State var budget = 23.0
     @State var numberGuests = 4
     @State var numberMeals = 4
