@@ -10,13 +10,13 @@ import MiamIOSFramework
 import miamCore
 
 @available(iOS 14, *)
-public struct MiamNeutralPreferencesIngredients: PreferencesIngredientsViewTemplate {
+public struct MiamNeutralPreferencesIngredients: PreferencesIngredientsProtocol {
     public init() {}
     public func content(
         ingredientsTag: [CheckableTag],
         geometry: GeometryProxy,
         togglePreference: @escaping (String) -> Void,
-        goToSearch: @escaping () -> Void
+        onGoToSearch: @escaping () -> Void
     ) -> some View {
         
         PreferencesTagsListView(
@@ -27,7 +27,7 @@ public struct MiamNeutralPreferencesIngredients: PreferencesIngredientsViewTempl
             onToggleTag: { tag in
                 togglePreference(tag.tag.id)
             },
-            onAddTagTapped: goToSearch)
+            onAddTagTapped: onGoToSearch)
     }
 }
 
@@ -39,7 +39,7 @@ struct MiamNeutralPreferencesIngredients_Previews: PreviewProvider {
                 ingredientsTag: [],
                 geometry: geometry,
                 togglePreference: {_ in},
-                goToSearch: {})
+                onGoToSearch: {})
         }
     }
 }

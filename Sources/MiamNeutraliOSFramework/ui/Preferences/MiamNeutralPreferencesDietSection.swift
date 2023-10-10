@@ -10,7 +10,7 @@ import MiamIOSFramework
 import miamCore
 
 @available(iOS 14, *)
-public struct MiamNeutralPreferencesDiet: PreferencesDietViewTemplate {
+public struct MiamNeutralPreferencesDiet: PreferencesDietProtocol {
     public init() {}
     public func content(
         dietsTag: [CheckableTag],

@@ -10,24 +10,21 @@ import MiamIOSFramework
 
 @available(iOS 14, *)
 /// This sets the Templates for the CatalogSearchParams Overview
-public class CatalogSearchParams: CatalogSearchViewParameters {
-    public var applySearch: () -> Void
-    public var customBackground: TypeSafeBackground
-    public var customEmpty: TypeSafeEmpty
-    public var customSearch: TypeSafeSearch
-    public init(
-        applySearch: @escaping () -> Void,
-        customSearch: TypeSafeSearch = TypeSafeSearch(MiamNeutralGeneralSearch()),
-        customEmpty: TypeSafeEmpty = TypeSafeEmpty(DefaultEmptyView()),
-        customBackground: TypeSafeBackground = TypeSafeBackground(DefaultBackgroundView())
-    ) {
-        self.applySearch = applySearch
-        self.customSearch = customSearch
-        self.customEmpty = customEmpty
-        self.customBackground = customBackground
-    }
+public class CatalogSearchParameters: CatalogSearchParametersProtocol {
+    public var onApplied: () -> Void
+    public var search: TypeSafeSearch
+    public var empty: TypeSafeEmpty
+    public var background: TypeSafeBackground
     
-    public var search: TypeSafeSearch { return self.customSearch }
-    public var empty: TypeSafeEmpty { return self.customEmpty }
-    public var background: TypeSafeBackground { return self.customBackground }
+    public init(
+        onApplied: @escaping () -> Void,
+        search: TypeSafeSearch = TypeSafeSearch(MiamNeutralGeneralSearch()),
+        empty: TypeSafeEmpty = TypeSafeEmpty(DefaultEmptyView()),
+        background: TypeSafeBackground = TypeSafeBackground(DefaultBackgroundView())
+    ) {
+        self.onApplied = onApplied
+        self.search = search
+        self.empty = empty
+        self.background = background
+    }
 }

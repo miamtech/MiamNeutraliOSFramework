@@ -9,12 +9,12 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamNeutralPreferencesFooter: PreferencesFooterViewTemplate {
+public struct MiamNeutralPreferencesFooter: PreferencesFooterProtocol {
     public init() {}
     public func content(
         recipesFound: Int?,
-        applyPreferences: @escaping () -> Void,
-        closePreferences: @escaping () -> Void
+        onApplied: @escaping () -> Void,
+        onClosed: @escaping () -> Void
     ) -> some View {
         var createCTAText: String {
             if let recipesFoundText = recipesFound {
@@ -23,7 +23,7 @@ public struct MiamNeutralPreferencesFooter: PreferencesFooterViewTemplate {
         }
         return HStack {
             Button {
-                closePreferences()
+                onClosed()
             } label: {
                 Text(Localization.preferences.cancel.localised)
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyMediumBoldStyle)
@@ -37,7 +37,7 @@ public struct MiamNeutralPreferencesFooter: PreferencesFooterViewTemplate {
             .overlay(
                 Capsule().stroke(Color.miamColor(.borderLight), lineWidth: 1.0))
             Button {
-                applyPreferences()
+                onApplied()
             } label: {
                 Text(createCTAText)
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyMediumBoldStyle)
@@ -58,8 +58,8 @@ struct MiamNeutralPreferencesFooter_Previews: PreviewProvider {
     static var previews: some View {
         MiamNeutralPreferencesFooter().content(
             recipesFound: 4,
-            applyPreferences: {},
-            closePreferences: {}
+            onApplied: {},
+            onClosed: {}
         )
     }
 }

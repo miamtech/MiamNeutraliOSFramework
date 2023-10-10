@@ -13,18 +13,15 @@ import MiamIOSFramework
 public class DefaultBasketRecipeParams: BasketRecipeViewParameters {
     public var replaceRecipe: () -> Void
     public var showRecipeDetails: (String) -> Void
-    public var customRecipeCardLoading: TypeSafeRecipeCardLoading
+    public var recipeCardLoading: TypeSafeRecipeCardLoading
+    
     public init(
         replaceRecipe: @escaping () -> Void,
         showRecipeDetails: @escaping (String) -> Void,
-        customRecipeCardLoading: TypeSafeRecipeCardLoading = TypeSafeRecipeCardLoading(MiamRecipeCardLoading())
+        recipeCardLoading: TypeSafeRecipeCardLoading = TypeSafeRecipeCardLoading(MiamRecipeCardLoading())
     ) {
         self.replaceRecipe = replaceRecipe
         self.showRecipeDetails = showRecipeDetails
-        self.customRecipeCardLoading = customRecipeCardLoading
-    }
-    
-    public var recipeCardLoading: TypeSafeRecipeCardLoading {
-        return self.customRecipeCardLoading
+        self.recipeCardLoading = recipeCardLoading
     }
 }

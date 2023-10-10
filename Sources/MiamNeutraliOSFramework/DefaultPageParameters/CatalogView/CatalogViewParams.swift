@@ -10,42 +10,43 @@ import MiamIOSFramework
 
 @available(iOS 14, *)
 /// This sets the Templates for the CatalogPage Overview
-public struct CatalogViewParams: CatalogViewParameters {
-    public var filtersTapped: () -> Void
-    public var searchTapped: () -> Void
-    public var favoritesTapped: () -> Void
-    public var preferencesTapped: () -> Void
-    public var launchMealPlanner: (() -> Void)?
-    public var myMealsButtonTapped: () -> Void
-    public var customBackground: TypeSafeBackground
-    public var customEmpty: TypeSafeEmpty
-    public var customLoading: TypeSafeLoading
-    public var customCatalogToolbar: TypeSafeCatalogToolbar
-    public var customResultsToolbar: TypeSafeCatalogToolbar
+public struct CatalogParameters: CatalogParametersProtocol {
+    public var onFiltersTapped: () -> Void
+    public var onSearchTapped: () -> Void
+    public var onFavoritesTapped: () -> Void
+    public var onPreferencesTapped: () -> Void
+    public var onLaunchMealPlanner: (() -> Void)?
+    public var onMyMealsButtonTapped: () -> Void
+    public var catalogToolbar: TypeSafeCatalogToolbar
+    public var resultsToolbar: TypeSafeCatalogToolbar
+    public var background: TypeSafeBackground
+    public var empty: TypeSafeEmpty
+    public var loading: TypeSafeLoading
+    
     public init(
-        filtersTapped: @escaping () -> Void,
-        searchTapped: @escaping () -> Void,
-        favoritesTapped: @escaping () -> Void,
-        preferencesTapped: @escaping () -> Void,
-        launchMealPlanner: (() -> Void)? = nil,
-        myMealsButtonTapped: @escaping () -> Void,
-        customCatalogToolbar: TypeSafeCatalogToolbar = TypeSafeCatalogToolbar(MiamNeutralCatalogToolbar()),
-        customResultsToolbar: TypeSafeCatalogToolbar = TypeSafeCatalogToolbar(MiamNeutralCatalogResultsToolbar()),
-        customBackground: TypeSafeBackground = TypeSafeBackground(DefaultBackgroundView()),
-        customEmpty: TypeSafeEmpty = TypeSafeEmpty(DefaultEmptyView()),
-        customLoading: TypeSafeLoading = TypeSafeLoading(DefaultLoadingView())
+        onFiltersTapped: @escaping () -> Void,
+        onSearchTapped: @escaping () -> Void,
+        onFavoritesTapped: @escaping () -> Void,
+        onPreferencesTapped: @escaping () -> Void,
+        onLaunchMealPlanner: (() -> Void)? = nil,
+        onMyMealsButtonTapped: @escaping () -> Void,
+        catalogToolbar: TypeSafeCatalogToolbar = TypeSafeCatalogToolbar(MiamNeutralCatalogToolbar()),
+        resultsToolbar: TypeSafeCatalogToolbar = TypeSafeCatalogToolbar(MiamNeutralCatalogResultsToolbar()),
+        background: TypeSafeBackground = TypeSafeBackground(DefaultBackgroundView()),
+        empty: TypeSafeEmpty = TypeSafeEmpty(DefaultEmptyView()),
+        loading: TypeSafeLoading = TypeSafeLoading(DefaultLoadingView())
     ) {
-        self.filtersTapped = filtersTapped
-        self.searchTapped = searchTapped
-        self.favoritesTapped = favoritesTapped
-        self.preferencesTapped = preferencesTapped
-        self.launchMealPlanner = launchMealPlanner
-        self.myMealsButtonTapped = myMealsButtonTapped
-        self.customBackground = customBackground
-        self.customEmpty = customEmpty
-        self.customLoading = customLoading
-        self.customCatalogToolbar = customCatalogToolbar
-        self.customResultsToolbar = customResultsToolbar
+        self.onFiltersTapped = onFiltersTapped
+        self.onSearchTapped = onSearchTapped
+        self.onFavoritesTapped = onFavoritesTapped
+        self.onPreferencesTapped = onPreferencesTapped
+        self.onLaunchMealPlanner = onLaunchMealPlanner
+        self.onMyMealsButtonTapped = onMyMealsButtonTapped
+        self.background = background
+        self.empty = empty
+        self.loading = loading
+        self.catalogToolbar = catalogToolbar
+        self.resultsToolbar = resultsToolbar
     }
     
     
@@ -55,11 +56,11 @@ public struct CatalogViewParams: CatalogViewParameters {
             return MiamNeutralMealPlannerCallToAction()
 //        } else { return DefaultMealPlannerCTA() }
     }
-    public var empty: TypeSafeEmpty { return self.customEmpty }
-    public var loading: TypeSafeLoading { return self.customLoading }
-    public var background: TypeSafeBackground { return self.customBackground }
-    public var catalogToolbar: TypeSafeCatalogToolbar { return self.customCatalogToolbar }
-    public var resultsToolbar: TypeSafeCatalogToolbar { return self.customResultsToolbar }
+//    public var empty: TypeSafeEmpty { return self.customEmpty }
+//    public var loading: TypeSafeLoading { return self.customLoading }
+//    public var background: TypeSafeBackground { return self.customBackground }
+//    public var catalogToolbar: TypeSafeCatalogToolbar { return self.customCatalogToolbar }
+//    public var resultsToolbar: TypeSafeCatalogToolbar { return self.customResultsToolbar }
     public var myMealsButton: MiamNeutralMyMealsButtonParams {
         return MiamNeutralMyMealsButtonParams()
     }
