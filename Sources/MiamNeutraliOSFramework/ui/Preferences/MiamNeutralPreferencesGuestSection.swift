@@ -9,7 +9,7 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamNeutralPreferencesGuest: PreferencesGuestViewTemplate {
+public struct MiamNeutralPreferencesGuest: PreferencesGuestProtocol {
     public init() {}
     public func content(guests: Int?, guestChanged: @escaping (Int) -> Void) -> some View {
         return HStack {

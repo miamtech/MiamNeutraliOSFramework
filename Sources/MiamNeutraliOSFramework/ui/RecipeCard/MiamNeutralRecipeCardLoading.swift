@@ -10,7 +10,7 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamNeutralRecipeCardLoading: RecipeCardLoading {
+public struct MiamNeutralRecipeCardLoading: RecipeCardLoadingProtocol {
     private struct Constants {
         static let duration: Double = 1.3
         static let minOpacity: Double = 0.25

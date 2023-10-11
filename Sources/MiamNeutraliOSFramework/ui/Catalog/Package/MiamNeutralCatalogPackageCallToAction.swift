@@ -1,5 +1,5 @@
 //
-//  SwiftUIView.swift
+//  MiamNeutralCatalogPackageCTA.swift
 //
 //
 //  Created by didi on 11/08/2023.
@@ -9,7 +9,7 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamNeutralCatalogPackageCallToAction: CatalogPackageCallToActionViewTemplate {
+public struct MiamNeutralCatalogPackageCTA: CatalogPackageCTAProtocol {
     public init () {}
     public func content(
         showAll: @escaping () -> Void
@@ -28,8 +28,8 @@ public struct MiamNeutralCatalogPackageCallToAction: CatalogPackageCallToActionV
 }
 
 @available(iOS 14, *)
-struct MiamNeutralCatalogPackageCallToAction_Previews: PreviewProvider {
+struct MiamNeutralCatalogPackageCTA_Previews: PreviewProvider {
     static var previews: some View {
-        MiamNeutralCatalogPackageCallToAction().content(showAll: {})
+        MiamNeutralCatalogPackageCTA().content(showAll: {})
     }
 }

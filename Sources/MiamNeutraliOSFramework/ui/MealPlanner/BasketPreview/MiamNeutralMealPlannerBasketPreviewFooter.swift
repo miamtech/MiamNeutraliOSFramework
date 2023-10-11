@@ -10,12 +10,16 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamNeutralMealPlannerBasketPreviewFooter: MealPlannerBasketPreviewFooter {
+public struct MiamNeutralMealPlannerBasketPreviewFooter: MealPlannerBasketFooterProtocol {
+    
     public init() {}
-    public func content(actions: BasketPreviewFooterActions) -> some View {
+    public func content(
+        onNavigateToRecap: @escaping () -> Void,
+        onNavigateToBasket: @escaping () -> Void
+    ) -> some View {
         VStack {
             Button {
-                actions.continueShopping()
+                onNavigateToRecap()
             } label: {
                 Text("Continuer mes achats")
             }
@@ -27,7 +31,7 @@ public struct MiamNeutralMealPlannerBasketPreviewFooter: MealPlannerBasketPrevie
             .cornerRadius(Dimension.sharedInstance.mCornerRadius)
 
             Button {
-                actions.showBasket()
+                onNavigateToBasket()
             } label: {
                 Text("Voir mon panier")
             }
@@ -46,6 +50,8 @@ public struct MiamNeutralMealPlannerBasketPreviewFooter: MealPlannerBasketPrevie
 @available(iOS 14, *)
 struct MiamNeutralMealPlannerBasketPreviewFooter_Previews: PreviewProvider {
     static var previews: some View {
-        MiamNeutralMealPlannerBasketPreviewFooter().content(actions: .init(continueShopping: {}, showBasket: {}))
+        MiamNeutralMealPlannerBasketPreviewFooter().content(
+            onNavigateToRecap: {}, onNavigateToBasket: {}
+        )
     }
 }

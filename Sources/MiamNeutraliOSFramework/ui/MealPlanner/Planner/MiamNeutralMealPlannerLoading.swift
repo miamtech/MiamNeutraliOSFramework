@@ -10,7 +10,7 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamNeutralMealPlannerLoading: MealPlannerLoading {
+public struct MiamNeutralMealPlannerLoading: LoadingProtocol {
     public init() {}
     public func content() -> some View {
         VStack {

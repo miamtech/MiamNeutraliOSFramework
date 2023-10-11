@@ -1,5 +1,5 @@
 //
-//  SwiftUIView.swift
+//  MiamNeutralFiltersSection.swift
 //  
 //
 //  Created by didi on 07/08/2023.
@@ -10,7 +10,7 @@ import MiamIOSFramework
 import miamCore
 
 @available(iOS 14, *)
-public struct MiamNeutralCatalogFilterSection: CatalogFilterSectionViewTemplate {
+public struct MiamNeutralFiltersSection: FiltersSectionProtocol {
     public init() {}
     public func content(
         title: String,
@@ -46,9 +46,9 @@ public struct MiamNeutralCatalogFilterSection: CatalogFilterSectionViewTemplate 
 }
 
 @available(iOS 14, *)
-struct MiamNeutralCatalogFilterSection_Previews: PreviewProvider {
+struct MiamNeutralFiltersSection_Previews: PreviewProvider {
     static var previews: some View {
-        MiamNeutralCatalogFilterSection().content(
+        MiamNeutralFiltersSection().content(
             title: "Catalog Filter",
             filters: [
                 CatalogFilterOptions(name: "Hello World", uiLabel: "Test", isSelected: false),

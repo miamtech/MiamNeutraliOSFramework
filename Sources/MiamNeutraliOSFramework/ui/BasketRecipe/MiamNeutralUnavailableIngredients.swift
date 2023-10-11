@@ -10,7 +10,7 @@ import MiamIOSFramework
 import miamCore
 
 @available(iOS 14, *)
-public struct MiamNeutralUnavailableIngredients: UnavailableIngredientsViewTemplate {
+public struct MiamNeutralUnavailableIngredients: UnavailableIngredientsProtocol {
     public init() {}
     public func content(
         showItems: Binding<Bool>,

@@ -1,5 +1,5 @@
 //
-//  SwiftUIView.swift
+//  MiamNeutralFiltersCTA.swift
 //  
 //
 //  Created by didi on 07/08/2023.
@@ -9,7 +9,7 @@ import MiamIOSFramework
 import miamCore
 
 @available(iOS 14, *)
-public struct MiamNeutralCatalogFiltersCallToAction: CatalogFiltersCallToActionViewTemplate {
+public struct MiamNeutralFiltersCTA: FiltersCTAProtocol {
     public init() {}
     public func content(
         numberOfRecipes: Int,
@@ -40,8 +40,8 @@ public struct MiamNeutralCatalogFiltersCallToAction: CatalogFiltersCallToActionV
 }
 
 @available(iOS 14, *)
-struct MiamNeutralCatalogFiltersCallToAction_Previews: PreviewProvider {
+struct MiamNeutralFiltersCTA_Previews: PreviewProvider {
     static var previews: some View {
-        MiamNeutralCatalogFiltersCallToAction().content(numberOfRecipes: 8, apply: {}, clear: {})
+        MiamNeutralFiltersCTA().content(numberOfRecipes: 8, apply: {}, clear: {})
     }
 }

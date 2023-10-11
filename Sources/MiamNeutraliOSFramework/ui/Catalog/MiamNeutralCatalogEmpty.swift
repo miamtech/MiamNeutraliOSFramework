@@ -9,9 +9,9 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamNeutralCatalogEmpty: GeneralEmptyViewTemplate {
+public struct MiamNeutralCatalogEmpty: EmptyProtocol {
     public init() {}
-    public func content() -> some View {
+    public func content(optionalCallBack: (() -> Void)?) -> some View {
         Text("No Results were returned")
     }
 }
@@ -19,6 +19,6 @@ public struct MiamNeutralCatalogEmpty: GeneralEmptyViewTemplate {
 @available(iOS 14, *)
 struct MiamNeutralCatalogEmpty_Previews: PreviewProvider {
     static var previews: some View {
-        MiamNeutralCatalogEmpty().content()
+        MiamNeutralCatalogEmpty().content(optionalCallBack: {})
     }
 }

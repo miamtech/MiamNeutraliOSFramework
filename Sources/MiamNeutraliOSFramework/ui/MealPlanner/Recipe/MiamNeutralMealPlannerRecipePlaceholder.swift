@@ -10,7 +10,7 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamNeutralMealPlannerRecipePlaceholder: MealPlannerRecipePlaceholder {
+public struct MiamNeutralMealPlannerRecipePlaceholder: MealPlannerRecipePlaceholderProtocol {
     private let recipeCardSize = CGSize(width: 175.0, height: 175.0)
     private let dimension = Dimension.sharedInstance
     public init() {}

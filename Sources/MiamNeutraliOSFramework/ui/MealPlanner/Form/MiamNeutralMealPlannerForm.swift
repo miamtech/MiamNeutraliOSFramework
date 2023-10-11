@@ -10,7 +10,7 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamNeutralMealPlannerForm: MealPlannerForm {
+public struct MiamNeutralMealPlannerForm: MealPlannerFormProtocol {
     let dimension = Dimension.sharedInstance
     public init() {}
     public func content(
@@ -50,7 +50,7 @@ struct MiamNeutralMealPlannerFormPreview: PreviewProvider {
         @State var budgetInfos = BudgetInfos(moneyBudget: 40.0, numberOfGuests: 3, numberOfMeals: 2)
 
         var body: some View {
-            MiamBudgetForm().content(
+            MiamNeutralMealPlannerForm().content(
                 budgetInfos: $budgetInfos,
                 activelyUpdatingTextField: .constant(false),
                 isFetchingRecipes: false,

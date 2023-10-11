@@ -9,7 +9,7 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamNeutralGeneralLoading: GeneralLoadingViewTemplate {
+public struct MiamNeutralGeneralLoading: LoadingProtocol {
     public init() {}
     public func content() -> some View {
         ProgressLoader(color: Color.miamColor(.primary))

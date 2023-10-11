@@ -10,7 +10,7 @@ import MiamIOSFramework
 import miamCore
 
 @available(iOS 14, *)
-public struct MiamNeutralPreferencesEquipment: PreferencesEquipmentViewTemplate {
+public struct MiamNeutralPreferencesEquipment: PreferencesEquipmentProtocol {
     public init() {}
     public func content(
         equipmentsTag: [CheckableTag],

@@ -10,9 +10,9 @@ import SwiftUI
 import MiamIOSFramework
 
 @available(iOS 14, *)
-public struct MiamNeutralMealPlannerSearch: MealPlannerSearch {
+public struct MiamNeutralMealPlannerSearch: SearchProtocol {
     public init() {}
-    public func content(searchText: Binding<String>, filtersTapped: @escaping () -> Void) -> some View {
+    public func content(searchText: Binding<String>, apply: @escaping () -> Void) -> some View {
         HStack(spacing: 8.0) {
             HStack(spacing: 4.0) {
                 Image.miamNeutralImage(icon: .search)
@@ -29,7 +29,7 @@ public struct MiamNeutralMealPlannerSearch: MealPlannerSearch {
             .overlay(RoundedRectangle(cornerRadius: Dimension.sharedInstance.mCornerRadius).stroke(Color.miamNeutralColor(.lightBorder), lineWidth: 1.0))
 
             Button {
-                filtersTapped()
+                apply()
             } label: {
                 Image.miamNeutralImage(icon: .filters)
             }
