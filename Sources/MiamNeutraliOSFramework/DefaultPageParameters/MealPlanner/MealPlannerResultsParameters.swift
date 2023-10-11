@@ -1,6 +1,6 @@
 //
 //  MealPlannerResultsParameters.swift
-//  
+//
 //
 //  Created by didi on 10/10/2023.
 //

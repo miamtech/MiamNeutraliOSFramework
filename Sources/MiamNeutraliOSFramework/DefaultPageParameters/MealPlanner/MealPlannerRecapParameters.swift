@@ -12,7 +12,7 @@ import MiamIOSFramework
 public class MealPlannerRecapParameters: MealPlannerRecapParametersProtocol {
     public var onNavigateAwayFromMealPlanner: () -> Void
     
-    public var recapTemplate: TypeSafeMealPlannerRecap
+    public var success: TypeSafeMealPlannerRecap
     public var background: TypeSafeBackground
     public var empty: TypeSafeEmpty
     public var loading: TypeSafeLoading
@@ -22,7 +22,7 @@ public class MealPlannerRecapParameters: MealPlannerRecapParametersProtocol {
         viewOptions: MealPlannerRecapViewOptions = MealPlannerRecapViewOptions()
     ) {
         self.onNavigateAwayFromMealPlanner = onNavigateAwayFromMealPlanner
-        self.recapTemplate = viewOptions.recapTemplate
+        self.success = viewOptions.success
         self.background = viewOptions.background
         self.empty = viewOptions.empty
         self.loading = viewOptions.loading
@@ -31,18 +31,18 @@ public class MealPlannerRecapParameters: MealPlannerRecapParametersProtocol {
 
 @available(iOS 14, *)
 public struct MealPlannerRecapViewOptions {
-    public var recapTemplate: TypeSafeMealPlannerRecap
+    public var success: TypeSafeMealPlannerRecap
     public var background: TypeSafeBackground
     public var empty: TypeSafeEmpty
     public var loading: TypeSafeLoading
     
     public init(
-        recapTemplate: TypeSafeMealPlannerRecap = TypeSafeMealPlannerRecap(MiamNeutralMealPlannerRecap()),
+        success: TypeSafeMealPlannerRecap = TypeSafeMealPlannerRecap(MiamNeutralMealPlannerRecap()),
         empty: TypeSafeEmpty = TypeSafeEmpty(DefaultEmptyView()),
         loading: TypeSafeLoading = TypeSafeLoading(DefaultLoadingView()),
         background: TypeSafeBackground = TypeSafeBackground(DefaultBackgroundView())
     ) {
-        self.recapTemplate = recapTemplate
+        self.success = success
         self.background = background
         self.empty = empty
         self.loading = loading

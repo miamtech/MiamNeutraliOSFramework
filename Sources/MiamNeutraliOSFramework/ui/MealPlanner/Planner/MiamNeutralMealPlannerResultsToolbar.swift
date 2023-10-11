@@ -16,11 +16,12 @@ public struct MiamNeutralMealPlannerResultsToolbar: MealPlannerResultsToolbarPro
     @State var numberMeals = 4
     let dimension = Dimension.sharedInstance
     public init() {}
+    
     public func content(
         budgetInfos: Binding<BudgetInfos>,
         activelyEditingTextField: Binding<Bool>,
         isLoadingRecipes: Binding<Bool>,
-        onValidateTapped: @escaping (BudgetInfos) -> Void
+        onValidateTapped: @escaping () -> Void
     ) -> some View {
         HStack {
             MiamNeutralMealPlannerBudget(
@@ -35,8 +36,7 @@ public struct MiamNeutralMealPlannerResultsToolbar: MealPlannerResultsToolbarPro
             SubmitButtonCollapsed(
                 isLoading: isLoadingRecipes,
                 activelyEditingTextField: activelyEditingTextField.wrappedValue) {
-                let infos = BudgetInfos(moneyBudget: budget, numberOfGuests: numberGuests, numberOfMeals: numberMeals)
-                onValidateTapped(infos)
+                onValidateTapped()
             }
         }
     }
@@ -84,8 +84,11 @@ struct MiamBudgetPlannerToolbar_Previews: PreviewProvider {
         @State var loading = false
         @State var budgetInfos = BudgetInfos(moneyBudget: 30.0, numberOfGuests: 4, numberOfMeals: 4)
         var body: some View {
-            MiamBudgetPlannerToolbar().content(budgetInfos: $budgetInfos, activelyEditingTextField: .constant(false),
-                                               isLoadingRecipes: $loading, onValidateTapped: {_ in})
+            MiamNeutralMealPlannerResultsToolbar().content(
+                budgetInfos: $budgetInfos,
+                activelyEditingTextField: .constant(false),
+                isLoadingRecipes: $loading,
+                onValidateTapped: {})
         }
     }
 }
