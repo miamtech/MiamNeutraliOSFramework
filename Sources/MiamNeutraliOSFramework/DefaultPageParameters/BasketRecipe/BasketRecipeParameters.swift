@@ -12,7 +12,7 @@ import MiamIOSFramework
 /// This sets the Callbacks for the BasketRecipe Overview
 public class BasketRecipeParameters: BasketRecipeParametersProtocol {
     
-    public var onReplaceRecipe: () -> Void
+    public var onReplaceProduct: (String) -> Void
     public var onShowRecipeDetails: (String) -> Void
     public var recipeOverview: TypeSafeBasketRecipeOverview
     public var recipeOverviewLoading: TypeSafeRecipeCardLoading
@@ -22,11 +22,11 @@ public class BasketRecipeParameters: BasketRecipeParametersProtocol {
     public var unavailableIngredients: TypeSafeUnavailableIngredients
     
     public init(
-        onReplaceRecipe: @escaping () -> Void,
+        onReplaceProduct: @escaping (String) -> Void,
         onShowRecipeDetails: @escaping (String) -> Void,
         viewOptions: BasketRecipeParamsViewOptions = BasketRecipeParamsViewOptions()
     ) {
-        self.onReplaceRecipe = onReplaceRecipe
+        self.onReplaceProduct = onReplaceProduct
         self.onShowRecipeDetails = onShowRecipeDetails
         self.recipeOverview = viewOptions.recipeOverview
         self.recipeOverviewLoading = viewOptions.recipeOverviewLoading
