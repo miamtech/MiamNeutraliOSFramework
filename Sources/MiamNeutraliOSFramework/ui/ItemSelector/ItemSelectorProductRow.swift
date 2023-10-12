@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  ItemSelectorProductRow.swift
 //  
 //
 //  Created by Miam on 04/10/2023.
@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 import miamCore
 import MiamIOSFramework
-
 
 @available(iOS 14, *)
 struct ItemSelectorProductRow: View {

@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  MiamNeutralItemSelectorSelectedProduct.swift
 //  
 //
 //  Created by Miam on 04/10/2023.
