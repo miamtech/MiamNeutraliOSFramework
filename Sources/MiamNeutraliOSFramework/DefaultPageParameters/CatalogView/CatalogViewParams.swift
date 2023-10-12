@@ -7,12 +7,13 @@
 
 import SwiftUI
 import MiamIOSFramework
+import miamCore
 
 @available(iOS 14, *)
 /// This sets the Templates for the CatalogPage Overview
 public struct CatalogParameters: CatalogParametersProtocol {
     
-    public var onFiltersTapped: () -> Void
+    public var onFiltersTapped: (SingletonFilterViewModel) -> Void
     public var onSearchTapped: () -> Void
     public var onFavoritesTapped: () -> Void
     public var onPreferencesTapped: () -> Void
@@ -26,7 +27,7 @@ public struct CatalogParameters: CatalogParametersProtocol {
     public var mealsInBasketButton: MealsInBasketButtonParameters
     
     public init(
-        onFiltersTapped: @escaping () -> Void,
+        onFiltersTapped: @escaping (SingletonFilterViewModel) -> Void,
         onSearchTapped: @escaping () -> Void,
         onFavoritesTapped: @escaping () -> Void,
         onPreferencesTapped: @escaping () -> Void,

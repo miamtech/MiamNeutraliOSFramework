@@ -9,24 +9,26 @@ import MiamIOSFramework
 
 @available(iOS 14, *)
 /// This sets the Templates for the PreferencesSearchView Overview
-public class RecipesListParams: RecipesListParameters {
-    public var showRecipes: (MiamIOSFramework.CatalogPackage) -> Void
-    public var noResultsRedirect: () -> Void
-    public var onRecipeTapped: (String) -> Void
+public class RecipesListParameters: RecipesListParametersProtocol {
+    public var onShowRecipes: (MiamIOSFramework.CatalogPackage) -> Void
+    public var onNoResultsRedirect: () -> Void
+    public var onShowRecipeDetails: (String) -> Void
+    
     public var recipeCard: TypeSafeCatalogRecipeCard
     public var recipeCardLoading: TypeSafeRecipeCardLoading
     public var title: TypeSafeBaseTitle
     public var noResults: TypeSafeRecipesListNoResults
     public var loading: TypeSafeLoading
+    
     public init(
-        showRecipes: @escaping (MiamIOSFramework.CatalogPackage) -> Void,
-        noResultsRedirect: @escaping () -> Void,
-        onRecipeTapped: @escaping (String) -> Void,
+        onShowRecipes: @escaping (MiamIOSFramework.CatalogPackage) -> Void,
+        onNoResultsRedirect: @escaping () -> Void,
+        onShowRecipeDetails: @escaping (String) -> Void,
         viewOptions: RecipesListParamsViewOptions = RecipesListParamsViewOptions()
     ) {
-        self.showRecipes = showRecipes
-        self.noResultsRedirect = noResultsRedirect
-        self.onRecipeTapped = onRecipeTapped
+        self.onShowRecipes = onShowRecipes
+        self.onNoResultsRedirect = onNoResultsRedirect
+        self.onShowRecipeDetails = onShowRecipeDetails
         self.recipeCard = viewOptions.recipeCard
         self.recipeCardLoading = viewOptions.recipeCardLoading
         self.title = viewOptions.title
