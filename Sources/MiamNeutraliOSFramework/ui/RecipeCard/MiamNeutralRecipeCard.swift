@@ -75,6 +75,9 @@ public struct MiamNeutralRecipeCard: CatalogRecipeCardProtocol {
                 .frame(maxHeight: .infinity)
             }
         }
+        .onTapGesture {
+            actions.showDetails(recipeInfos.recipe.id)
+        }
         .padding(0)
         .frame(width: recipeCardDimensions.width, height: recipeCardDimensions.height)
         .cornerRadius(12.0)
