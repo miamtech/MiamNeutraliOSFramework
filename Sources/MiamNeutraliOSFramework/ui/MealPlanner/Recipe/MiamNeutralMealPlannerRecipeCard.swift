@@ -18,8 +18,8 @@ public struct MiamNeutralMealPlannerRecipeCard: MealPlannerRecipeCardProtocol {
     public init() {}
     public func content(
         recipeCardDimensions: CGSize,
-        recipeInfos: MiamIOSFramework.RecipeInfos,
-        actions: BudgetRecipeCardActions
+        recipeInfos: MiamIOSFramework.CatalogRecipeInfos,
+        actions: MealPlannerRecipeCardActions
     ) -> some View {
         VStack(spacing: 0.0) {
             Divider()
@@ -32,7 +32,7 @@ public struct MiamNeutralMealPlannerRecipeCard: MealPlannerRecipeCardProtocol {
                             .padding(0)
                             .frame(minWidth: 0, maxWidth: .infinity, maxHeight: .infinity)
                     }.padding(0)
-                    LikeButton(recipeId: recipeInfos.recipe.id)
+                    LikeButtonViewTemplate(likeButtonInfo: LikeButtonInfo(recipeId: recipeInfos.recipe.id))
                         .padding(dimensions.lPadding)
                 }
                 .padding(0)
@@ -45,8 +45,8 @@ public struct MiamNeutralMealPlannerRecipeCard: MealPlannerRecipeCardProtocol {
                         .minimumScaleFactor(0.9)
                         .multilineTextAlignment(.leading)
                     HStack(spacing: dimensions.sPadding) {
-                        MiamRecipeDifficulty(difficulty: recipeInfos.recipe.difficulty)
-                        MiamRecipePreparationTime(duration: recipeInfos.recipe.cookingTimeIos)
+                        MiamNeutralRecipeDifficulty(difficulty: recipeInfos.recipe.difficulty)
+                        MiamNeutralRecipePreparationTime(duration: recipeInfos.recipe.cookingTimeIos)
                     }
                     HStack {
                         Text(Localization.basket.swapProduct.localised)
@@ -101,13 +101,13 @@ struct MiamNeutralBudgetRecipeCardPreview: PreviewProvider {
             id: "234",
             attributes: recipeAttributes,
             relationships: nil)
-        let recipeInfos = RecipeInfos(
+        let recipeInfos = CatalogRecipeInfos(
             recipe: recipe,
             isInBasket: false)
         MiamNeutralMealPlannerRecipeCard().content(
             recipeCardDimensions: CGSize(),
             recipeInfos: recipeInfos,
-            actions: BudgetRecipeCardActions(
+            actions: MealPlannerRecipeCardActions(
                 recipeTapped: { _ in},
                 removeTapped: {
                    print("Remove recipe card.")

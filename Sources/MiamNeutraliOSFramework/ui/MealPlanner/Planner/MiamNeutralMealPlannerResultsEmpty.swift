@@ -13,7 +13,7 @@ import MiamIOSFramework
 public struct MiamNeutralMealPlannerResultsEmpty: MealPlannerResultsEmptyProtocol {
     
     public init() {}
-    public func content(budgetInfos: BudgetInfos, reason: String) -> some View {
+    public func content(budgetInfos: MealPlannerResultsInfos, reason: String) -> some View {
         
         VStack(alignment: .leading, spacing: 8.0) {
             Image.miamNeutralImage(icon: .alert)

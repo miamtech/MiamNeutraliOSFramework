@@ -32,8 +32,8 @@ public struct MiamNeutralBasketProduct: BasketProductProtocol {
             .frame(maxWidth: .infinity)
             HStack {
                 priceContent(
-                    price: infos.price.price,
-                    pricePerUnit: infos.pricePerUnit.price
+                    price: infos.price,
+                    pricePerUnit: infos.pricePerUnit
                 )
                 Spacer()
                 HStack(spacing: 12.0) {
@@ -108,13 +108,13 @@ public struct MiamNeutralBasketProduct: BasketProductProtocol {
 struct MiamNeutralBasketProduct_Previews: PreviewProvider {
     static var previews: some View {
         let infos = BasketProductInfos(
-            price: Price(price: 34.0, currency: "EUR"),
+            price: 34.0,
             name: "Test",
             description: "MY description",
             pictureURL: (URL(string: "https://picsum.photos/400/300") ?? URL(string: ""))!,
             sharedRecipeCount: 3,
             isSubstitutable: false,
-            pricePerUnit: Price(price: 56.0, currency: "EUR"),
+            pricePerUnit: 56.0,
             isLoading: false)
         let actions = BasketProductActions(
             delete: {},

@@ -16,7 +16,7 @@ public struct MiamNeutralPreferencesEquipment: PreferencesEquipmentProtocol {
         equipmentsTag: [CheckableTag],
         togglePreference: @escaping (String) -> Void
     ) -> some View {
-        PreferencesListView(
+        MiamNeutralPreferencesListView(
             title: Localization.preferences.cookingEquipmentTitle.localised,
              subtitle: Localization.preferences.cookingEquipmentSubtitle.localised,
             preferences: equipmentsTag) { tag in

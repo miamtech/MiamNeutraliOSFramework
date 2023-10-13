@@ -15,7 +15,7 @@ public struct MiamNeutralRecipeCard: CatalogRecipeCardProtocol {
     public init() {}
     public func content(
         recipeCardDimensions: CGSize,
-        recipeInfos: MiamIOSFramework.RecipeInfos,
+        recipeInfos: MiamIOSFramework.CatalogRecipeInfos,
         actions: RecipeCardActions
     ) -> some View {
         let dimensions = Dimension.sharedInstance
@@ -51,9 +51,9 @@ public struct MiamNeutralRecipeCard: CatalogRecipeCardProtocol {
                         .minimumScaleFactor(0.9)
 
                     HStack(spacing: 0.0) {
-                        MiamRecipeDifficulty(difficulty: recipeInfos.recipe.difficulty)
+                        MiamNeutralRecipeDifficulty(difficulty: recipeInfos.recipe.difficulty)
                         Spacer()
-                        MiamRecipePreparationTime(duration: recipeInfos.recipe.cookingTimeIos)
+                        MiamNeutralRecipePreparationTime(duration: recipeInfos.recipe.cookingTimeIos)
                     }
                     Button {
                         ctaAction(recipeInfos.recipe.id)
@@ -75,6 +75,9 @@ public struct MiamNeutralRecipeCard: CatalogRecipeCardProtocol {
                 .frame(maxHeight: .infinity)
             }
         }
+        .onTapGesture {
+            actions.showDetails(recipeInfos.recipe.id)
+        }
         .padding(0)
         .frame(width: recipeCardDimensions.width, height: recipeCardDimensions.height)
         .cornerRadius(12.0)
@@ -83,15 +86,19 @@ public struct MiamNeutralRecipeCard: CatalogRecipeCardProtocol {
 }
 
 @available(iOS 14, *)
-struct MiamRecipeCard_Previews: PreviewProvider {
+struct MiamNeutralRecipeCard_Previews: PreviewProvider {
     static var previews: some View {
         let recipe = RecipeFakeFactory().create(
             id: RecipeFakeFactory().FAKE_ID,
             attributes: RecipeFakeFactory().createAttributes(title: "Parmentier de Poulet",
             mediaUrl: "https://lh3.googleusercontent.com/tbMNuhJ4KxReIPF_aE0yve0akEHeN6O8hauty_XNUF2agWsmyprACLg0Zw6s8gW-QCS3A0QmplLVqBKiMmGf_Ctw4SdhARvwldZqAtMG"),
              relationships: nil)
-        let infos = RecipeInfos(recipe: recipe, isInBasket: true)
-        MiamRecipeCard().content(recipeCardDimensions: CGSize(width: 380, height: 100), recipeInfos: infos, actions: RecipeCardActions(addToBasket: {_ in }, showDetails: {_ in}))
-            .padding(80.0)
+        let infos = CatalogRecipeInfos(recipe: recipe, isInBasket: true)
+        MiamNeutralRecipeCard().content(
+            recipeCardDimensions: CGSize(width: 380, height: 100),
+            recipeInfos: infos,
+            actions: RecipeCardActions(addToBasket: {_ in }, showDetails: {_ in})
+        )
+        .padding(80.0)
     }
 }

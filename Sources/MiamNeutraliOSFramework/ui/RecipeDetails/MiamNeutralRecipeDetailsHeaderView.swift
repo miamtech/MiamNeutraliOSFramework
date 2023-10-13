@@ -33,7 +33,7 @@ public struct MiamNeutralRecipeDetailsHeaderView: RecipeDetailsHeaderProtocol {
                 }
                 HStack {
                     if infos.isLikeEnabled {
-                        MiamNeutralLikeButton(recipeId: infos.recipeId)
+                        LikeButtonViewTemplate(likeButtonInfo: LikeButtonInfo(recipeId: infos.recipeId))
                     }
                     Spacer()
                     // question mark
@@ -58,49 +58,4 @@ public struct MiamNeutralRecipeDetailsHeaderView: RecipeDetailsHeaderProtocol {
                 }.padding(.horizontal, Dimension.sharedInstance.lPadding)
             }
         }
-}
-
-@available(iOS 14, *)
-struct MiamNeutralRecipeTimeView: View {
-    let preparationTime: String
-    let cookingTime: String
-    let restingTime: String
-
-    let noPreparationTime = "0s"
-    let noCookingTime = "0s"
-    let noRestingTime = "0s"
-
-    var body: some View {
-        if let template = Template.sharedInstance.recipeTimeViewTemplate {
-            template(preparationTime, cookingTime, restingTime)
-        } else {
-            VStack(alignment: .leading) {
-                if preparationTime != noPreparationTime {
-                    HStack {
-                        Text(RecipeDetailsText.sharedInstance.preparationTime)
-                            .miamFontStyle(style: MiamFontStyleProvider().bodyStyle)
-                        Text(preparationTime)
-                            .miamFontStyle(style: MiamFontStyleProvider().bodyBoldStyle)
-                    }
-                }
-                if cookingTime != noCookingTime {
-                    HStack {
-                        Text(RecipeDetailsText.sharedInstance.cookingTime)
-                            .miamFontStyle(style: MiamFontStyleProvider().bodyStyle)
-                        Text(cookingTime)
-                            .miamFontStyle(style: MiamFontStyleProvider().bodyBoldStyle)
-                    }
-                }
-                if restingTime != noRestingTime {
-                    HStack {
-                        Text(RecipeDetailsText.sharedInstance.restingTime)
-                            .miamFontStyle(style: MiamFontStyleProvider().bodyStyle)
-                        Text(restingTime)
-                            .miamFontStyle(style: MiamFontStyleProvider().bodyBoldStyle)
-                    }
-                }
-                Spacer()
-            }
-        }
-    }
 }

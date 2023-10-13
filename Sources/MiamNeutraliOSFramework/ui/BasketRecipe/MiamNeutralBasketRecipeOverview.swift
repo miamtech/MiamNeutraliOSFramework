@@ -74,12 +74,12 @@ public struct MiamNeutralBasketRecipeOverview: BasketRecipeOverviewProtocol {
                     ProgressLoader(color: Color.miamNeutralColor(.primary))
                         .scaleEffect(0.5)
                 } else {
-                    Text(infos.price.price.currencyFormatted)
+                    Text(infos.price.currencyFormatted)
                         .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigBoldStyle)
                         .foregroundColor(Color.miamColor(.primary))
                 }
                 Spacer()
-                CounterView(
+                MiamNeutralCounterView(
                     count: infos.guests,
                     lightMode: false,
                     onCounterChanged: { guestCount in actions.updateGuests(guestCount) },
@@ -99,7 +99,7 @@ struct MiamNeutralBasketRecipeOverview_Previews: PreviewProvider {
     static var previews: some View {
         let infos = BasketRecipeInfos(
             recipe: FakeRecipe().createRandomFakeRecipe(),
-            price: Price(price: 40.4, currency: "EUR"),
+            price: 40.4,
             pricePerPerson: "43",
             guests: 4,
             isReloading: false,

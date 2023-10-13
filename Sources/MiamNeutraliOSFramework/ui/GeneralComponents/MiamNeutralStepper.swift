@@ -130,17 +130,17 @@ internal struct MiamNeutralStepperCollapsed: View {
 @available(iOS 14, *)
 struct MiamNeutralStepper_Previews: PreviewProvider {
     static var previews: some View {
-            StepperPreviewWrapper()
-        }
-
-        struct StepperPreviewWrapper: View {
-            @State private var value = 4
-
-            var body: some View {
-                VStack {
-                    MiamNeutralStepper(value: $value, caption: "Number of meals")
-                    MiamNeutralStepperCollapsed(value: $value, icon: Image.miamNeutralImage(icon: .guests))
-                }
+        StepperPreviewWrapper()
+    }
+    
+    struct StepperPreviewWrapper: View {
+        @State private var value = 4
+        
+        var body: some View {
+            VStack {
+                MiamNeutralStepper(value: $value, caption: "Number of meals")
+                MiamNeutralStepperCollapsed(value: $value, icon: Image.miamNeutralImage(icon: .guests))
             }
+        }
     }
 }

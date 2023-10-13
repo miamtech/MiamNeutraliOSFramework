@@ -15,18 +15,27 @@ public struct MiamNeutralRecipeDetailsFooterView: RecipeDetailsFooterProtocol {
     public init() {}
     
     let dimension = Dimension.sharedInstance
-    
-    public func content(recipeId: String, guestCount: Int) -> some View {
+    public func content(
+        recipeId: String,
+        guestCount: Int,
+        onContinueToBasket: (() -> Void)?
+    ) -> some View {
         VStack {
            Divider()
             Button(action: {
+                if let onContinueToBasket {
+                    onContinueToBasket()
+                }
             }, label: {
-                Text(Localization.catalog.browseRecipes.localised)
+                Text(Localization.recipe.add.localised)
                     .foregroundColor(Color.miamNeutralColor(.primary))
                     .miamFontStyle(style: MiamFontStyleProvider().bodyStyle)
             })
             Divider()
-            PriceViewTemplate(params: MiamNeutralPriceViewTemplate(), recipeId: recipeId, guestNumber: guestCount)
+            PriceViewTemplate(
+                params: PriceParameters(),
+                recipeId: recipeId,
+                guestNumber: guestCount)
             Text(Localization.price.perGuest.localised)
                 .foregroundColor(Color.miamColor(.lightGrey))
                 .miamFontStyle(style: MiamFontStyleProvider().bodySmallStyle)
@@ -43,9 +52,9 @@ struct CoursesURecipeDetailsFooterView_Previews: PreviewProvider {
         ZStack {
             Color.budgetBackgroundColor
             VStack {
-                MiamNeutralRecipeDetailsFooterView().content(recipeId: "34134321", guestCount: 4)
-                MiamNeutralRecipeDetailsFooterView().content(recipeId: "34134321", guestCount: 4)
-                MiamNeutralRecipeDetailsFooterView().content(recipeId: "34134321", guestCount: 4)
+                MiamNeutralRecipeDetailsFooterView().content(recipeId: "34134321", guestCount: 4, onContinueToBasket: nil)
+                MiamNeutralRecipeDetailsFooterView().content(recipeId: "34134321", guestCount: 4, onContinueToBasket: nil)
+                MiamNeutralRecipeDetailsFooterView().content(recipeId: "34134321", guestCount: 4, onContinueToBasket: nil)
             }
         }
         GeometryReader { geometry in
@@ -69,7 +78,7 @@ struct CoursesURecipeDetailsFooterView_Previews: PreviewProvider {
                     }
                 }
                 StickyFooter(safeArea: safeArea) {
-                    MiamNeutralRecipeDetailsFooterView().content(recipeId: "34134321", guestCount: 4)
+                    MiamNeutralRecipeDetailsFooterView().content(recipeId: "34134321", guestCount: 4, onContinueToBasket: nil)
                 }
                 .frame(maxWidth: .infinity)
             }

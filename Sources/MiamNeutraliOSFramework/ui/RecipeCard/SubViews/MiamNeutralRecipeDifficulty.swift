@@ -1,13 +1,11 @@
 //
-//  RecipeDifficulty.swift
-//  MiamIOSFramework
+//  MiamNeutralRecipeDifficulty.swift
+//  
 //
-//  Created by Vincent Kergonna on 04/05/2023.
-//  Copyright © 2023 Miam. All rights reserved.
+//  Created by didi on 13/10/2023.
 //
 
 import SwiftUI
-import miamCore
 import MiamIOSFramework
 
 @available(iOS 14, *)
@@ -41,6 +39,10 @@ public struct MiamNeutralRecipeDifficulty: View {
 @available(iOS 14, *)
 struct MiamNeutralRecipeDifficulty_Previews: PreviewProvider {
     static var previews: some View {
-        MiamNeutralRecipeDifficulty(difficulty: 1)
+        VStack {
+            MiamNeutralRecipeDifficulty(difficulty: 1)
+            MiamNeutralRecipeDifficulty(difficulty: 2)
+            MiamNeutralRecipeDifficulty(difficulty: 3)
+        }
     }
 }

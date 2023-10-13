@@ -22,7 +22,7 @@ public struct ItemSelectorParameters: ItemSelectorParametersProtocol {
     
     public init(
         onItemSelected: @escaping () -> Void,
-        viewOptions : ItemSelectorViewOptions
+        viewOptions : ItemSelectorViewOptions = ItemSelectorViewOptions()
     ){
         self.selectedProduct = viewOptions.selectedProduct
         self.productOptions = viewOptions.productOptions

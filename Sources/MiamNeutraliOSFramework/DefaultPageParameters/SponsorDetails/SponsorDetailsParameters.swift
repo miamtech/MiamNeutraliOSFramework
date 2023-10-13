@@ -9,7 +9,7 @@ import MiamIOSFramework
 
 @available(iOS 14, *)
 /// This sets the Templates for the SponsorDetails
-public class SponsorDetailsParameters: BaseViewParameters {
+public class SponsorDetailsParameters: BaseProtocols {
     public var background: TypeSafeBackground
     public var empty: TypeSafeEmpty
     public var loading: TypeSafeLoading

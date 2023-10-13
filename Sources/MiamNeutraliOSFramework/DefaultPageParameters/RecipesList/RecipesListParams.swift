@@ -13,6 +13,7 @@ public class RecipesListParameters: RecipesListParametersProtocol {
     public var onShowRecipes: (MiamIOSFramework.CatalogPackage) -> Void
     public var onNoResultsRedirect: () -> Void
     public var onShowRecipeDetails: (String) -> Void
+    public var onRecipeCallToActionTapped: (String) -> Void
     
     public var recipeCard: TypeSafeCatalogRecipeCard
     public var recipeCardLoading: TypeSafeRecipeCardLoading
@@ -24,11 +25,13 @@ public class RecipesListParameters: RecipesListParametersProtocol {
         onShowRecipes: @escaping (MiamIOSFramework.CatalogPackage) -> Void,
         onNoResultsRedirect: @escaping () -> Void,
         onShowRecipeDetails: @escaping (String) -> Void,
+        onRecipeCallToActionTapped: @escaping (String) -> Void,
         viewOptions: RecipesListParamsViewOptions = RecipesListParamsViewOptions()
     ) {
         self.onShowRecipes = onShowRecipes
         self.onNoResultsRedirect = onNoResultsRedirect
         self.onShowRecipeDetails = onShowRecipeDetails
+        self.onRecipeCallToActionTapped = onRecipeCallToActionTapped
         self.recipeCard = viewOptions.recipeCard
         self.recipeCardLoading = viewOptions.recipeCardLoading
         self.title = viewOptions.title

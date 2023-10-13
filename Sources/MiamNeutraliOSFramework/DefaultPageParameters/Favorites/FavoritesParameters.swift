@@ -13,6 +13,8 @@ public class FavoritesParameters: FavoritesParametersProtocol {
     
     public var onNoResultsRedirect: () -> Void
     public var onShowRecipeDetails: (String) -> Void
+    public var onRecipeCallToActionTapped: (String) -> Void
+    
     public var recipeCard: TypeSafeCatalogRecipeCard
     public var recipeCardLoading: TypeSafeRecipeCardLoading
     public var background: TypeSafeBackground
@@ -22,10 +24,12 @@ public class FavoritesParameters: FavoritesParametersProtocol {
     public init(
         onNoResultsRedirect: @escaping () -> Void,
         onShowRecipeDetails: @escaping (String) -> Void,
+        onRecipeCallToActionTapped: @escaping (String) -> Void,
         viewOptions: FavoritesViewOptions = FavoritesViewOptions()
     ) {
         self.onNoResultsRedirect = onNoResultsRedirect
         self.onShowRecipeDetails = onShowRecipeDetails
+        self.onRecipeCallToActionTapped = onRecipeCallToActionTapped
         self.recipeCard = viewOptions.recipeCard
         self.recipeCardLoading = viewOptions.recipeCardLoading
         self.background = viewOptions.background
@@ -43,9 +47,9 @@ public struct FavoritesViewOptions {
     public var loading: TypeSafeLoading
     
     public init(
-        recipeCard: TypeSafeCatalogRecipeCard = TypeSafeCatalogRecipeCard(MiamRecipeCard()),
-        recipeCardLoading: TypeSafeRecipeCardLoading = TypeSafeRecipeCardLoading(MiamRecipeCardLoading()),
-        empty: TypeSafeEmpty = TypeSafeEmpty(DefaultEmptyView()),
+        recipeCard: TypeSafeCatalogRecipeCard = TypeSafeCatalogRecipeCard(MiamNeutralRecipeCard()),
+        recipeCardLoading: TypeSafeRecipeCardLoading = TypeSafeRecipeCardLoading(MiamNeutralRecipeCardLoading()),
+        empty: TypeSafeEmpty = TypeSafeEmpty(MiamNeutralMyMealsEmpty()),
         loading: TypeSafeLoading = TypeSafeLoading(DefaultLoadingView()),
         background: TypeSafeBackground = TypeSafeBackground(DefaultBackgroundView())
     ) {

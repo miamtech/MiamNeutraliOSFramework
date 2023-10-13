@@ -15,7 +15,7 @@ public struct MiamNeutralMealPlannerStickyFooter: MealPlannerResultsFooterProtoc
     let dimension = Dimension.sharedInstance
     public init() {}
     public func content(
-        budgetInfos: BudgetInfos,
+        budgetInfos: MealPlannerResultsInfos,
         budgetSpent: Binding<Double>,
         onValidateTapped: @escaping () -> Void
     ) -> some View {
@@ -92,11 +92,10 @@ struct MiamNeutralMealPlannerBudgetFooter: View {
     var body: some View {
         HStack(spacing: dimension.lPadding) {
             ProgressView(value: budgetSpent, total: totalBudgetPermitted)
-                .progressViewStyle(WithRoundedCornersProgressViewStyle(progressColor: Color.miamNeutralColor(.primary),
-                                                                       overBudget: budgetSpent > totalBudgetPermitted ? true : false))
-
-            let price = Price(price: budgetSpent, currency: "EUR")
-            Text(price.formattedPrice())
+                .progressViewStyle(WithRoundedCornersProgressViewStyle(
+                    progressColor: Color.miamNeutralColor(.primary),
+                    overBudget: budgetSpent > totalBudgetPermitted ? true : false))
+            Text(budgetSpent.currencyFormatted)
                 .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleStyle)
                 .foregroundColor(budgetSpent > totalBudgetPermitted ?
                                  Color.miamColor(.danger) : Color.miamNeutralColor(.textSuccess))
@@ -109,7 +108,7 @@ struct MiamNeutralMealPlannerBudgetFooter: View {
 struct MiamNeutralMealPlannerStickyFooter_Previews: PreviewProvider {
 
     static var previews: some View {
-        let budgetInfos = BudgetInfos(moneyBudget: 50.0, numberOfGuests: 4, numberOfMeals: 4)
+        let budgetInfos = MealPlannerResultsInfos(moneyBudget: 50.0, numberOfGuests: 4, numberOfMeals: 4)
 
         GeometryReader { geometry in
             let safeArea = geometry.safeAreaInsets

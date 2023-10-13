@@ -14,10 +14,10 @@ public struct MiamNeutralMealPlannerForm: MealPlannerFormProtocol {
     let dimension = Dimension.sharedInstance
     public init() {}
     public func content(
-        budgetInfos: Binding<BudgetInfos>,
+        budgetInfos: Binding<MealPlannerResultsInfos>,
         activelyUpdatingTextField: Binding<Bool>,
         isFetchingRecipes: Bool,
-        onFormValidated: @escaping (BudgetInfos) -> Void
+        onFormValidated: @escaping (MealPlannerResultsInfos) -> Void
     ) -> some View {
         VStack(spacing: 24.0) {
             MiamNeutralMealPlannerBudget(
@@ -47,7 +47,7 @@ struct MiamNeutralMealPlannerFormPreview: PreviewProvider {
     }
 
     struct BudgetFormPreview: View {
-        @State var budgetInfos = BudgetInfos(moneyBudget: 40.0, numberOfGuests: 3, numberOfMeals: 2)
+        @State var budgetInfos = MealPlannerResultsInfos(moneyBudget: 40.0, numberOfGuests: 3, numberOfMeals: 2)
 
         var body: some View {
             MiamNeutralMealPlannerForm().content(

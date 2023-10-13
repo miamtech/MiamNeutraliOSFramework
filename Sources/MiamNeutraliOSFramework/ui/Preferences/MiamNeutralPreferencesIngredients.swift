@@ -19,7 +19,7 @@ public struct MiamNeutralPreferencesIngredients: PreferencesIngredientsProtocol 
         onGoToSearch: @escaping () -> Void
     ) -> some View {
         
-        PreferencesTagsListView(
+        MiamNeutralPreferencesTagsListView(
             title: Localization.preferences.tastesTitle.localised,
             subtitle: Localization.preferences.tastesSubtitle.localised,
             tags: ingredientsTag,

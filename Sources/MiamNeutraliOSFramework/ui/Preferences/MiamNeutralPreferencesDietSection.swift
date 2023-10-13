@@ -16,7 +16,7 @@ public struct MiamNeutralPreferencesDiet: PreferencesDietProtocol {
         dietsTag: [CheckableTag],
         togglePreference: @escaping (String) -> Void
     ) -> some View {
-        PreferencesListView(
+        MiamNeutralPreferencesListView(
             title: Localization.preferences.dietTitle.localised,
              subtitle: Localization.preferences.dietSubtitle.localised,
             preferences: dietsTag) { tag in

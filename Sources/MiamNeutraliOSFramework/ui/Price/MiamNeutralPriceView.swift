@@ -9,7 +9,7 @@ import MiamIOSFramework
 import SwiftUI
 
 @available(iOS 14, *)
-public struct MiamNeutralPriceView: PriceSuccessViewTemplate {
+public struct MiamNeutralPriceView: PriceSuccessProtocol {
     private let pricePerPerson: Bool
     public init(
         pricePerPerson: Bool = true
