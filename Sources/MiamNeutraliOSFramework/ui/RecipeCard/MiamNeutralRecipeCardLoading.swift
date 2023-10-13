@@ -87,6 +87,6 @@ public struct MiamNeutralRecipeCardLoading: RecipeCardLoadingProtocol {
 @available(iOS 14, *)
 struct RecipeCardLoadingView_Previews: PreviewProvider {
     static var previews: some View {
-        MiamRecipeCardLoading().content(recipeCardDimensions: CGSize(width: 100, height: 200))
+        MiamNeutralRecipeCardLoading().content(recipeCardDimensions: CGSize(width: 100, height: 200))
     }
 }

@@ -18,7 +18,7 @@ public struct MiamNeutralMealPlannerResultsToolbar: MealPlannerResultsToolbarPro
     public init() {}
     
     public func content(
-        budgetInfos: Binding<BudgetInfos>,
+        budgetInfos: Binding<MealPlannerResultsInfos>,
         activelyEditingTextField: Binding<Bool>,
         isLoadingRecipes: Binding<Bool>,
         onValidateTapped: @escaping () -> Void
@@ -82,7 +82,7 @@ struct MiamBudgetPlannerToolbar_Previews: PreviewProvider {
 
     struct Preview: View {
         @State var loading = false
-        @State var budgetInfos = BudgetInfos(moneyBudget: 30.0, numberOfGuests: 4, numberOfMeals: 4)
+        @State var budgetInfos = MealPlannerResultsInfos(moneyBudget: 30.0, numberOfGuests: 4, numberOfMeals: 4)
         var body: some View {
             MiamNeutralMealPlannerResultsToolbar().content(
                 budgetInfos: $budgetInfos,

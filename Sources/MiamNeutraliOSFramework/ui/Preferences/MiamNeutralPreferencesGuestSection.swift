@@ -15,8 +15,10 @@ public struct MiamNeutralPreferencesGuest: PreferencesGuestProtocol {
         return HStack {
             Text(Localization.preferences.numberOfGuests.localised)
             Spacer()
-            CounterView(count: guests) { count in
-                guestChanged(count)
+            if let guests {
+                MiamNeutralCounterView(count: guests) { count in
+                    guestChanged(count)
+                }
             }
         }.background(Color.miamColor(.greyLighter))
     }

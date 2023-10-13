@@ -35,7 +35,7 @@ public struct MiamNeutralRecipeDetailsStepsView: RecipeDetailsStepsProtocol {
             VStack {
                 ForEach(Array(steps.enumerated()), id: \.element) { index, step in
                     let isChecked = activeStep.wrappedValue > index
-                    RecipeDetailsStepRow(
+                    MiamNeutralRecipeDetailsStepRow(
                         index: index,
                         step: step,
                         isCheck: isChecked,

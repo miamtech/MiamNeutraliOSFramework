@@ -41,7 +41,7 @@ public struct MiamNeutralRecipeDetailsIngredientsView: RecipeDetailsIngredientsP
                         let formattedQuantity = formatQuantity(
                             quantity: quantity,
                             unit: attributes.unit)
-                        RecipeDetailsIngredientRow(
+                        MiamNeutralRecipeDetailsIngredientRow(
                             ingredientName: attributes.name ?? "",
                             quantity: formattedQuantity)
                     }
