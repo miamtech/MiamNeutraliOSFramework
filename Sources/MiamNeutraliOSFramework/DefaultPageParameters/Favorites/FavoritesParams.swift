@@ -45,7 +45,7 @@ public struct FavoritesViewOptions {
     public init(
         recipeCard: TypeSafeCatalogRecipeCard = TypeSafeCatalogRecipeCard(MiamRecipeCard()),
         recipeCardLoading: TypeSafeRecipeCardLoading = TypeSafeRecipeCardLoading(MiamRecipeCardLoading()),
-        empty: TypeSafeEmpty = TypeSafeEmpty(DefaultEmptyView()),
+        empty: TypeSafeEmpty = TypeSafeEmpty(MiamNeutralMyMealsEmpty()),
         loading: TypeSafeLoading = TypeSafeLoading(DefaultLoadingView()),
         background: TypeSafeBackground = TypeSafeBackground(DefaultBackgroundView())
     ) {

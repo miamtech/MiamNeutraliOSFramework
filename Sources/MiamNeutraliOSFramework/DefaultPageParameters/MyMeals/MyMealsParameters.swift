@@ -35,7 +35,7 @@ public struct MyMealsViewOptions {
     public var loading: TypeSafeLoading
     
     public init(
-        empty: TypeSafeEmpty = TypeSafeEmpty(DefaultEmptyView()),
+        empty: TypeSafeEmpty = TypeSafeEmpty(MiamNeutralMyMealsEmpty()),
         loading: TypeSafeLoading = TypeSafeLoading(DefaultLoadingView()),
         background: TypeSafeBackground = TypeSafeBackground(DefaultBackgroundView())
     ) {
