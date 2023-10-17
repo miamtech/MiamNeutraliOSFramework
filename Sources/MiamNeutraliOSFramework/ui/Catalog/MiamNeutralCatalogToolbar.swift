@@ -10,20 +10,21 @@ import MiamIOSFramework
 
 @available(iOS 14, *)
 public struct MiamNeutralCatalogToolbar: CatalogToolbarProtocol {
+    
     public init () {}
     public func content(
-        filtersTapped: @escaping () -> Void,
-        searchTapped: @escaping () -> Void,
-        favoritesTapped: @escaping () -> Void,
-        preferencesTapped: @escaping () -> Void
+        onFiltersTapped: @escaping () -> Void,
+        onSearchTapped: @escaping () -> Void,
+        onFavoritesTapped: @escaping () -> Void,
+        onPreferencesTapped: @escaping () -> Void
     ) -> some View {
         VStack(alignment: .center, spacing: 0) {
             MiamNeutralCatalogViewHeader()
             MiamNeutralCatalogToolbarView(
-                filtersTapped: {filtersTapped()},
-                searchTapped: {searchTapped()},
-                favoritesTapped: {favoritesTapped()},
-                preferencesTapped: {preferencesTapped()})
+                filtersTapped: onFiltersTapped,
+                searchTapped: onSearchTapped,
+                favoritesTapped: onFavoritesTapped,
+                preferencesTapped: onPreferencesTapped)
         }
     }
     
@@ -117,9 +118,9 @@ struct CatalogToolbarButtonFormat: View {
 struct MiamNeutralCatalogToolbar_Previews: PreviewProvider {
     static var previews: some View {
         MiamNeutralCatalogToolbar().content(
-            filtersTapped: {},
-            searchTapped: {},
-            favoritesTapped: {},
-            preferencesTapped: {})
+            onFiltersTapped: {},
+            onSearchTapped: {},
+            onFavoritesTapped: {},
+            onPreferencesTapped: {})
     }
 }

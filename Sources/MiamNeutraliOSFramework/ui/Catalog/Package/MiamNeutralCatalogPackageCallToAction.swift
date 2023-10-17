@@ -12,10 +12,10 @@ import MiamIOSFramework
 public struct MiamNeutralCatalogPackageCTA: CatalogPackageCTAProtocol {
     public init () {}
     public func content(
-        showAll: @escaping () -> Void
+        onSeeAllRecipes: @escaping () -> Void
     ) -> some View {
         Button( action: {
-            showAll()
+            onSeeAllRecipes()
         }, label: {
             Text(Localization.catalog.showAll.localised)
                 .underline()
@@ -30,6 +30,6 @@ public struct MiamNeutralCatalogPackageCTA: CatalogPackageCTAProtocol {
 @available(iOS 14, *)
 struct MiamNeutralCatalogPackageCTA_Previews: PreviewProvider {
     static var previews: some View {
-        MiamNeutralCatalogPackageCTA().content(showAll: {})
+        MiamNeutralCatalogPackageCTA().content(onSeeAllRecipes: {})
     }
 }
