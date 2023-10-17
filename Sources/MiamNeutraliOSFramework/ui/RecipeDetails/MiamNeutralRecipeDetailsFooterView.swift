@@ -32,7 +32,7 @@ public struct MiamNeutralRecipeDetailsFooterView: RecipeDetailsFooterProtocol {
                     .miamFontStyle(style: MiamFontStyleProvider().bodyStyle)
             })
             Divider()
-            PriceViewTemplate(
+            Price(
                 params: PriceParameters(),
                 recipeId: recipeId,
                 guestNumber: guestCount)

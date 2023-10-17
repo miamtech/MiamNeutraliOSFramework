@@ -18,7 +18,7 @@ public class RecipesListParameters: RecipesListParametersProtocol {
     public var recipeCard: TypeSafeCatalogRecipeCard
     public var recipeCardLoading: TypeSafeRecipeCardLoading
     public var title: TypeSafeBaseTitle
-    public var noResults: TypeSafeRecipesListNoResults
+    public var noResults: TypeSafeCatalogRecipesListNoResults
     public var loading: TypeSafeLoading
     
     public init(
@@ -45,14 +45,14 @@ public struct RecipesListParamsViewOptions {
     public var recipeCard: TypeSafeCatalogRecipeCard
     public var recipeCardLoading: TypeSafeRecipeCardLoading
     public var title: TypeSafeBaseTitle
-    public var noResults: TypeSafeRecipesListNoResults
+    public var noResults: TypeSafeCatalogRecipesListNoResults
     public var loading: TypeSafeLoading
     
     public init(
         recipeCard: TypeSafeCatalogRecipeCard = TypeSafeCatalogRecipeCard(MiamNeutralRecipeCard()),
         recipeCardLoading: TypeSafeRecipeCardLoading = TypeSafeRecipeCardLoading(MiamNeutralRecipeCardLoading()),
         title: TypeSafeBaseTitle = TypeSafeBaseTitle(MiamNeutralCatalogPackageTitle()),
-        noResults: TypeSafeRecipesListNoResults = TypeSafeRecipesListNoResults(MiamNeutralRecipesListNoResults()),
+        noResults: TypeSafeCatalogRecipesListNoResults = TypeSafeCatalogRecipesListNoResults(MiamNeutralCatalogRecipesListNoResults()),
         loading: TypeSafeLoading = TypeSafeLoading(DefaultLoadingView())
     ) {
         self.recipeCard = recipeCard
