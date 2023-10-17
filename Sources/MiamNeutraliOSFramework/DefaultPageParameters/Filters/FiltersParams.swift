@@ -8,8 +8,18 @@
 import SwiftUI
 import MiamIOSFramework
 
+/**
+ An implementation of ``FiltersParametersProtocol``
+ 
+ Mandatory Parameters:
+ - onApplied: () -> Void: A closure that updates the Filters Singleton & closes the page.
+ - onClosed: () -> Void: A closure that is triggered when the filters page is closed.
+ 
+ Optional Parameters:
+ - viewOptions: an implementation of ``FiltersParamsViewOptions``
+ 
+ */
 @available(iOS 14, *)
-/// This sets the Templates for the Filters Overview
 public class FiltersParameters: FiltersParametersProtocol {
     public var onApplied: () -> Void
     public var onClosed: () -> Void
@@ -32,6 +42,14 @@ public class FiltersParameters: FiltersParametersProtocol {
     }
 }
 
+/**
+ The optional View parameters for the FiltersView. If nothing is passed in, the Miam Default will be used
+ 
+ - header:  An implementation of ``FiltersHeaderProtocol``
+ - section:  An implementation of ``FiltersSectionProtocol``
+ - callToAction:  An implementation of ``FiltersCTAProtocol``
+ - background: An implementation of ``BackgroundProtocol``
+ */
 @available(iOS 14, *)
 public struct FiltersParamsViewOptions {
     public var header: TypeSafeFiltersHeader
