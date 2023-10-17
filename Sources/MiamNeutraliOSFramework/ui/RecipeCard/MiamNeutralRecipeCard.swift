@@ -16,10 +16,11 @@ public struct MiamNeutralRecipeCard: CatalogRecipeCardProtocol {
     public func content(
         recipeCardDimensions: CGSize,
         recipeInfos: MiamIOSFramework.CatalogRecipeInfos,
-        actions: RecipeCardActions
+        onAddToBasket: @escaping (String) -> Void,
+        onShowRecipeDetails: @escaping (String) -> Void
     ) -> some View {
         let dimensions = Dimension.sharedInstance
-        let ctaAction: (String) -> Void = recipeInfos.isInBasket ? actions.showDetails : actions.addToBasket
+        let ctaAction: (String) -> Void = recipeInfos.isInBasket ? onShowRecipeDetails : onAddToBasket
         let pictureHeight = 150.0
         
         VStack(spacing: 0.0) {
@@ -76,7 +77,7 @@ public struct MiamNeutralRecipeCard: CatalogRecipeCardProtocol {
             }
         }
         .onTapGesture {
-            actions.showDetails(recipeInfos.recipe.id)
+            onShowRecipeDetails(recipeInfos.recipe.id)
         }
         .padding(0)
         .frame(width: recipeCardDimensions.width, height: recipeCardDimensions.height)
@@ -97,7 +98,8 @@ struct MiamNeutralRecipeCard_Previews: PreviewProvider {
         MiamNeutralRecipeCard().content(
             recipeCardDimensions: CGSize(width: 380, height: 100),
             recipeInfos: infos,
-            actions: RecipeCardActions(addToBasket: {_ in }, showDetails: {_ in})
+            onAddToBasket: {_ in },
+            onShowRecipeDetails: {_ in}
         )
         .padding(80.0)
     }
