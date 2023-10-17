@@ -13,12 +13,12 @@ public struct MiamNeutralFiltersCTA: FiltersCTAProtocol {
     public init() {}
     public func content(
         numberOfRecipes: Int,
-        apply: @escaping () -> Void,
-        clear: @escaping () -> Void
+        onApply: @escaping () -> Void,
+        onClear: @escaping () -> Void
     ) -> some View {
         VStack {
             Button {
-                clear()
+                onClear()
             } label: {
                 Text(Localization.catalog.removeFilters.localised)
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigStyle)
@@ -26,7 +26,7 @@ public struct MiamNeutralFiltersCTA: FiltersCTAProtocol {
             }.padding(EdgeInsets(top: 9, leading: 20, bottom: 9, trailing: 20))
             Divider().padding([.bottom, .top], 10)
             Button {
-                apply()
+                onApply()
             } label: {
                 Text("Voir les \(numberOfRecipes) idées repas")
                     .padding(EdgeInsets(top: 9, leading: 20, bottom: 9, trailing: 20))
@@ -42,6 +42,6 @@ public struct MiamNeutralFiltersCTA: FiltersCTAProtocol {
 @available(iOS 14, *)
 struct MiamNeutralFiltersCTA_Previews: PreviewProvider {
     static var previews: some View {
-        MiamNeutralFiltersCTA().content(numberOfRecipes: 8, apply: {}, clear: {})
+        MiamNeutralFiltersCTA().content(numberOfRecipes: 8, onApply: {}, onClear: {})
     }
 }

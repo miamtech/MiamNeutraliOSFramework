@@ -15,7 +15,7 @@ public struct MiamNeutralFiltersSection: FiltersSectionProtocol {
     public func content(
         title: String,
         filters: [CatalogFilterOptions],
-        filterSelected: @escaping (CatalogFilterOptions) -> Void
+        onFilterSelected: @escaping (CatalogFilterOptions) -> Void
     ) -> some View {
         
         return VStack {
@@ -24,7 +24,7 @@ public struct MiamNeutralFiltersSection: FiltersSectionProtocol {
             ForEach(filters, id: \.self) { filter in
                     HStack {
                         Button {
-                            filterSelected(filter)
+                            onFilterSelected(filter)
                         } label: {
                             if filter.isSelected {
                                 var icon: MiamIOSFramework.MiamIcon {
@@ -54,7 +54,7 @@ struct MiamNeutralFiltersSection_Previews: PreviewProvider {
                 CatalogFilterOptions(name: "Hello World", uiLabel: "Test", isSelected: false),
                 CatalogFilterOptions(name: "Bonjour", uiLabel: "le test", isSelected: true)
             ],
-            filterSelected: {_ in}
+            onFilterSelected: { _ in }
         )
     }
 }

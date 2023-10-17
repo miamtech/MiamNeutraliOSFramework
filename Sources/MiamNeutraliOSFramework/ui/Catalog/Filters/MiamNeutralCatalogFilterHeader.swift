@@ -13,14 +13,14 @@ public struct MiamNeutralFiltersHeader: FiltersHeaderProtocol {
     
     public init() {}
     public func content(
-        closeFilters: @escaping () -> Void
+        onCloseFilters: @escaping () -> Void
     ) -> some View {
         HStack {
             Text(Localization.catalog.filtersTitle.localised)
                 .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleMediumStyle)
             Spacer()
             Button {
-                closeFilters()
+                onCloseFilters()
             } label: {
                 Image.miamImage(icon: .cross)
             }
@@ -31,6 +31,6 @@ public struct MiamNeutralFiltersHeader: FiltersHeaderProtocol {
 @available(iOS 14, *)
 struct MiamNeutralFiltersHeader_Previews: PreviewProvider {
     static var previews: some View {
-        MiamNeutralFiltersHeader().content(closeFilters: {})
+        MiamNeutralFiltersHeader().content(onCloseFilters: {})
     }
 }
