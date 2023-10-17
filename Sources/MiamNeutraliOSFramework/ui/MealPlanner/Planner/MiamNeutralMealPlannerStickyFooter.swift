@@ -21,19 +21,19 @@ public struct MiamNeutralMealPlannerStickyFooter: MealPlannerResultsFooterProtoc
     ) -> some View {
         VStack {
             MiamNeutralMealPlannerBudgetFooter(budgetSpent: budgetSpent.wrappedValue, totalBudgetPermitted: budgetInfos.moneyBudget)
-            MiamNeutralMealPlannerCTAFooter(buttonAction: onValidateTapped)
+            MiamNeutralMealPlannerCTAFooter(onButtonAction: onValidateTapped)
         }
     }
 }
 
 @available(iOS 14, *)
 struct MiamNeutralMealPlannerCTAFooter: View {
-    let buttonAction: () -> Void
+    let onButtonAction: () -> Void
     let dimension = Dimension.sharedInstance
     var body: some View {
         Button {
             withAnimation {
-                buttonAction()
+                onButtonAction()
             }
         } label: {
             HStack {

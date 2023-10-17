@@ -11,7 +11,7 @@ import MiamIOSFramework
 @available(iOS 14, *)
 public struct MiamNeutralCatalogEmpty: EmptyProtocol {
     public init() {}
-    public func content(optionalCallBack: (() -> Void)?) -> some View {
+    public func content(onOptionalCallback: (() -> Void)?) -> some View {
         Text("No Results were returned")
     }
 }
@@ -19,6 +19,6 @@ public struct MiamNeutralCatalogEmpty: EmptyProtocol {
 @available(iOS 14, *)
 struct MiamNeutralCatalogEmpty_Previews: PreviewProvider {
     static var previews: some View {
-        MiamNeutralCatalogEmpty().content(optionalCallBack: {})
+        MiamNeutralCatalogEmpty().content(onOptionalCallback: {})
     }
 }

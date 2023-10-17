@@ -10,7 +10,7 @@ import SwiftUI
 
 @available(iOS 14, *)
 public struct MiamNeutralMealPlannerRecipePickerEmpty: EmptyProtocol {
-    public func content(optionalCallBack: (() -> Void)?) -> some View {
+    public func content(onOptionalCallback: (() -> Void)?) -> some View {
             VStack {
                 Text(Localization.catalog.noRecipeFound.localised)
                     .miamFontStyle(style: MiamFontStyleProvider().titleStyle)

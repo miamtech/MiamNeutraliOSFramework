@@ -46,13 +46,13 @@ public struct MiamNeutralMealPlannerResultsToolbar: MealPlannerResultsToolbarPro
 internal struct SubmitButtonCollapsed: View {
     @Binding var isLoading: Bool
     var activelyEditingTextField: Bool
-    let buttonAction: () -> Void
+    let onButtonAction: () -> Void
     let dimension = Dimension.sharedInstance
     var body: some View {
         Button {
             withAnimation {
                 isLoading.toggle()
-                buttonAction()
+                onButtonAction()
             }
         } label: {
             if isLoading {
