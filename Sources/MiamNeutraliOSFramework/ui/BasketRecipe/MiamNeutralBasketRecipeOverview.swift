@@ -35,7 +35,7 @@ public struct MiamNeutralBasketRecipeOverview: BasketRecipeOverviewProtocol {
         
         func linkToRecipeDetail() -> some View {
             return  Button {
-                actions.onRecipeTapped(infos.recipe.id)
+                actions.onShowRecipeDetails(infos.recipe.id)
             } label: {
                 Text(Localization.recipe.showDetails.localised)
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigBoldStyle)
@@ -50,7 +50,7 @@ public struct MiamNeutralBasketRecipeOverview: BasketRecipeOverviewProtocol {
                     Text(infos.recipe.attributes?.title ?? "")
                         .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleMediumStyle)
                         .foregroundColor(Color.miamColor(.black))
-                    Text(infos.pricePerPerson)
+                    Text(infos.price.pricePerPerson(numberOfGuests: infos.guests))
                         .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigLightStyle)
                         .foregroundColor(Color.miamColor(.secondaryText))
                     HStack {
@@ -59,7 +59,7 @@ public struct MiamNeutralBasketRecipeOverview: BasketRecipeOverviewProtocol {
                         if infos.isExpandable {
                             Button {
                                 withAnimation(.default) {
-                                    actions.expand()
+                                    actions.onExpand()
                                 }
                             } label: {
                                 Image.miamImage(icon: .chevronDown).rotationEffect(Angle.degrees(chevronAngle))
@@ -82,7 +82,7 @@ public struct MiamNeutralBasketRecipeOverview: BasketRecipeOverviewProtocol {
                 MiamNeutralCounterView(
                     count: infos.guests,
                     lightMode: false,
-                    onCounterChanged: { guestCount in actions.updateGuests(guestCount) },
+                    onCounterChanged: { guestCount in actions.onUpdateGuests(guestCount) },
                     isLoading: infos.isReloading,
                     isDisable: infos.isReloading,
                     minValue: 1,
@@ -100,17 +100,16 @@ struct MiamNeutralBasketRecipeOverview_Previews: PreviewProvider {
         let infos = BasketRecipeInfos(
             recipe: FakeRecipe().createRandomFakeRecipe(),
             price: 40.4,
-            pricePerPerson: "43",
             guests: 4,
             isReloading: false,
             totalProductCount: 5,
             isExpandable: true,
             isExpanded: true)
         let actions = BasketRecipeActions(
-            delete: {},
-            expand: {},
-            updateGuests: { _ in },
-            onRecipeTapped: { _ in })
+            onDeleteRecipe: {},
+            onExpand: {},
+            onUpdateGuests: { _ in },
+            onShowRecipeDetails: { _ in })
         
         return MiamNeutralBasketRecipeOverview().content(
             recipeCardDimensions: CGSize(width: 150.0, height: 300.0),

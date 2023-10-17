@@ -16,7 +16,7 @@ public struct MiamNeutralOptionalIngredients: OptionalIngredientsProtocol {
         showItems: Binding<Bool>,
         title: String,
         items: [BasketEntry],
-        addToBasket: @escaping (BasketEntry) -> Void
+        onAddToBasket: @escaping (BasketEntry) -> Void
     ) -> some View {
         VStack {
             titleButton(title: title) {
@@ -25,7 +25,7 @@ public struct MiamNeutralOptionalIngredients: OptionalIngredientsProtocol {
             if showItems.wrappedValue {
                 ForEach(items) { entry in
                     sectionProducts(name: entry.name) {
-                        addToBasket(entry)
+                        onAddToBasket(entry)
                     }
                 }
             }
@@ -78,6 +78,6 @@ struct MiamNeutralOptionalIngredients_Previews: PreviewProvider {
             showItems: .constant(true),
             title: "Test Items",
             items: [],
-            addToBasket: { _ in })
+            onAddToBasket: { _ in })
     }
 }
