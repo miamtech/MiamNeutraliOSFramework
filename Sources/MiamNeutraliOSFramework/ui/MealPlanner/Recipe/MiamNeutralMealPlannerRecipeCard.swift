@@ -32,7 +32,7 @@ public struct MiamNeutralMealPlannerRecipeCard: MealPlannerRecipeCardProtocol {
                             .padding(0)
                             .frame(minWidth: 0, maxWidth: .infinity, maxHeight: .infinity)
                     }.padding(0)
-                    LikeButtonViewTemplate(likeButtonInfo: LikeButtonInfo(recipeId: recipeInfos.recipe.id))
+                    LikeButton(likeButtonInfo: LikeButtonInfo(recipeId: recipeInfos.recipe.id))
                         .padding(dimensions.lPadding)
                 }
                 .padding(0)

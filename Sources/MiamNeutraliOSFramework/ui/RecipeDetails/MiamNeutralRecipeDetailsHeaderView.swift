@@ -33,7 +33,7 @@ public struct MiamNeutralRecipeDetailsHeaderView: RecipeDetailsHeaderProtocol {
                 }
                 HStack {
                     if infos.isLikeEnabled {
-                        LikeButtonViewTemplate(likeButtonInfo: LikeButtonInfo(recipeId: infos.recipeId))
+                        LikeButton(likeButtonInfo: LikeButtonInfo(recipeId: infos.recipeId))
                     }
                     Spacer()
                     // question mark

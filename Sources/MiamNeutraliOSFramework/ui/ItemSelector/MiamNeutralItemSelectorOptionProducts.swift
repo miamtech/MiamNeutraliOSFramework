@@ -13,11 +13,11 @@ import SwiftUI
 @available(iOS 14, *)
 public struct MiamNeutralItemSelectorOptionProducts: ItemSelectorOptionProductsProtocol{
     
-    public init(){}
+    public init() {}
 
     public func content(
         products: [PricedItem],
-        select: @escaping (PricedItem) -> Void
+        onItemSelected: @escaping (PricedItem) -> Void
     ) -> some View {
         ForEach(products, id: \.self) { product in
             HStack {
@@ -25,7 +25,7 @@ public struct MiamNeutralItemSelectorOptionProducts: ItemSelectorOptionProductsP
                     product: product
                 )
             }.onTapGesture {
-                select(product)
+                onItemSelected(product)
             }
         }
     }

@@ -34,7 +34,7 @@ public struct MiamNeutralRecipeCard: CatalogRecipeCardProtocol {
                             .frame(minWidth: 0, maxWidth: recipeCardDimensions.width, maxHeight:
                                     pictureHeight)
                     }.padding(0)
-                    LikeButtonViewTemplate(
+                    LikeButton(
                         likeButtonInfo: LikeButtonInfo(
                             recipeId: recipeInfos.recipe.id
                             // there are other parameters you can change to customize
