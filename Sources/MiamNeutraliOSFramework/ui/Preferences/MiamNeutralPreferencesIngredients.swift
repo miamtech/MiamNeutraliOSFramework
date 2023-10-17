@@ -15,7 +15,7 @@ public struct MiamNeutralPreferencesIngredients: PreferencesIngredientsProtocol 
     public func content(
         ingredientsTag: [CheckableTag],
         geometry: GeometryProxy,
-        togglePreference: @escaping (String) -> Void,
+        onTogglePreference: @escaping (String) -> Void,
         onGoToSearch: @escaping () -> Void
     ) -> some View {
         
@@ -25,7 +25,7 @@ public struct MiamNeutralPreferencesIngredients: PreferencesIngredientsProtocol 
             tags: ingredientsTag,
             geometry: geometry,
             onToggleTag: { tag in
-                togglePreference(tag.tag.id)
+                onTogglePreference(tag.tag.id)
             },
             onAddTagTapped: onGoToSearch)
     }
@@ -38,7 +38,7 @@ struct MiamNeutralPreferencesIngredients_Previews: PreviewProvider {
             MiamNeutralPreferencesIngredients().content(
                 ingredientsTag: [],
                 geometry: geometry,
-                togglePreference: {_ in},
+                onTogglePreference: {_ in},
                 onGoToSearch: {})
         }
     }
