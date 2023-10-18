@@ -7,8 +7,17 @@
 
 import MiamIOSFramework
 
+/**
+ A class implemening the necessary parameters for the PreferencesSearch Page.
+ 
+ Mandatory Parameters:
+ - onClosed: () -> Void: A closure that applies the item & closes the page
+ 
+ Optional Parameters:
+ - viewOptions: ``PreferencesSearchViewOptions`` -> An optional object where you can override the default Miam views for the component.
+ 
+ */
 @available(iOS 14, *)
-/// This sets the Templates for the PreferencesSearchView Overview
 public class PreferencesSearchParameters: PreferencesSearchProtocol {
     public var onClosed: () -> Void
     public var search: TypeSafeSearch
@@ -26,28 +35,5 @@ public class PreferencesSearchParameters: PreferencesSearchProtocol {
         self.background = viewOptions.background
         self.empty = viewOptions.empty
         self.loading = viewOptions.loading
-    }
-}
-
-@available(iOS 14, *)
-public struct PreferencesSearchViewOptions {
-    public var search: TypeSafeSearch
-    public var tagButton: TypeSafeBaseButton
-    public var background: TypeSafeBackground
-    public var empty: TypeSafeEmpty
-    public var loading: TypeSafeLoading
-    
-    public init(
-        search: TypeSafeSearch = TypeSafeSearch(MiamNeutralGeneralSearch(hasButton: false)),
-        tagButton: TypeSafeBaseButton = TypeSafeBaseButton(MiamNeutralPreferencesSearchTag()),
-        background: TypeSafeBackground = TypeSafeBackground(DefaultBackgroundView()),
-        empty: TypeSafeEmpty = TypeSafeEmpty(DefaultEmptyView()),
-        loading: TypeSafeLoading = TypeSafeLoading(DefaultLoadingView())
-    ) {
-        self.search = search
-        self.tagButton = tagButton
-        self.background = background
-        self.empty = empty
-        self.loading = loading
     }
 }

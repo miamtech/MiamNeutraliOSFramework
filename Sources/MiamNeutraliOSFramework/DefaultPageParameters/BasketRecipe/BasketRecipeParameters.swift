@@ -11,8 +11,11 @@ import MiamIOSFramework
 /**
  A class implementing the necessary parameters for the BasketRecipe
  
+ Mandatory Parameters:
  - onShowRecipeDetails: (String) -> Void: A closure that opens the RecipeDetails, passing in the recipeId
  - onReplaceProduct: (String) -> Void: A closure that opens the ItemSelector page where a user can replace an ingredient with a different product from a different brand. This will navigate to a standalone page of ItemSelector.
+ 
+ Optional Parameters:
  - viewOptions: ``BasketRecipeViewOptions`` -> An optional object where you can override the default Miam views for the component.
  
  */

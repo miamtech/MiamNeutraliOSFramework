@@ -12,12 +12,15 @@ import miamCore
 /**
  A class implemening the necessary parameters for the Catalog Page.
  
+ Mandatory Parameters:
  - onFiltersTapped: (SingletonFilterViewModel) -> Void: A closure that navigates to the FiltersPage when the user taps on Filter Button.
  - onSearchTapped: () -> Void: A closure that navigates to the SearchPage when the user taps on Search Button.
  - onFavoritesTapped: () -> Void: A closure that navigates to the CatalogResultsPage when the user taps on Favorites Button.
  - onPreferencesTapped: () -> Void: A closure that navigates to the PreferencesPage when the user taps on Preferences Button.
  - onLaunchMealPlanner: (() -> Void)?: An optional closure that navigates to the MealPlanner when the user taps on MealPlanner Button.
  - onMealsInBasketButtonTapped: () -> Void: A closure that navigates to the MyMeals Page when the user taps on MyMeals Button.
+ 
+ Optional Parameters:
  - viewOptions: ``CatalogParametersViewOptions`` -> An optional object where you can override the default Miam views for the component.
  
  */
