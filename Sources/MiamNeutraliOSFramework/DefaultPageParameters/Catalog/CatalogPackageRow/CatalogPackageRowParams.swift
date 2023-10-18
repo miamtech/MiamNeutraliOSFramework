@@ -8,6 +8,15 @@
 import SwiftUI
 import MiamIOSFramework
 
+/**
+ A class implementing the necessary parameters for the Catalog Package Rows, or Catagories.
+ 
+ - onSeeAllRecipes: (String, String) -> Void: A closure to see all the recipes of the collection in the next page. The first String is the catagoryId & the second is the catagoryTitle, both of which will be passed into the CatalogResultsPage
+ - onShowRecipeDetails: (String) -> Void: A closure that opens the RecipeDetails, passing in the recipeId
+ - onRecipeCallToActionTapped: (String) -> Void: A closure that executes the callback in the recipeCard CTA. This is often a navigation to the Basket, but it can also be used on MealPlanner to navigate back to the MealPlanner Results
+ - viewOptions: ``CatalogPackageRowViewOptions`` -> An optional object where you can override the default Miam views for the component.
+ 
+ */
 @available(iOS 14, *)
 /// This sets the Templates for the CatalogRecipesList Overview
 public class CatalogPackageRowParameters: CatalogPackageRowParametersProtocol {
@@ -24,17 +33,14 @@ public class CatalogPackageRowParameters: CatalogPackageRowParametersProtocol {
         onSeeAllRecipes: @escaping (String, String) -> Void,
         onShowRecipeDetails: @escaping (String) -> Void,
         onRecipeCallToActionTapped: @escaping (String) -> Void,
-        cta: TypeSafeCatalogPackageCTA = TypeSafeCatalogPackageCTA(MiamNeutralCatalogPackageCTA()),
-        title: TypeSafeBaseTitle = TypeSafeBaseTitle(MiamNeutralCatalogPackageTitle()),
-        recipeCard: TypeSafeCatalogRecipeCard = TypeSafeCatalogRecipeCard(MiamNeutralRecipeCard()),
-        recipeCardLoading: TypeSafeRecipeCardLoading = TypeSafeRecipeCardLoading(MiamNeutralRecipeCardLoading())
+        viewOptions: CatalogPackageRowViewOptions = CatalogPackageRowViewOptions()
     ) {
         self.onSeeAllRecipes = onSeeAllRecipes
         self.onShowRecipeDetails = onShowRecipeDetails
         self.onRecipeCallToActionTapped = onRecipeCallToActionTapped
-        self.callToAction = cta
-        self.title = title
-        self.recipeCard = recipeCard
-        self.recipeCardLoading = recipeCardLoading
+        self.callToAction = viewOptions.callToAction
+        self.title = viewOptions.title
+        self.recipeCard = viewOptions.recipeCard
+        self.recipeCardLoading = viewOptions.recipeCardLoading
     }
 }

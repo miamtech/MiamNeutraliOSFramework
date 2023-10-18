@@ -1,5 +1,5 @@
 //
-//  CatalogViewParams.swift
+//  CatalogParameters.swift
 //  
 //
 //  Created by didi on 05/10/2023.
@@ -9,8 +9,19 @@ import SwiftUI
 import MiamIOSFramework
 import miamCore
 
+/**
+ A class implemening the necessary parameters for the Catalog Page.
+ 
+ - onFiltersTapped: (SingletonFilterViewModel) -> Void: A closure that navigates to the FiltersPage when the user taps on Filter Button.
+ - onSearchTapped: () -> Void: A closure that navigates to the SearchPage when the user taps on Search Button.
+ - onFavoritesTapped: () -> Void: A closure that navigates to the CatalogResultsPage when the user taps on Favorites Button.
+ - onPreferencesTapped: () -> Void: A closure that navigates to the PreferencesPage when the user taps on Preferences Button.
+ - onLaunchMealPlanner: (() -> Void)?: An optional closure that navigates to the MealPlanner when the user taps on MealPlanner Button.
+ - onMealsInBasketButtonTapped: () -> Void: A closure that navigates to the MyMeals Page when the user taps on MyMeals Button.
+ - viewOptions: ``CatalogParametersViewOptions`` -> An optional object where you can override the default Miam views for the component.
+ 
+ */
 @available(iOS 14, *)
-/// This sets the Templates for the CatalogPage Overview
 public struct CatalogParameters: CatalogParametersProtocol {
     
     public var onFiltersTapped: (SingletonFilterViewModel) -> Void
@@ -24,6 +35,7 @@ public struct CatalogParameters: CatalogParametersProtocol {
     public var background: TypeSafeBackground
     public var empty: TypeSafeEmpty
     public var loading: TypeSafeLoading
+    public var mealPlannerCTA: TypeSafeMealPlannerCTA
     public var mealsInBasketButton: MealsInBasketButtonParameters
     
     public init(
@@ -46,44 +58,7 @@ public struct CatalogParameters: CatalogParametersProtocol {
         self.loading = viewOptions.loading
         self.catalogToolbar = viewOptions.catalogToolbar
         self.resultsToolbar = viewOptions.resultsToolbar
+        self.mealPlannerCTA = viewOptions.mealPlannerCTA
         self.mealsInBasketButton = viewOptions.mealsInBasketButton
-    }
-    
-    
-    // this will be TypeSafe soon
-    public var mealPlannerCTA: MiamNeutralMealPlannerCallToAction {
-//        if let launchMealPlanner {
-            return MiamNeutralMealPlannerCallToAction()
-//        } else { return DefaultMealPlannerCTA() }
-    }
-}
-
-@available(iOS 14, *)
-public struct CatalogParamsViewOptions {
-    public var catalogToolbar: TypeSafeCatalogToolbar
-    public var resultsToolbar: TypeSafeCatalogToolbar
-    public var background: TypeSafeBackground
-    public var empty: TypeSafeEmpty
-    public var loading: TypeSafeLoading
-    public var mealsInBasketButton: MealsInBasketButtonParameters
-    
-    public init(
-        catalogToolbar: TypeSafeCatalogToolbar = TypeSafeCatalogToolbar(MiamNeutralCatalogToolbar()),
-        resultsToolbar: TypeSafeCatalogToolbar = TypeSafeCatalogToolbar(MiamNeutralCatalogResultsToolbar()),
-        empty: TypeSafeEmpty = TypeSafeEmpty(DefaultEmptyView()),
-        loading: TypeSafeLoading = TypeSafeLoading(DefaultLoadingView()),
-        background: TypeSafeBackground = TypeSafeBackground(DefaultBackgroundView()),
-        mealsInBasketButtonSuccess: TypeSafeMealsInBasketButtonSuccess = TypeSafeMealsInBasketButtonSuccess(MiamNeutralMealsInBasketButtonSuccess()),
-        mealsInBasketButtonEmpty: TypeSafeEmpty = TypeSafeEmpty(DefaultEmptyView())
-    ) {
-        self.background = background
-        self.empty = empty
-        self.loading = loading
-        self.catalogToolbar = catalogToolbar
-        self.resultsToolbar = resultsToolbar
-        self.mealsInBasketButton = MealsInBasketButtonParameters(
-            success: mealsInBasketButtonSuccess,
-            empty: mealsInBasketButtonEmpty
-        )
     }
 }
