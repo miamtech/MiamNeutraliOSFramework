@@ -14,30 +14,30 @@ public struct MiamNeutralBasketProduct: BasketProductProtocol {
     public init() {}
     public func content(
         quantity: Binding<Int>,
-        infos: BasketProductInfos,
+        data: BasketProductData,
         actions: BasketProductActions
     ) -> some View {
         VStack(alignment: .leading) {
             HStack(spacing: Dimension.sharedInstance.lPadding) {
-                AsyncImage(url: infos.pictureURL) { image in
+                AsyncImage(url: data.pictureURL) { image in
                     image.resizable()
                 }
                 .frame(width: 96, height: 96)
                 infoAndTitle(
-                    name: infos.name,
-                    description: infos.description,
+                    name: data.name,
+                    description: data.description,
                     delete: actions.onDeleteProduct
                 )
             }
             .frame(maxWidth: .infinity)
             HStack {
                 priceContent(
-                    price: infos.price,
-                    pricePerUnit: infos.pricePerUnit
+                    price: data.price,
+                    pricePerUnit: data.pricePerUnit
                 )
                 Spacer()
                 HStack(spacing: 12.0) {
-                    if infos.isSubstitutable {
+                    if data.isSubstitutable {
                         changeProductButton(
                             changeProduct: actions.onChangeProduct
                         )
@@ -107,7 +107,7 @@ public struct MiamNeutralBasketProduct: BasketProductProtocol {
 @available(iOS 14, *)
 struct MiamNeutralBasketProduct_Previews: PreviewProvider {
     static var previews: some View {
-        let infos = BasketProductInfos(
+        let data = BasketProductData(
             price: 34.0,
             name: "Test",
             description: "MY description",
@@ -122,7 +122,7 @@ struct MiamNeutralBasketProduct_Previews: PreviewProvider {
             onChangeProduct: {})
         MiamNeutralBasketProduct().content(
             quantity: .constant(4),
-            infos: infos,
+            data: data,
             actions: actions)
     }
 }

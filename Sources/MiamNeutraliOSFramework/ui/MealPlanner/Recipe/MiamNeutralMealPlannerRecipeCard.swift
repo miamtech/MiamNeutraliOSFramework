@@ -18,7 +18,7 @@ public struct MiamNeutralMealPlannerRecipeCard: MealPlannerRecipeCardProtocol {
     public init() {}
     public func content(
         recipeCardDimensions: CGSize,
-        recipeInfos: MiamIOSFramework.CatalogRecipeInfos,
+        recipe: Recipe,
         onRemoveRecipeFromMealPlanner: @escaping () -> Void,
         onReplaceRecipeFromMealPlanner: @escaping () -> Void
     ) -> some View {
@@ -26,28 +26,28 @@ public struct MiamNeutralMealPlannerRecipeCard: MealPlannerRecipeCardProtocol {
             Divider()
             HStack(spacing: 0.0) {
                 ZStack(alignment: .topTrailing) {
-                    AsyncImage(url: recipeInfos.recipe.pictureURL) { image in
+                    AsyncImage(url: recipe.pictureURL) { image in
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .padding(0)
                             .frame(minWidth: 0, maxWidth: .infinity, maxHeight: .infinity)
                     }.padding(0)
-                    LikeButton(likeButtonInfo: LikeButtonInfo(recipeId: recipeInfos.recipe.id))
+                    LikeButton(likeButtonInfo: LikeButtonInfo(recipeId: recipe.id))
                         .padding(dimensions.lPadding)
                 }
                 .padding(0)
                 .frame(width: 150.0)
                 .clipped()
                 VStack(spacing: dimensions.sPadding) {
-                    Text(recipeInfos.recipe.title + "\n")
+                    Text(recipe.title + "\n")
                         .miamFontStyle(style: MiamFontStyleProvider().bodyMediumBoldStyle)
                         .lineLimit(2)
                         .minimumScaleFactor(0.9)
                         .multilineTextAlignment(.leading)
                     HStack(spacing: dimensions.sPadding) {
-                        MiamNeutralRecipeDifficulty(difficulty: recipeInfos.recipe.difficulty)
-                        MiamNeutralRecipePreparationTime(duration: recipeInfos.recipe.cookingTimeIos)
+                        MiamNeutralRecipeDifficulty(difficulty: recipe.difficulty)
+                        MiamNeutralRecipePreparationTime(duration: recipe.cookingTimeIos)
                     }
                     HStack {
                         Text(Localization.basket.swapProduct.localised)
@@ -94,12 +94,9 @@ struct MiamNeutralBudgetRecipeCardPreview: PreviewProvider {
             id: "234",
             attributes: recipeAttributes,
             relationships: nil)
-        let recipeInfos = CatalogRecipeInfos(
-            recipe: recipe,
-            isInBasket: false)
         MiamNeutralMealPlannerRecipeCard().content(
             recipeCardDimensions: CGSize(),
-            recipeInfos: recipeInfos,
+            recipe: recipe,
             onRemoveRecipeFromMealPlanner: {},
             onReplaceRecipeFromMealPlanner: {})
     }

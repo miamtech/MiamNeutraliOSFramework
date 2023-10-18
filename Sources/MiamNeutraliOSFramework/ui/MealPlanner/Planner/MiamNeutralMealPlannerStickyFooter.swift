@@ -15,12 +15,14 @@ public struct MiamNeutralMealPlannerStickyFooter: MealPlannerResultsFooterProtoc
     let dimension = Dimension.sharedInstance
     public init() {}
     public func content(
-        budgetInfos: MealPlannerResultsInfos,
+        mealPlannerCriteria: MealPlannerCriteria,
         budgetSpent: Binding<Double>,
         onValidateTapped: @escaping () -> Void
     ) -> some View {
         VStack {
-            MiamNeutralMealPlannerBudgetFooter(budgetSpent: budgetSpent.wrappedValue, totalBudgetPermitted: budgetInfos.moneyBudget)
+            MiamNeutralMealPlannerBudgetFooter(
+                budgetSpent: budgetSpent.wrappedValue,
+                totalBudgetPermitted: mealPlannerCriteria.availableBudget)
             MiamNeutralMealPlannerCTAFooter(onButtonAction: onValidateTapped)
         }
     }
@@ -108,7 +110,10 @@ struct MiamNeutralMealPlannerBudgetFooter: View {
 struct MiamNeutralMealPlannerStickyFooter_Previews: PreviewProvider {
 
     static var previews: some View {
-        let budgetInfos = MealPlannerResultsInfos(moneyBudget: 50.0, numberOfGuests: 4, numberOfMeals: 4)
+        let mealPlannerCriteria = MealPlannerCriteria(
+            availableBudget: 50.0,
+            numberOfGuests: 4,
+            numberOfMeals: 4)
 
         GeometryReader { geometry in
             let safeArea = geometry.safeAreaInsets
@@ -131,7 +136,7 @@ struct MiamNeutralMealPlannerStickyFooter_Previews: PreviewProvider {
                     }
                 }
 //                StickyFooter(safeArea: safeArea) {
-                MiamNeutralMealPlannerStickyFooter().content(budgetInfos: budgetInfos, budgetSpent: .constant(50.0)) {
+                MiamNeutralMealPlannerStickyFooter().content(mealPlannerCriteria: mealPlannerCriteria, budgetSpent: .constant(50.0)) {
                         print("hello world")
                     }
 //                }

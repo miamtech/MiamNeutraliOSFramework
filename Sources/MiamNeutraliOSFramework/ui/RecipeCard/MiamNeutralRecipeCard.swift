@@ -15,18 +15,19 @@ public struct MiamNeutralRecipeCard: CatalogRecipeCardProtocol {
     public init() {}
     public func content(
         recipeCardDimensions: CGSize,
-        recipeInfos: MiamIOSFramework.CatalogRecipeInfos,
+        recipe: Recipe,
+        isCurrentlyInBasket: Bool,
         onAddToBasket: @escaping (String) -> Void,
         onShowRecipeDetails: @escaping (String) -> Void
     ) -> some View {
         let dimensions = Dimension.sharedInstance
-        let ctaAction: (String) -> Void = recipeInfos.isInBasket ? onShowRecipeDetails : onAddToBasket
+        let ctaAction: (String) -> Void = isCurrentlyInBasket ? onShowRecipeDetails : onAddToBasket
         let pictureHeight = 150.0
         
         VStack(spacing: 0.0) {
             VStack(spacing: 0.0) {
                 ZStack(alignment: .topTrailing) {
-                    AsyncImage(url: recipeInfos.recipe.pictureURL) { image in
+                    AsyncImage(url: recipe.pictureURL) { image in
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fill)
@@ -36,7 +37,7 @@ public struct MiamNeutralRecipeCard: CatalogRecipeCardProtocol {
                     }.padding(0)
                     LikeButton(
                         likeButtonInfo: LikeButtonInfo(
-                            recipeId: recipeInfos.recipe.id
+                            recipeId: recipe.id
                             // there are other parameters you can change to customize
                         ))
                     .padding(dimensions.lPadding)
@@ -45,19 +46,19 @@ public struct MiamNeutralRecipeCard: CatalogRecipeCardProtocol {
                 .frame(height: pictureHeight)
                 .clipped()
                 VStack(spacing: dimensions.lPadding) {
-                    Text(recipeInfos.recipe.title + "\n")
+                    Text(recipe.title + "\n")
                         .miamFontStyle(style: MiamFontStyleProvider().bodyMediumBoldStyle)
                         .lineLimit(2)
                         .multilineTextAlignment(.leading)
                         .minimumScaleFactor(0.9)
 
                     HStack(spacing: 0.0) {
-                        MiamNeutralRecipeDifficulty(difficulty: recipeInfos.recipe.difficulty)
+                        MiamNeutralRecipeDifficulty(difficulty: recipe.difficulty)
                         Spacer()
-                        MiamNeutralRecipePreparationTime(duration: recipeInfos.recipe.cookingTimeIos)
+                        MiamNeutralRecipePreparationTime(duration: recipe.cookingTimeIos)
                     }
                     Button {
-                        ctaAction(recipeInfos.recipe.id)
+                        ctaAction(recipe.id)
                     } label: {
                         Label {
                             Text("Ajouter")
@@ -77,7 +78,7 @@ public struct MiamNeutralRecipeCard: CatalogRecipeCardProtocol {
             }
         }
         .onTapGesture {
-            onShowRecipeDetails(recipeInfos.recipe.id)
+            onShowRecipeDetails(recipe.id)
         }
         .padding(0)
         .frame(width: recipeCardDimensions.width, height: recipeCardDimensions.height)
@@ -94,10 +95,10 @@ struct MiamNeutralRecipeCard_Previews: PreviewProvider {
             attributes: RecipeFakeFactory().createAttributes(title: "Parmentier de Poulet",
             mediaUrl: "https://lh3.googleusercontent.com/tbMNuhJ4KxReIPF_aE0yve0akEHeN6O8hauty_XNUF2agWsmyprACLg0Zw6s8gW-QCS3A0QmplLVqBKiMmGf_Ctw4SdhARvwldZqAtMG"),
              relationships: nil)
-        let infos = CatalogRecipeInfos(recipe: recipe, isInBasket: true)
         MiamNeutralRecipeCard().content(
             recipeCardDimensions: CGSize(width: 380, height: 100),
-            recipeInfos: infos,
+            recipe: recipe,
+            isCurrentlyInBasket: false,
             onAddToBasket: {_ in },
             onShowRecipeDetails: {_ in}
         )
