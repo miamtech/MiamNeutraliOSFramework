@@ -19,6 +19,7 @@ public struct MiamNeutralMealPlannerRecipeCard: MealPlannerRecipeCardProtocol {
     public func content(
         recipeCardDimensions: CGSize,
         recipe: Recipe,
+        onShowRecipeDetails: @escaping (String) -> Void,
         onRemoveRecipeFromMealPlanner: @escaping () -> Void,
         onReplaceRecipeFromMealPlanner: @escaping () -> Void
     ) -> some View {
@@ -71,6 +72,9 @@ public struct MiamNeutralMealPlannerRecipeCard: MealPlannerRecipeCardProtocol {
             }
             Divider()
         }
+        .onTapGesture {
+            onShowRecipeDetails(recipe.id)
+        }
         .padding(0)
         .frame(maxWidth: .infinity)
         .frame(height: recipeCardDimensions.height)
@@ -97,6 +101,7 @@ struct MiamNeutralBudgetRecipeCardPreview: PreviewProvider {
         MiamNeutralMealPlannerRecipeCard().content(
             recipeCardDimensions: CGSize(),
             recipe: recipe,
+            onShowRecipeDetails: { _ in },
             onRemoveRecipeFromMealPlanner: {},
             onReplaceRecipeFromMealPlanner: {})
     }
