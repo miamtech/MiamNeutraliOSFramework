@@ -48,7 +48,7 @@ public struct CatalogParameters: CatalogParametersProtocol {
         onPreferencesTapped: @escaping () -> Void,
         onLaunchMealPlanner: (() -> Void)? = nil,
         onMealsInBasketButtonTapped: @escaping () -> Void,
-        viewOptions: CatalogParamsViewOptions = CatalogParamsViewOptions()
+        viewOptions: CatalogParametersViewOptions = CatalogParametersViewOptions()
     ) {
         self.onFiltersTapped = onFiltersTapped
         self.onSearchTapped = onSearchTapped
