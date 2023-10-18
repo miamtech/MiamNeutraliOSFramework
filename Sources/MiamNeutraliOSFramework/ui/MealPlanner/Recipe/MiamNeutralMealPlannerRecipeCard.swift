@@ -12,14 +12,15 @@ import MiamIOSFramework
 
 @available(iOS 14, *)
 public struct MiamNeutralMealPlannerRecipeCard: MealPlannerRecipeCardProtocol {
-   
+    
     let dimensions = Dimension.sharedInstance
     let cardHeight = 200.0
     public init() {}
     public func content(
         recipeCardDimensions: CGSize,
         recipeInfos: MiamIOSFramework.CatalogRecipeInfos,
-        actions: MealPlannerRecipeCardActions
+        onRemoveRecipeFromMealPlanner: @escaping () -> Void,
+        onReplaceRecipeFromMealPlanner: @escaping () -> Void
     ) -> some View {
         VStack(spacing: 0.0) {
             Divider()
@@ -54,21 +55,13 @@ public struct MiamNeutralMealPlannerRecipeCard: MealPlannerRecipeCardProtocol {
                             .miamFontStyle(style: MiamFontStyleProvider().bodyMediumBoldStyle)
                             .padding(dimensions.lPadding)
                             .onTapGesture {
-                                guard let replaceTapped = actions.replaceTapped else {
-                                    return
-                                }
-                                replaceTapped()
+                                onReplaceRecipeFromMealPlanner()
                             }
                         if #unavailable(iOS 15.0) {
                             Image.miamNeutralImage(icon: .bin)
                                 .padding(dimensions.mPadding)
                                 .onTapGesture {
-                                    guard let removeTapped = actions.removeTapped else {
-                                        return
-                                    }
-                                    withAnimation {
-                                        removeTapped()
-                                    }
+                                    onRemoveRecipeFromMealPlanner()
                                 }
                         }
                     }
@@ -107,11 +100,7 @@ struct MiamNeutralBudgetRecipeCardPreview: PreviewProvider {
         MiamNeutralMealPlannerRecipeCard().content(
             recipeCardDimensions: CGSize(),
             recipeInfos: recipeInfos,
-            actions: MealPlannerRecipeCardActions(
-                recipeTapped: { _ in},
-                removeTapped: {
-                   print("Remove recipe card.")
-                },
-                replaceTapped: nil))
+            onRemoveRecipeFromMealPlanner: {},
+            onReplaceRecipeFromMealPlanner: {})
     }
 }
