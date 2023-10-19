@@ -7,6 +7,14 @@
 
 import MiamIOSFramework
 
+/**
+ A class implemening the necessary parameters for the MealsInBasket Button.
+ 
+ Optional Parameters:
+ - success:  An implementation of ``MealsInBasketButtonSuccessProtocol``
+ - empty:  An implementation of ``EmptyProtocol``
+ 
+ */
 @available(iOS 14, *)
 public class MealsInBasketButtonParameters: MealsInBasketButtonParametersProtocol {
     public var success: TypeSafeMealsInBasketButtonSuccess

@@ -17,7 +17,7 @@ public struct MiamNeutralGeneralSearch: SearchProtocol {
     }
     public func content(
         searchText: Binding<String>,
-        apply: @escaping () -> Void
+        onApply: @escaping () -> Void
     ) -> some View {
         VStack(spacing: 10.0) {
             HStack(spacing: 10.0) {
@@ -26,7 +26,7 @@ public struct MiamNeutralGeneralSearch: SearchProtocol {
                         .disableAutocorrection(true)
                     if hasButton {
                         Button {
-                            apply()
+                            onApply()
                         } label: {
                             Image.miamImage(icon: .search)
                                 .renderingMode(.template)
@@ -51,6 +51,6 @@ struct MiamNeutralGeneralSearch_Previews: PreviewProvider {
     static var previews: some View {
         MiamNeutralGeneralSearch().content(
             searchText: .constant(""),
-            apply: {})
+            onApply: {})
     }
 }

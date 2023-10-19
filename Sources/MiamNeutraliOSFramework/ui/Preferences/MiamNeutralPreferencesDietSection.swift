@@ -14,13 +14,13 @@ public struct MiamNeutralPreferencesDiet: PreferencesDietProtocol {
     public init() {}
     public func content(
         dietsTag: [CheckableTag],
-        togglePreference: @escaping (String) -> Void
+        onTogglePreference: @escaping (String) -> Void
     ) -> some View {
         MiamNeutralPreferencesListView(
             title: Localization.preferences.dietTitle.localised,
              subtitle: Localization.preferences.dietSubtitle.localised,
             preferences: dietsTag) { tag in
-                togglePreference(tag.tag.id)
+                onTogglePreference(tag.tag.id)
         }
     }
 }
@@ -30,6 +30,6 @@ struct MiamNeutralPreferencesDiet_Previews: PreviewProvider {
     static var previews: some View {
         MiamNeutralPreferencesDiet().content(
             dietsTag: [],
-            togglePreference: {_ in})
+            onTogglePreference: {_ in})
     }
 }

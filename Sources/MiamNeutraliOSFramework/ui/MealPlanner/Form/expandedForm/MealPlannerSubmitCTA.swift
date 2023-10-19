@@ -12,7 +12,7 @@ import MiamIOSFramework
 @available (iOS 14, *)
 internal struct MealPlannerSubmitCTA: View {
     let isLoading: Bool
-    let buttonAction: () -> Void
+    let onButtonAction: () -> Void
     // this will come from state
 
     @State var isEnabled = true
@@ -33,7 +33,7 @@ internal struct MealPlannerSubmitCTA: View {
         VStack {
             Button {
                 withAnimation {
-                    buttonAction()
+                    onButtonAction()
                 }
             } label: {
                 if isLoading {

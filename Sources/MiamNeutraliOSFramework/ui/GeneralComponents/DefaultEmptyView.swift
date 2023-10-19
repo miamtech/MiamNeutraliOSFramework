@@ -10,7 +10,7 @@ import MiamIOSFramework
 @available(iOS 14, *)
 public struct DefaultEmptyView: EmptyProtocol {
     public init() {}
-    public func content(optionalCallBack: (() -> Void)?) -> some View {
+    public func content(onOptionalCallback: (() -> Void)?) -> some View {
         HStack {}
     }
 }
@@ -18,6 +18,6 @@ public struct DefaultEmptyView: EmptyProtocol {
 @available(iOS 14, *)
 struct DefaultEmptyView_Previews: PreviewProvider {
     static var previews: some View {
-        DefaultEmptyView().content(optionalCallBack: nil)
+        DefaultEmptyView().content(onOptionalCallback: nil)
     }
 }

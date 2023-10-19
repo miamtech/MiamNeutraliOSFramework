@@ -10,12 +10,12 @@ import MiamIOSFramework
 import miamCore
 
 @available(iOS 14, *)
-public struct MiamNeutralRecipesListNoResults: RecipesListNoResultsProtocol {
+public struct MiamNeutralCatalogRecipesListNoResults: CatalogRecipesListNoResultsProtocol {
     let searchString: String = FilterViewModelInstance.shared.instance.currentState.searchString ?? ""
     public init() {}
     public func content(
         catalogContent: CatalogContent,
-        noResultsRedirect: @escaping () -> Void
+        onNoResultsRedirect: @escaping () -> Void
     ) -> some View {
         VStack(spacing: 32.0) {
             Image.miamImage(icon: .noResults)
@@ -25,7 +25,7 @@ public struct MiamNeutralRecipesListNoResults: RecipesListNoResultsProtocol {
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color.miamColor(.white))
                 Button {
-                    noResultsRedirect()
+                    onNoResultsRedirect()
                 } label: {
                     Text(Localization.catalog.browseRecipes.localised)
                         .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigBoldStyle)
@@ -52,10 +52,10 @@ public struct MiamNeutralRecipesListNoResults: RecipesListNoResultsProtocol {
 }
 
 @available(iOS 14, *)
-struct MiamNeutralRecipesListNoResults_Previews: PreviewProvider {
+struct MiamNeutralCatalogRecipesListNoResults_Previews: PreviewProvider {
     static var previews: some View {
-        MiamNeutralRecipesListNoResults().content(
+        MiamNeutralCatalogRecipesListNoResults().content(
             catalogContent: CatalogContent.categoriesList,
-            noResultsRedirect: {})
+            onNoResultsRedirect: {})
     }
 }

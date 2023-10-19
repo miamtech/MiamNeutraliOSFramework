@@ -12,9 +12,9 @@ import miamCore
 @available(iOS 14, *)
 public struct MiamNeutralPreferencesSearchTag: BaseButtonProtocol {
     public init() {}
-    public func content(buttonText: String, buttonAction: @escaping () -> Void) -> some View {
+    public func content(buttonText: String, onButtonAction: @escaping () -> Void) -> some View {
         Button {
-            buttonAction()
+            onButtonAction()
         } label: {
             Text(buttonText)
                 .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigStyle)
@@ -28,6 +28,6 @@ struct MiamNeutralPreferencesSearchTag_Previews: PreviewProvider {
     static var previews: some View {
         MiamNeutralPreferencesSearchTag().content(
             buttonText: "Test",
-            buttonAction: { })
+            onButtonAction: { })
     }
 }

@@ -15,7 +15,7 @@ public struct MiamNeutralRecipeDetailsIngredientsView: RecipeDetailsIngredientsP
     
     public func content(
         infos: RecipeDetailsIngredientsParameters,
-        updateGuestsAction: @escaping (Int) -> Void
+        onUpdateGuests: @escaping (Int) -> Void
     ) -> some View {
         HStack {
             HStack {

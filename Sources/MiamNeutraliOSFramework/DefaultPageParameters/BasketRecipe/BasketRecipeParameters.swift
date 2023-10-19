@@ -8,6 +8,17 @@
 import SwiftUI
 import MiamIOSFramework
 
+/**
+ A class implementing the necessary parameters for the BasketRecipe
+ 
+ Mandatory Parameters:
+ - onShowRecipeDetails: (String) -> Void: A closure that opens the RecipeDetails, passing in the recipeId
+ - onReplaceProduct: (String) -> Void: A closure that opens the ItemSelector page where a user can replace an ingredient with a different product from a different brand. This will navigate to a standalone page of ItemSelector.
+ 
+ Optional Parameters:
+ - viewOptions: ``BasketRecipeViewOptions`` -> An optional object where you can override the default Miam views for the component.
+ 
+ */
 @available(iOS 14, *)
 /// This sets the Callbacks for the BasketRecipe Overview
 public class BasketRecipeParameters: BasketRecipeParametersProtocol {
@@ -24,7 +35,7 @@ public class BasketRecipeParameters: BasketRecipeParametersProtocol {
     public init(
         onReplaceProduct: @escaping (String) -> Void,
         onShowRecipeDetails: @escaping (String) -> Void,
-        viewOptions: BasketRecipeParamsViewOptions = BasketRecipeParamsViewOptions()
+        viewOptions: BasketRecipeViewOptions = BasketRecipeViewOptions()
     ) {
         self.onReplaceProduct = onReplaceProduct
         self.onShowRecipeDetails = onShowRecipeDetails
@@ -34,31 +45,5 @@ public class BasketRecipeParameters: BasketRecipeParametersProtocol {
         self.ingredientsAtHome = viewOptions.ingredientsAtHome
         self.removedIngredients = viewOptions.removedIngredients
         self.unavailableIngredients = viewOptions.unavailableIngredients
-    }
-}
-
-@available(iOS 14, *)
-public struct BasketRecipeParamsViewOptions {
-    public var recipeOverview: TypeSafeBasketRecipeOverview
-    public var recipeOverviewLoading: TypeSafeRecipeCardLoading
-    public var basketProduct: TypeSafeBasketProduct
-    public var ingredientsAtHome: TypeSafeOptionalIngredients
-    public var removedIngredients: TypeSafeOptionalIngredients
-    public var unavailableIngredients: TypeSafeUnavailableIngredients
-    
-    public init(
-        recipeOverview: TypeSafeBasketRecipeOverview = TypeSafeBasketRecipeOverview(MiamNeutralBasketRecipeOverview()),
-        recipeOverviewLoading: TypeSafeRecipeCardLoading = TypeSafeRecipeCardLoading(MiamNeutralRecipeCardLoading()),
-        basketProduct: TypeSafeBasketProduct = TypeSafeBasketProduct(MiamNeutralBasketProduct()),
-        ingredientsAtHome: TypeSafeOptionalIngredients = TypeSafeOptionalIngredients(MiamNeutralOptionalIngredients()),
-        removedIngredients: TypeSafeOptionalIngredients = TypeSafeOptionalIngredients(MiamNeutralOptionalIngredients()),
-        unavailableIngredients: TypeSafeUnavailableIngredients = TypeSafeUnavailableIngredients(MiamNeutralUnavailableIngredients())
-    ) {
-        self.recipeOverview = recipeOverview
-        self.recipeOverviewLoading = recipeOverviewLoading
-        self.basketProduct = basketProduct
-        self.ingredientsAtHome = ingredientsAtHome
-        self.removedIngredients = removedIngredients
-        self.unavailableIngredients = unavailableIngredients
     }
 }

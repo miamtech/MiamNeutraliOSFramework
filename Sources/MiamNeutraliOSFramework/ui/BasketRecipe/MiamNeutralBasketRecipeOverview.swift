@@ -13,12 +13,12 @@ public struct MiamNeutralBasketRecipeOverview: BasketRecipeOverviewProtocol {
     public init() {}
     public func content(
         recipeCardDimensions: CGSize,
-        infos: BasketRecipeInfos,
+        data: BasketRecipeData,
         actions: BasketRecipeActions
     ) -> some View {
         
         func recipePicture() -> some View {
-            return AsyncImage(url: infos.recipe.pictureURL) { image in
+            return AsyncImage(url: data.recipe.pictureURL) { image in
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fill)
@@ -29,13 +29,13 @@ public struct MiamNeutralBasketRecipeOverview: BasketRecipeOverviewProtocol {
         }
         
         var chevronAngle: CGFloat {
-            if infos.isExpanded { return 0.0}
+            if data.isExpanded { return 0.0}
             else { return -90.0 }
         }
         
         func linkToRecipeDetail() -> some View {
             return  Button {
-                actions.onRecipeTapped(infos.recipe.id)
+                actions.onShowRecipeDetails(data.recipe.id)
             } label: {
                 Text(Localization.recipe.showDetails.localised)
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigBoldStyle)
@@ -47,19 +47,19 @@ public struct MiamNeutralBasketRecipeOverview: BasketRecipeOverviewProtocol {
             HStack {
                 recipePicture()
                 VStack(alignment: .leading) {
-                    Text(infos.recipe.attributes?.title ?? "")
+                    Text(data.recipe.attributes?.title ?? "")
                         .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleMediumStyle)
                         .foregroundColor(Color.miamColor(.black))
-                    Text(infos.pricePerPerson)
+                    Text(data.price.pricePerPerson(numberOfGuests: data.guests))
                         .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigLightStyle)
                         .foregroundColor(Color.miamColor(.secondaryText))
                     HStack {
                         linkToRecipeDetail()
                         Spacer()
-                        if infos.isExpandable {
+                        if data.isExpandable {
                             Button {
                                 withAnimation(.default) {
-                                    actions.expand()
+                                    actions.onExpand()
                                 }
                             } label: {
                                 Image.miamImage(icon: .chevronDown).rotationEffect(Angle.degrees(chevronAngle))
@@ -70,21 +70,21 @@ public struct MiamNeutralBasketRecipeOverview: BasketRecipeOverviewProtocol {
             }
             .frame(height: recipeCardDimensions.height, alignment: .topLeading)
             HStack {
-                if infos.isReloading {
+                if data.isReloading {
                     ProgressLoader(color: Color.miamNeutralColor(.primary))
                         .scaleEffect(0.5)
                 } else {
-                    Text(infos.price.currencyFormatted)
+                    Text(data.price.currencyFormatted)
                         .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigBoldStyle)
                         .foregroundColor(Color.miamColor(.primary))
                 }
                 Spacer()
                 MiamNeutralCounterView(
-                    count: infos.guests,
+                    count: data.guests,
                     lightMode: false,
-                    onCounterChanged: { guestCount in actions.updateGuests(guestCount) },
-                    isLoading: infos.isReloading,
-                    isDisable: infos.isReloading,
+                    onCounterChanged: { guestCount in actions.onUpdateGuests(guestCount) },
+                    isLoading: data.isReloading,
+                    isDisable: data.isReloading,
                     minValue: 1,
                     maxValue: 99)
             }
@@ -97,24 +97,23 @@ public struct MiamNeutralBasketRecipeOverview: BasketRecipeOverviewProtocol {
 @available(iOS 14, *)
 struct MiamNeutralBasketRecipeOverview_Previews: PreviewProvider {
     static var previews: some View {
-        let infos = BasketRecipeInfos(
+        let data = BasketRecipeData(
             recipe: FakeRecipe().createRandomFakeRecipe(),
             price: 40.4,
-            pricePerPerson: "43",
             guests: 4,
             isReloading: false,
             totalProductCount: 5,
             isExpandable: true,
             isExpanded: true)
         let actions = BasketRecipeActions(
-            delete: {},
-            expand: {},
-            updateGuests: { _ in },
-            onRecipeTapped: { _ in })
+            onDeleteRecipe: {},
+            onExpand: {},
+            onUpdateGuests: { _ in },
+            onShowRecipeDetails: { _ in })
         
         return MiamNeutralBasketRecipeOverview().content(
             recipeCardDimensions: CGSize(width: 150.0, height: 300.0),
-            infos: infos,
+            data: data,
             actions: actions)
     }
 }

@@ -2,11 +2,21 @@
 //  ItemSelectorViewOptions.swift
 //  
 //
-//  Created by didi on 16/10/2023.
+//  Created by didi on 18/10/2023.
 //
 
 import MiamIOSFramework
 
+/**
+ The optional View parameters for ItemSelector. If nothing is passed in, the Miam Default will be used
+ 
+ - selectedProduct:  An implementation of ``ItemSelectorSelectedProductProtocol``
+ - productOptions:  An implementation of ``ItemSelectorOptionProductsProtocol``
+ - loading:  An implementation of ``LoadingProtocol``
+ - empty:  An implementation of ``EmptyProtocol``
+ - background: An implementation of ``BackgroundProtocol``
+ 
+ */
 @available(iOS 14, *)
 public struct ItemSelectorViewOptions {
     

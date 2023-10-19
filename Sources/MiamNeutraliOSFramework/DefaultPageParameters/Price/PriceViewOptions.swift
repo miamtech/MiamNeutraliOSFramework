@@ -1,29 +1,20 @@
 //
-//  DefaultPriceViewTemplate.swift
+//  PriceViewOptions.swift
 //  
 //
-//  Created by didi on 03/10/2023.
+//  Created by didi on 18/10/2023.
 //
 
-import Foundation
 import MiamIOSFramework
 
-@available(iOS 14, *)
-/// This sets the Templates for the PriceParameters
-public struct PriceParameters: PriceParametersProtocol {
-    public var priceSuccess: TypeSafePriceSuccess
-    public var empty: TypeSafeEmpty
-    public var loading: TypeSafeLoading
-    
-    public init(
-        viewOptions: PriceViewOptions = PriceViewOptions()
-    ) {
-        self.priceSuccess = viewOptions.priceSuccess
-        self.empty = viewOptions.empty
-        self.loading = viewOptions.loading
-    }
-}
-
+/**
+ The optional View parameters for Price. If nothing is passed in, the Miam Default will be used
+ 
+ - priceSuccess:  An implementation of ``PriceSuccessProtocol``
+ - loading:  An implementation of ``LoadingProtocol``
+ - empty:  An implementation of ``EmptyProtocol``
+ 
+ */
 @available(iOS 14, *)
 public struct PriceViewOptions {
     public var priceSuccess: TypeSafePriceSuccess

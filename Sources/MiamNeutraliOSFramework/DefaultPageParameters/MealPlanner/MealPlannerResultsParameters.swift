@@ -13,7 +13,7 @@ import miamCore
 /// This sets the Templates for the CatalogFiltersPage Overview
 public class MealPlannerResultsParameters: MealPlannerResultsParametersProtocol {
     public var onShowRecipeDetails: (String) -> Void
-    public var onOpenReplaceRecipe: (String) -> Void
+    public var onOpenReplaceRecipe: (Int) -> Void
     public var onNavigateToBasket: () -> Void
     
     public var toolbar: TypeSafeMealPlannerResultsToolbar
@@ -28,7 +28,7 @@ public class MealPlannerResultsParameters: MealPlannerResultsParametersProtocol 
     
     public init(
         onShowRecipeDetails: @escaping (String) -> Void,
-        onOpenReplaceRecipe: @escaping (String) -> Void,
+        onOpenReplaceRecipe: @escaping (Int) -> Void,
         onNavigateToBasket: @escaping () -> Void,
         viewOptions: MealPlannerResultsViewOptions = MealPlannerResultsViewOptions()
     ) {

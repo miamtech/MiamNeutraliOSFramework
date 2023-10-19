@@ -14,26 +14,26 @@ public struct MiamNeutralMealPlannerForm: MealPlannerFormProtocol {
     let dimension = Dimension.sharedInstance
     public init() {}
     public func content(
-        budgetInfos: Binding<MealPlannerResultsInfos>,
+        mealPlannerCriteria: Binding<MealPlannerCriteria>,
         activelyUpdatingTextField: Binding<Bool>,
         isFetchingRecipes: Bool,
-        onFormValidated: @escaping (MealPlannerResultsInfos) -> Void
+        onFormValidated: @escaping (MealPlannerCriteria) -> Void
     ) -> some View {
         VStack(spacing: 24.0) {
             MiamNeutralMealPlannerBudget(
-                budget: budgetInfos.moneyBudget,
+                budget: mealPlannerCriteria.availableBudget,
                 caption: Localization.myBudget.totalBudgetTitle.localised,
                 currency: Localization.price.currency.localised)
 
             MiamNeutralStepper(
-                value: budgetInfos.numberOfGuests,
+                value: mealPlannerCriteria.numberOfGuests,
                 caption: Localization.myBudget.numberOfGuestsTitle.localised)
             MiamNeutralStepper(
-                value: budgetInfos.numberOfMeals,
+                value: mealPlannerCriteria.numberOfMeals,
                 caption: Localization.myBudget.numberOfMealsTitle.localised)
 
             MealPlannerSubmitCTA(isLoading: isFetchingRecipes) {
-                onFormValidated(budgetInfos.wrappedValue)
+                onFormValidated(mealPlannerCriteria.wrappedValue)
             }
         }
         .padding(dimension.mlPadding)
@@ -47,11 +47,14 @@ struct MiamNeutralMealPlannerFormPreview: PreviewProvider {
     }
 
     struct BudgetFormPreview: View {
-        @State var budgetInfos = MealPlannerResultsInfos(moneyBudget: 40.0, numberOfGuests: 3, numberOfMeals: 2)
+        @State var mealPlannerCriteria = MealPlannerCriteria(
+            availableBudget: 40.0,
+            numberOfGuests: 3,
+            numberOfMeals: 2)
 
         var body: some View {
             MiamNeutralMealPlannerForm().content(
-                budgetInfos: $budgetInfos,
+                mealPlannerCriteria: $mealPlannerCriteria,
                 activelyUpdatingTextField: .constant(false),
                 isFetchingRecipes: false,
                 onFormValidated: { _ in })

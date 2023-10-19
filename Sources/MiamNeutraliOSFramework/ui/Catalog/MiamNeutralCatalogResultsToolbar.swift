@@ -12,22 +12,22 @@ import MiamIOSFramework
 public struct MiamNeutralCatalogResultsToolbar: CatalogToolbarProtocol {
     public init () {}
     public func content(
-        filtersTapped: @escaping () -> Void,
-        searchTapped: @escaping () -> Void,
-        favoritesTapped: @escaping () -> Void,
-        preferencesTapped: @escaping () -> Void
+        onFiltersTapped: @escaping () -> Void,
+        onSearchTapped: @escaping () -> Void,
+        onFavoritesTapped: @escaping () -> Void,
+        onPreferencesTapped: @escaping () -> Void
     ) -> some View {
         HStack(spacing: 16.0) {
             Spacer()
             CatalogToolbarButtonFormat(
                 icon: Image.miamImage(icon: .search),
-                action: searchTapped)
+                action: onSearchTapped)
             CatalogToolbarButtonFormat(
                 icon: Image.miamImage(icon: .filters),
-                action: filtersTapped)
+                action: onFiltersTapped)
             CatalogToolbarButtonFormat(
                 icon: Image.miamImage(icon: .preferences),
-                action: preferencesTapped)
+                action: onPreferencesTapped)
         }.padding(EdgeInsets(
             top: Dimension.sharedInstance.mlPadding,
             leading: Dimension.sharedInstance.mlPadding,
@@ -41,10 +41,10 @@ public struct MiamNeutralCatalogResultsToolbar: CatalogToolbarProtocol {
 struct MiamNeutralCatalogResultsToolbar_Previews: PreviewProvider {
     static var previews: some View {
         MiamNeutralCatalogToolbar().content(
-            filtersTapped: {},
-            searchTapped: {},
-            favoritesTapped: {},
-            preferencesTapped: {})
+            onFiltersTapped: {},
+            onSearchTapped: {},
+            onFavoritesTapped: {},
+            onPreferencesTapped: {})
     }
 }
 

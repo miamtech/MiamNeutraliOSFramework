@@ -12,41 +12,43 @@ import MiamIOSFramework
 
 @available(iOS 14, *)
 public struct MiamNeutralMealPlannerRecipeCard: MealPlannerRecipeCardProtocol {
-   
+    
     let dimensions = Dimension.sharedInstance
     let cardHeight = 200.0
     public init() {}
     public func content(
         recipeCardDimensions: CGSize,
-        recipeInfos: MiamIOSFramework.CatalogRecipeInfos,
-        actions: MealPlannerRecipeCardActions
+        recipe: Recipe,
+        onShowRecipeDetails: @escaping (String) -> Void,
+        onRemoveRecipeFromMealPlanner: @escaping () -> Void,
+        onReplaceRecipeFromMealPlanner: @escaping () -> Void
     ) -> some View {
         VStack(spacing: 0.0) {
             Divider()
             HStack(spacing: 0.0) {
                 ZStack(alignment: .topTrailing) {
-                    AsyncImage(url: recipeInfos.recipe.pictureURL) { image in
+                    AsyncImage(url: recipe.pictureURL) { image in
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .padding(0)
                             .frame(minWidth: 0, maxWidth: .infinity, maxHeight: .infinity)
                     }.padding(0)
-                    LikeButtonViewTemplate(likeButtonInfo: LikeButtonInfo(recipeId: recipeInfos.recipe.id))
+                    LikeButton(likeButtonInfo: LikeButtonInfo(recipeId: recipe.id))
                         .padding(dimensions.lPadding)
                 }
                 .padding(0)
                 .frame(width: 150.0)
                 .clipped()
                 VStack(spacing: dimensions.sPadding) {
-                    Text(recipeInfos.recipe.title + "\n")
+                    Text(recipe.title + "\n")
                         .miamFontStyle(style: MiamFontStyleProvider().bodyMediumBoldStyle)
                         .lineLimit(2)
                         .minimumScaleFactor(0.9)
                         .multilineTextAlignment(.leading)
                     HStack(spacing: dimensions.sPadding) {
-                        MiamNeutralRecipeDifficulty(difficulty: recipeInfos.recipe.difficulty)
-                        MiamNeutralRecipePreparationTime(duration: recipeInfos.recipe.cookingTimeIos)
+                        MiamNeutralRecipeDifficulty(difficulty: recipe.difficulty)
+                        MiamNeutralRecipePreparationTime(duration: recipe.cookingTimeIos)
                     }
                     HStack {
                         Text(Localization.basket.swapProduct.localised)
@@ -54,21 +56,13 @@ public struct MiamNeutralMealPlannerRecipeCard: MealPlannerRecipeCardProtocol {
                             .miamFontStyle(style: MiamFontStyleProvider().bodyMediumBoldStyle)
                             .padding(dimensions.lPadding)
                             .onTapGesture {
-                                guard let replaceTapped = actions.replaceTapped else {
-                                    return
-                                }
-                                replaceTapped()
+                                onReplaceRecipeFromMealPlanner()
                             }
                         if #unavailable(iOS 15.0) {
                             Image.miamNeutralImage(icon: .bin)
                                 .padding(dimensions.mPadding)
                                 .onTapGesture {
-                                    guard let removeTapped = actions.removeTapped else {
-                                        return
-                                    }
-                                    withAnimation {
-                                        removeTapped()
-                                    }
+                                    onRemoveRecipeFromMealPlanner()
                                 }
                         }
                     }
@@ -77,6 +71,9 @@ public struct MiamNeutralMealPlannerRecipeCard: MealPlannerRecipeCardProtocol {
                 .padding([.leading, .trailing], dimensions.lPadding)
             }
             Divider()
+        }
+        .onTapGesture {
+            onShowRecipeDetails(recipe.id)
         }
         .padding(0)
         .frame(maxWidth: .infinity)
@@ -101,17 +98,11 @@ struct MiamNeutralBudgetRecipeCardPreview: PreviewProvider {
             id: "234",
             attributes: recipeAttributes,
             relationships: nil)
-        let recipeInfos = CatalogRecipeInfos(
-            recipe: recipe,
-            isInBasket: false)
         MiamNeutralMealPlannerRecipeCard().content(
             recipeCardDimensions: CGSize(),
-            recipeInfos: recipeInfos,
-            actions: MealPlannerRecipeCardActions(
-                recipeTapped: { _ in},
-                removeTapped: {
-                   print("Remove recipe card.")
-                },
-                replaceTapped: nil))
+            recipe: recipe,
+            onShowRecipeDetails: { _ in },
+            onRemoveRecipeFromMealPlanner: {},
+            onReplaceRecipeFromMealPlanner: {})
     }
 }

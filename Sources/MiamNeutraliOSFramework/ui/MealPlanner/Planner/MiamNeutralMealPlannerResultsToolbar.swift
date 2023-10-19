@@ -18,20 +18,20 @@ public struct MiamNeutralMealPlannerResultsToolbar: MealPlannerResultsToolbarPro
     public init() {}
     
     public func content(
-        budgetInfos: Binding<MealPlannerResultsInfos>,
+        mealPlannerCriteria: Binding<MealPlannerCriteria>,
         activelyEditingTextField: Binding<Bool>,
         isLoadingRecipes: Binding<Bool>,
         onValidateTapped: @escaping () -> Void
     ) -> some View {
         HStack {
             MiamNeutralMealPlannerBudget(
-                budget: budgetInfos.moneyBudget,
+                budget: mealPlannerCriteria.availableBudget,
                 currency: Localization.price.currency.localised)
             MiamNeutralStepperCollapsed(
-                value: budgetInfos.numberOfGuests,
+                value: mealPlannerCriteria.numberOfGuests,
                 icon: Image.miamNeutralImage(icon: .guests))
             MiamNeutralStepperCollapsed(
-                value: budgetInfos.numberOfMeals,
+                value: mealPlannerCriteria.numberOfMeals,
                 icon: Image.miamNeutralImage(icon: .fork))
             SubmitButtonCollapsed(
                 isLoading: isLoadingRecipes,
@@ -46,13 +46,13 @@ public struct MiamNeutralMealPlannerResultsToolbar: MealPlannerResultsToolbarPro
 internal struct SubmitButtonCollapsed: View {
     @Binding var isLoading: Bool
     var activelyEditingTextField: Bool
-    let buttonAction: () -> Void
+    let onButtonAction: () -> Void
     let dimension = Dimension.sharedInstance
     var body: some View {
         Button {
             withAnimation {
                 isLoading.toggle()
-                buttonAction()
+                onButtonAction()
             }
         } label: {
             if isLoading {
@@ -82,10 +82,13 @@ struct MiamBudgetPlannerToolbar_Previews: PreviewProvider {
 
     struct Preview: View {
         @State var loading = false
-        @State var budgetInfos = MealPlannerResultsInfos(moneyBudget: 30.0, numberOfGuests: 4, numberOfMeals: 4)
+        @State var mealPlannerCriteria = MealPlannerCriteria(
+            availableBudget: 30.0,
+            numberOfGuests: 4,
+            numberOfMeals: 4)
         var body: some View {
             MiamNeutralMealPlannerResultsToolbar().content(
-                budgetInfos: $budgetInfos,
+                mealPlannerCriteria: $mealPlannerCriteria,
                 activelyEditingTextField: .constant(false),
                 isLoadingRecipes: $loading,
                 onValidateTapped: {})

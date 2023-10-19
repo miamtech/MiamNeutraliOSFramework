@@ -5,10 +5,18 @@
 //  Created by Miam on 04/10/2023.
 //
 
-import Foundation
 import MiamIOSFramework
 
-
+/**
+ A class implemening the necessary parameters for the ItemSelector Page.
+ 
+ Mandatory Parameters:
+ - onItemSelected: () -> Void: A closure to call once item has been selected (it should a naviagtion function)
+ 
+ Optional Parameters:
+ - viewOptions: ``ItemSelectorViewOptions`` -> An optional object where you can override the default Miam views for the component.
+ 
+ */
 @available(iOS 14, *)
 /// This sets the Templates for the ItemSelector
 public struct ItemSelectorParameters: ItemSelectorParametersProtocol {
