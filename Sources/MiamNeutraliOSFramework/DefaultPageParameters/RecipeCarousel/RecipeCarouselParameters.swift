@@ -1,15 +1,16 @@
 //
-//  FavoritesParameters.swift
+//  RecipeCarouselParameters.swift
 //  
 //
-//  Created by didi on 05/10/2023.
+//  Created by didi on 16/10/2023.
 //
+
 
 import MiamIOSFramework
 
 @available(iOS 14, *)
 /// This sets the Templates for the Favorites Overview
-public class FavoritesParameters: FavoritesParametersProtocol {
+public class RecipeCarouselParameters: RecipeCarouselParametersProtocol {
     
     public var onNoResultsRedirect: () -> Void
     public var onShowRecipeDetails: (String) -> Void
@@ -25,7 +26,7 @@ public class FavoritesParameters: FavoritesParametersProtocol {
         onNoResultsRedirect: @escaping () -> Void,
         onShowRecipeDetails: @escaping (String) -> Void,
         onRecipeCallToActionTapped: @escaping (String) -> Void,
-        viewOptions: FavoritesViewOptions = FavoritesViewOptions()
+        viewOptions: RecipeCarouselViewOptions = RecipeCarouselViewOptions()
     ) {
         self.onNoResultsRedirect = onNoResultsRedirect
         self.onShowRecipeDetails = onShowRecipeDetails
