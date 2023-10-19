@@ -19,6 +19,7 @@ import MiamIOSFramework
  */
 @available(iOS 14, *)
 public struct ItemSelectorViewOptions {
+    
     public var selectedProduct: TypeSafeItemSelectorSelectedProduct
     public var productOptions: TypeSafeItemSelectorOptionProducts
     public var background: TypeSafeBackground
