@@ -55,7 +55,7 @@ public struct MiamNeutralMealPlannerRecap: MealPlannerRecapProtocol {
             Text("Découvrez aussi")
                 .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleStyle)
             Button {
-
+                onTapGesture()
             } label: {
                 Text("Nos promotions")
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBoldStyle)
