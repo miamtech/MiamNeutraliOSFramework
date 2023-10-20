@@ -1,4 +1,4 @@
 # 1.0.0
-- Initial Commit
+- Add default Error view implementaion
 
 
