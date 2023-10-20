@@ -7,6 +7,15 @@
 
 import MiamIOSFramework
 
+/**
+ An object containing all the views for the Basket Tag. If nothing is passed in, the Miam Default will be used
+ 
+ - title: An implementation of ``BaseTitleProtocol`` that is each Basket Tag button,
+ - loading:  An implementation of ``LoadingProtocol``
+ - empty:  An implementation of ``EmptyProtocol``
+ - background: An implementation of ``BackgroundProtocol``
+
+ */
 @available(iOS 14, *)
 public struct BasketTagViewOptions {
     
