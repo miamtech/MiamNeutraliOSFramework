@@ -7,8 +7,17 @@
 
 import MiamIOSFramework
 
+/**
+ A class implementing the necessary parameters for the Meal Planner Recap
+ 
+ Mandatory Parameters:
+ - onNavigateAwayFromMealPlanner: () -> Void: A closure that navigates the user to somewhere else in the client app. The catalog, basket, home page. Up to the client.
+ 
+ Optional Parameters:
+ - viewOptions: ``MealPlannerRecapViewOptions`` -> An optional object where you can override the default Miam views for the component.
+ 
+ */
 @available(iOS 14, *)
-/// This sets the Templates for the CatalogFiltersPage Overview
 public class MealPlannerRecapParameters: MealPlannerRecapParametersProtocol {
     public var onNavigateAwayFromMealPlanner: () -> Void
     
@@ -28,25 +37,3 @@ public class MealPlannerRecapParameters: MealPlannerRecapParametersProtocol {
         self.loading = viewOptions.loading
     }
 }
-
-@available(iOS 14, *)
-public struct MealPlannerRecapViewOptions {
-    public var success: TypeSafeMealPlannerRecap
-    public var background: TypeSafeBackground
-    public var empty: TypeSafeEmpty
-    public var loading: TypeSafeLoading
-    
-    public init(
-        success: TypeSafeMealPlannerRecap = TypeSafeMealPlannerRecap(MiamNeutralMealPlannerRecap()),
-        empty: TypeSafeEmpty = TypeSafeEmpty(DefaultEmptyView()),
-        loading: TypeSafeLoading = TypeSafeLoading(DefaultLoadingView()),
-        background: TypeSafeBackground = TypeSafeBackground(DefaultBackgroundView())
-    ) {
-        self.success = success
-        self.background = background
-        self.empty = empty
-        self.loading = loading
-    }
-}
-
-

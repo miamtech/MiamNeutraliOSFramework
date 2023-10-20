@@ -8,8 +8,18 @@
 import SwiftUI
 import MiamIOSFramework
 
+/**
+ A class implementing the necessary parameters for the Meal Planner Basket
+ 
+ Mandatory Parameters:
+ - onNavigateToRecap: () -> Void: A closure that navigates the user to the Meal Planner Recap page
+ - onNavigateToBasket: () -> Void: A closure that navigates the user directly to their Basket to see what has been added to their cart
+ 
+ Optional Parameters:
+ - viewOptions: ``MealPlannerBasketViewOptions`` -> An optional object where you can override the default Miam views for the component.
+ 
+ */
 @available(iOS 14, *)
-/// This sets the Templates for the CatalogFiltersPage Overview
 public class MealPlannerBasketParameters: MealPlannerBasketParametersProtocol {
     public var onNavigateToRecap: () -> Void
     public var onNavigateToBasket: () -> Void
@@ -30,25 +40,5 @@ public class MealPlannerBasketParameters: MealPlannerBasketParametersProtocol {
         self.background = viewOptions.background
         self.empty = viewOptions.empty
         self.loading = viewOptions.loading
-    }
-}
-
-@available(iOS 14, *)
-public struct MealPlannerBasketViewOptions {
-    public var footer: TypeSafeMealPlannerBasketFooter
-    public var background: TypeSafeBackground
-    public var empty: TypeSafeEmpty
-    public var loading: TypeSafeLoading
-    
-    public init(
-        footer: TypeSafeMealPlannerBasketFooter = TypeSafeMealPlannerBasketFooter(MiamNeutralMealPlannerBasketPreviewFooter()),
-        empty: TypeSafeEmpty = TypeSafeEmpty(DefaultEmptyView()),
-        loading: TypeSafeLoading = TypeSafeLoading(DefaultLoadingView()),
-        background: TypeSafeBackground = TypeSafeBackground(DefaultBackgroundView())
-    ) {
-        self.footer = footer
-        self.background = background
-        self.empty = empty
-        self.loading = loading
     }
 }
