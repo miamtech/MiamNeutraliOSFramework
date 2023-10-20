@@ -37,7 +37,7 @@ public struct MealPlannerResultsViewOptions {
         toolbar: TypeSafeMealPlannerResultsToolbar = TypeSafeMealPlannerResultsToolbar(MiamNeutralMealPlannerResultsToolbar()),
         footer: TypeSafeMealPlannerResultsFooter = TypeSafeMealPlannerResultsFooter(MiamNeutralMealPlannerStickyFooter()),
         recipeCard: TypeSafeMealPlannerRecipeCard = TypeSafeMealPlannerRecipeCard(MiamNeutralMealPlannerRecipeCard()),
-        recipeCardLoading: TypeSafeRecipeCardLoading = TypeSafeRecipeCardLoading(MiamNeutralRecipeCardLoading()),
+        recipeCardLoading: TypeSafeRecipeCardLoading = TypeSafeRecipeCardLoading(MiamNeutralMealPlannerRecipeCardLoading()),
         placeholder: TypeSafeMealPlannerRecipePlaceholder = TypeSafeMealPlannerRecipePlaceholder(MiamNeutralMealPlannerRecipePlaceholder()),
         emptyResults: TypeSafeMealPlannerResultsEmpty = TypeSafeMealPlannerResultsEmpty(MiamNeutralMealPlannerResultsEmpty()),
         empty: TypeSafeEmpty = TypeSafeEmpty(DefaultEmptyView()),
