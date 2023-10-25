@@ -11,7 +11,6 @@ import miamCore
 
 @available(iOS 14, *)
 public struct MiamNeutralRecipeDetailsSponsor: RecipeDetailsSponsorProtocol {
-    
     public init() {}
     public func content(
         sponsor: Sponsor,
