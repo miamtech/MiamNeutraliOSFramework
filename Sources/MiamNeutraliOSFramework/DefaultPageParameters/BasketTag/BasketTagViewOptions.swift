@@ -26,9 +26,9 @@ public struct BasketTagViewOptions {
     
     public init(
         title: TypeSafeBaseTitle =
-        TypeSafeBaseTitle(MiamNeutralCatalogPackageTitle()),
+        TypeSafeBaseTitle(MiamNeutralBasketTagItem()),
         empty: TypeSafeEmpty = TypeSafeEmpty(DefaultEmptyView()),
-        loading: TypeSafeLoading = TypeSafeLoading(DefaultLoadingView()),
+        loading: TypeSafeLoading = TypeSafeLoading(MiamNeutralBasketTagItemLoading()),
         background: TypeSafeBackground = TypeSafeBackground(DefaultBackgroundView())
     ) {
         self.title = title
