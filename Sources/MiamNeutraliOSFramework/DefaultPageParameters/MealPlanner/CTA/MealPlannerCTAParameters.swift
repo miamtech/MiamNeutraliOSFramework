@@ -8,8 +8,17 @@
 import SwiftUI
 import MiamIOSFramework
 
+/**
+ A class implementing the necessary parameters for the Meal Planner Call To Action.
+ 
+ Mandatory Parameters:
+ - onNavigateToMealPlannerForm: () -> Void: A closure that navigates the user to the Meal Planner Feature
+ 
+ Optional Parameters:
+ - viewOptions: ``MealPlannerCTAViewOptions`` -> An optional object where you can override the default Miam views for the component.
+ 
+ */
 @available(iOS 14, *)
-/// This sets the Templates for the CatalogFiltersPage Overview
 public class MealPlannerCTAParameters: MealPlannerCTAParametersProtocol {
     public var onNavigateToMealPlannerForm: () -> Void
     public var callToAction: TypeSafeMealPlannerCTA
@@ -20,16 +29,5 @@ public class MealPlannerCTAParameters: MealPlannerCTAParametersProtocol {
     ) {
         self.onNavigateToMealPlannerForm = onNavigateToMealPlannerForm
         self.callToAction = viewOptions.callToAction
-    }
-}
-
-@available(iOS 14, *)
-public struct MealPlannerCTAViewOptions {
-    public var callToAction: TypeSafeMealPlannerCTA
-    
-    public init(
-        callToAction: TypeSafeMealPlannerCTA = TypeSafeMealPlannerCTA(MiamNeutralMealPlannerCallToAction())
-    ) {
-        self.callToAction = callToAction
     }
 }

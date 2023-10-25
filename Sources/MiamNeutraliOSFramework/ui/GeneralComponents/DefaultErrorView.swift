@@ -12,11 +12,11 @@ import miamCore
 @available(iOS 14.0, *)
 public struct DefaultErrorView: ErrorProtocol {
   
-    public func content(optionalCallBack: (() -> Void)?) -> some View {
+    public func content(onOptionalCallback: (() -> Void)?) -> some View {
         return VStack {
             Text(Localisation.Error.shared.generic.localised).foregroundColor(Color.miamColor(.danger))
             Button {
-                optionalCallBack?()
+                onOptionalCallback?()
             } label: {
                 Text(Localisation.Error.shared.retry.localised)
                     .foregroundColor(.blue)
@@ -29,6 +29,6 @@ public struct DefaultErrorView: ErrorProtocol {
 @available(iOS 14, *)
 struct DefaultErrorView_Previews: PreviewProvider {
     static var previews: some View {
-        DefaultErrorView().content(optionalCallBack: nil)
+        DefaultErrorView().content(onOptionalCallback: nil)
     }
 }

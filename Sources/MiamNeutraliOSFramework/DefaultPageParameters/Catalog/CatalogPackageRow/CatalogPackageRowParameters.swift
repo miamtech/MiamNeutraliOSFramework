@@ -21,7 +21,6 @@ import MiamIOSFramework
  
  */
 @available(iOS 14, *)
-/// This sets the Templates for the CatalogRecipesList Overview
 public class CatalogPackageRowParameters: CatalogPackageRowParametersProtocol {
     public var onSeeAllRecipes: (String, String) -> Void
     public var onShowRecipeDetails: (String) -> Void

@@ -7,10 +7,20 @@
 
 import SwiftUI
 import MiamIOSFramework
-import miamCore
 
+/**
+ A class implementing the necessary parameters for the Meal Planner Results
+ 
+ Mandatory Parameters:
+ - onShowRecipeDetails: (String) -> Void: A closure that opens the RecipeDetails, passing in the recipeId
+ - onOpenReplaceRecipe: (Int) -> Void: A closure that opens the MealPlanner RecipePicker Page where users can replace the tapped recipe.
+ - onNavigateToBasket: () -> Void: A closure that navigates the user to the Meal Planner Basket Page where they can edit the products in their basket.
+ 
+ Optional Parameters:
+ - viewOptions: ``MealPlannerResultsViewOptions`` -> An optional object where you can override the default Miam views for the component.
+ 
+ */
 @available(iOS 14, *)
-/// This sets the Templates for the CatalogFiltersPage Overview
 public class MealPlannerResultsParameters: MealPlannerResultsParametersProtocol {
     public var onShowRecipeDetails: (String) -> Void
     public var onOpenReplaceRecipe: (Int) -> Void
@@ -47,6 +57,20 @@ public class MealPlannerResultsParameters: MealPlannerResultsParametersProtocol 
     }
 }
 
+/**
+ An object containing all the views for the Meal Planner Results Page. If nothing is passed in, the Miam Default will be used
+ 
+ - toolbar:  An implementation of ``MealPlannerResultsToolbarProtocol``
+ - footer:  An implementation of ``MealPlannerResultsFooterProtocol``
+ - recipeCard:  An implementation of ``CatalogRecipeCardProtocol``
+ - recipeCardLoading:  An implementation of ``RecipeCardLoadingProtocol``
+ - placeholder:  An implementation of ``MealPlannerRecipePlaceholderProtocol``
+ - emptyResults:  An implementation of ``MealPlannerResultsEmptyProtocol``
+ - loading:  An implementation of ``LoadingProtocol``
+ - empty:  An implementation of ``EmptyProtocol``
+ - background: An implementation of ``BackgroundProtocol``
+
+ */
 @available(iOS 14, *)
 public struct MealPlannerResultsViewOptions {
     public var toolbar: TypeSafeMealPlannerResultsToolbar

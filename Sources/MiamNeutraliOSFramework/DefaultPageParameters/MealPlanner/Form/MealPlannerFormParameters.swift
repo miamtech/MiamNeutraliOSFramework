@@ -7,8 +7,17 @@
 
 import MiamIOSFramework
 
+/**
+ A class implementing the necessary parameters for the Meal Planner Form
+ 
+ Mandatory Parameters:
+ - onNavigateToMealPlannerResults: ([String]) -> Void: A closure that navigates the user to the Meal Planner Results where they can see the meals generated for them by their input.
+ 
+ Optional Parameters:
+ - viewOptions: ``MealPlannerFormViewOptions`` -> An optional object where you can override the default Miam views for the component.
+ 
+ */
 @available(iOS 14, *)
-/// This sets the Templates for the CatalogFiltersPage Overview
 public class MealPlannerFormParameters: MealPlannerFormParametersProtocol {
     public var onNavigateToMealPlannerResults: ([String]) -> Void
     
@@ -28,24 +37,3 @@ public class MealPlannerFormParameters: MealPlannerFormParametersProtocol {
         self.loading = viewOptions.loading
     }
 }
-
-@available(iOS 14, *)
-public struct MealPlannerFormViewOptions {
-    public var form: TypeSafeMealPlannerForm
-    public var background: TypeSafeBackground
-    public var empty: TypeSafeEmpty
-    public var loading: TypeSafeLoading
-    
-    public init(
-        form: TypeSafeMealPlannerForm = TypeSafeMealPlannerForm(MiamNeutralMealPlannerForm()),
-        empty: TypeSafeEmpty = TypeSafeEmpty(DefaultEmptyView()),
-        loading: TypeSafeLoading = TypeSafeLoading(DefaultLoadingView()),
-        background: TypeSafeBackground = TypeSafeBackground(DefaultBackgroundView())
-    ) {
-        self.form = form
-        self.background = background
-        self.empty = empty
-        self.loading = loading
-    }
-}
-
