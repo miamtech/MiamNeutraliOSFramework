@@ -17,7 +17,6 @@ public struct MiamNeutralMealPlannerRecipeCardLoading: RecipeCardLoadingProtocol
         static let minOpacity: Double = 0.25
         static let maxOpacity: Double = 1.0
     }
-    private let cardHeight = 200.0
     private let linePlaceholderHeight = 13.0
     private let linePlaceholderCornerRadius = 18.0
 
@@ -70,7 +69,6 @@ public struct MiamNeutralMealPlannerRecipeCardLoading: RecipeCardLoadingProtocol
             }
             .frame(maxWidth: .infinity)
             .padding(.top, dimensions.lPadding)
-            .padding([.leading, .trailing], dimensions.lPadding)
         }
         .frame(maxWidth: .infinity)
         .frame(height: recipeCardDimensions.height)
