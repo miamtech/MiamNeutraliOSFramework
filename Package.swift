@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "MiamNeutraliOSFramework",
+    defaultLocalization: "en",
     platforms: [
         .iOS(.v12),
       ],
@@ -26,7 +27,9 @@ let package = Package(
             dependencies: [
                     .product(name: "MiamIOSFramework", package: "miam-sdk")
                   ],
-            resources: [.process("Resources")]),
+            resources: [
+                .process("Resources"),
+            ]),
         .testTarget(
             name: "MiamNeutraliOSFrameworkTests",
             dependencies: ["MiamNeutraliOSFramework"]),
