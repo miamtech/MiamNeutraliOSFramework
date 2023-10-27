@@ -1,5 +1,4 @@
 import miamCore
-import MiamIOSFramework
 
 public struct MiamNeutraliOSFramework {
     public private(set) var text = "Hello, World!"
