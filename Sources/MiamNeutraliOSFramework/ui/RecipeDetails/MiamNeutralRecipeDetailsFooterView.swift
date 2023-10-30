@@ -18,30 +18,38 @@ public struct MiamNeutralRecipeDetailsFooterView: RecipeDetailsFooterProtocol {
     public func content(
         recipeId: String,
         guestCount: Int,
+        isInCart: Bool,
         onContinueToBasket: (() -> Void)?
     ) -> some View {
-        VStack {
-           Divider()
-            Button(action: {
-                if let onContinueToBasket {
-                    onContinueToBasket()
-                }
-            }, label: {
-                Text(Localization.recipe.add.localised)
-                    .foregroundColor(Color.miamNeutralColor(.primary))
-                    .miamFontStyle(style: MiamFontStyleProvider().bodyStyle)
-            })
-            Divider()
-            Price(
-                params: PriceParameters(),
-                recipeId: recipeId,
-                guestNumber: guestCount)
-            Text(Localization.price.perGuest.localised)
-                .foregroundColor(Color.miamColor(.lightGrey))
-                .miamFontStyle(style: MiamFontStyleProvider().bodySmallStyle)
+        VStack(spacing: 0) {
+            if !isInCart {
+                VStack {
+                    Divider()
+                    Button(action: {
+                        if let onContinueToBasket {
+                            onContinueToBasket()
+                        }
+                    }, label: {
+                        Text(Localization.recipe.add.localised)
+                            .foregroundColor(Color.miamNeutralColor(.primary))
+                            .miamFontStyle(style: MiamFontStyleProvider().bodyStyle)
+                    })
+                    Spacer()
+                }.frame(height: 35)
+            }
+            VStack {
+                Divider()
+                Price(
+                    params: PriceParameters(),
+                    recipeId: recipeId,
+                    guestNumber: guestCount)
+                Text(Localization.price.perGuest.localised)
+                    .foregroundColor(Color.miamColor(.lightGrey))
+                    .miamFontStyle(style: MiamFontStyleProvider().bodySmallStyle)
+                Spacer()
+            }.frame(height: 55)
         }
         .frame(maxWidth: .infinity)
-        .frame(height: 90)
         .background(Color.white)
     }
 }
@@ -52,9 +60,9 @@ struct CoursesURecipeDetailsFooterView_Previews: PreviewProvider {
         ZStack {
             Color.budgetBackgroundColor
             VStack {
-                MiamNeutralRecipeDetailsFooterView().content(recipeId: "34134321", guestCount: 4, onContinueToBasket: nil)
-                MiamNeutralRecipeDetailsFooterView().content(recipeId: "34134321", guestCount: 4, onContinueToBasket: nil)
-                MiamNeutralRecipeDetailsFooterView().content(recipeId: "34134321", guestCount: 4, onContinueToBasket: nil)
+                MiamNeutralRecipeDetailsFooterView().content(recipeId: "34134321", guestCount: 4, isInCart: false, onContinueToBasket: nil)
+                MiamNeutralRecipeDetailsFooterView().content(recipeId: "34134321", guestCount: 4, isInCart: true, onContinueToBasket: nil)
+                MiamNeutralRecipeDetailsFooterView().content(recipeId: "34134321", guestCount: 4, isInCart: false, onContinueToBasket: nil)
             }
         }
         GeometryReader { geometry in
@@ -78,7 +86,7 @@ struct CoursesURecipeDetailsFooterView_Previews: PreviewProvider {
                     }
                 }
                 StickyFooter(safeArea: safeArea) {
-                    MiamNeutralRecipeDetailsFooterView().content(recipeId: "34134321", guestCount: 4, onContinueToBasket: nil)
+                    MiamNeutralRecipeDetailsFooterView().content(recipeId: "34134321", guestCount: 4, isInCart: false, onContinueToBasket: nil)
                 }
                 .frame(maxWidth: .infinity)
             }
