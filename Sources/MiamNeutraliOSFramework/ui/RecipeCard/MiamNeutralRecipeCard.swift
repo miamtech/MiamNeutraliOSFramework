@@ -24,7 +24,15 @@ public struct MiamNeutralRecipeCard: CatalogRecipeCardProtocol {
         let ctaAction: (String) -> Void = isCurrentlyInBasket ? onShowRecipeDetails : onAddToBasket
         let pictureHeight = 150.0
         
-        VStack(spacing: 0.0) {
+        func showTimeAndDifficulty() -> Bool {
+            return recipeCardDimensions.height >= 320
+        }
+        
+        func showCTA() -> Bool {
+            return recipeCardDimensions.height >= 225
+        }
+        
+        return VStack(spacing: 0.0) {
             VStack(spacing: 0.0) {
                 ZStack(alignment: .topTrailing) {
                     AsyncImage(url: recipe.pictureURL) { image in
@@ -37,48 +45,58 @@ public struct MiamNeutralRecipeCard: CatalogRecipeCardProtocol {
                     }.padding(0)
                     LikeButton(
                         likeButtonInfo: LikeButtonInfo(
-                            recipeId: recipe.id
+                            recipeId: recipe.id,
+                            backgroundShape: AnyShape(
+                                RoundedRectangle(cornerRadius: Dimension.sharedInstance.sCornerRadius)
+                            )
                             // there are other parameters you can change to customize
                         ))
-                    .padding(dimensions.lPadding)
+                    .padding(dimensions.mPadding)
                 }
                 .padding(0)
                 .frame(height: pictureHeight)
                 .clipped()
                 VStack(spacing: dimensions.lPadding) {
-                    Text(recipe.title + "\n")
+                    Text(recipe.title)
                         .miamFontStyle(style: MiamFontStyleProvider().bodyMediumBoldStyle)
                         .lineLimit(2)
-                        .multilineTextAlignment(.leading)
-                        .minimumScaleFactor(0.9)
-
-                    HStack(spacing: 0.0) {
-                        MiamNeutralRecipeDifficulty(difficulty: recipe.difficulty)
-                        Spacer()
-                        MiamNeutralRecipePreparationTime(duration: recipe.cookingTimeIos)
-                    }
-                    Button {
-                        ctaAction(recipe.id)
-                    } label: {
-                        Label {
-                            if isCurrentlyInBasket {
-                                Text(Localization.recipe.added.localised)
-                                    .foregroundColor(Color.miamNeutralColor(.primary))
-                            } else {
-                                Text(Localization.recipe.add.localised)
-                                    .foregroundColor(Color.miamNeutralColor(.primary))
-                            }
-                        } icon: {
-                            Image.miamNeutralImage(icon: .plus)
+                        .multilineTextAlignment(.center)
+                        .minimumScaleFactor(0.75)
+                        .frame(
+                            width: recipeCardDimensions.width - (dimensions.mPadding * 2),
+                            height: 35
+                        )
+                    if showTimeAndDifficulty() {
+                        HStack(spacing: 0.0) {
+                            MiamNeutralRecipeDifficulty(difficulty: recipe.difficulty)
+                            Spacer()
+                            MiamNeutralRecipePreparationTime(duration: recipe.cookingTimeIos)
                         }
-                        .miamFontStyle(style: MiamFontStyleProvider().bodyMediumBoldStyle)
                     }
-                    .padding([.vertical], 8.0)
-                    .padding([.horizontal], 8.0)
-                    .overlay(RoundedRectangle(cornerRadius: Dimension.sharedInstance.sCornerRadius)
-                        .stroke(Color.miamNeutralColor(.primary), lineWidth: 1))
+                    if showCTA() {
+                        Button {
+                            ctaAction(recipe.id)
+                        } label: {
+                            Label {
+                                if isCurrentlyInBasket {
+                                    Text(Localization.recipe.showBasketPreview.localised)
+                                        .foregroundColor(Color.miamColor(.white))
+                                } else {
+                                    Text(Localization.recipe.add.localised)
+                                        .foregroundColor(Color.miamColor(.white))
+                                }
+                            } icon: {
+                                Image.miamImage(icon: .plus)
+                            }
+                            .miamFontStyle(style: MiamFontStyleProvider().bodySmallBoldStyle)
+                        }
+                        .padding(Dimension.sharedInstance.mPadding)
+                        .overlay(RoundedRectangle(cornerRadius: Dimension.sharedInstance.sCornerRadius)
+                            .stroke(Color.miamNeutralColor(.primary), lineWidth: 1))
+                        .background(Color.miamNeutralColor(.primary))
+                    }
                 }
-                .padding([.leading, .trailing], dimensions.lPadding)
+                .padding(.horizontal, dimensions.mPadding)
                 .padding(.vertical, dimensions.mPadding)
                 .frame(maxHeight: .infinity)
             }
@@ -89,7 +107,11 @@ public struct MiamNeutralRecipeCard: CatalogRecipeCardProtocol {
         .padding(0)
         .frame(width: recipeCardDimensions.width, height: recipeCardDimensions.height)
         .cornerRadius(12.0)
-        .overlay(RoundedRectangle(cornerRadius: 12.0).stroke(Color.miamNeutralColor(.lightBorder), lineWidth: 1.0))
+        .overlay(
+            RoundedRectangle(
+                cornerRadius: 12.0)
+            .stroke(Color.miamNeutralColor(.lightBorder)
+                    , lineWidth: 1.0))
     }
 }
 
@@ -98,9 +120,10 @@ struct MiamNeutralRecipeCard_Previews: PreviewProvider {
     static var previews: some View {
         let recipe = RecipeFakeFactory().create(
             id: RecipeFakeFactory().FAKE_ID,
-            attributes: RecipeFakeFactory().createAttributes(title: "Parmentier de Poulet",
-            mediaUrl: "https://lh3.googleusercontent.com/tbMNuhJ4KxReIPF_aE0yve0akEHeN6O8hauty_XNUF2agWsmyprACLg0Zw6s8gW-QCS3A0QmplLVqBKiMmGf_Ctw4SdhARvwldZqAtMG"),
-             relationships: nil)
+            attributes: RecipeFakeFactory().createAttributes(
+                title: "Parmentier de Poulet",
+                 mediaUrl: "https://lh3.googleusercontent.com/tbMNuhJ4KxReIPF_aE0yve0akEHeN6O8hauty_XNUF2agWsmyprACLg0Zw6s8gW-QCS3A0QmplLVqBKiMmGf_Ctw4SdhARvwldZqAtMG"),
+            relationships: nil)
         MiamNeutralRecipeCard().content(
             recipeCardDimensions: CGSize(width: 380, height: 100),
             recipe: recipe,
