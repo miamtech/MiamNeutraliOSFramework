@@ -52,10 +52,10 @@ public struct MiamNeutralRecipeDetailsStepRow: View {
 
                     if self.checkState {
                         Image.miamImage(icon: .check)
-                            .renderingMode(.original).frame( alignment: .center)
+                            .renderingMode(.original)
+                            .frame( alignment: .center)
                     }
-
-                }
+                }.animation(.none)
             }
             .foregroundColor(Color.white)
         }

@@ -19,8 +19,7 @@ public struct MiamNeutralRecipeDetailsStepsView: RecipeDetailsStepsProtocol {
         steps: [RecipeStep]
     ) -> some View {
         HStack {
-            // TODO: RecipeDetails localize
-            Text("Étapes")
+            Text(Localization.recipe.steps.localised)
                 .foregroundColor(Color.black)
                 .miamFontStyle(style: MiamFontStyleProvider().titleStyle)
                 .padding(Dimension.sharedInstance.lPadding)
