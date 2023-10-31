@@ -14,7 +14,6 @@ import MiamIOSFramework
 public struct MiamNeutralMealPlannerRecipeCard: MealPlannerRecipeCardProtocol {
     
     let dimensions = Dimension.sharedInstance
-    let cardHeight = 200.0
     public init() {}
     public func content(
         recipeCardDimensions: CGSize,
@@ -32,7 +31,8 @@ public struct MiamNeutralMealPlannerRecipeCard: MealPlannerRecipeCardProtocol {
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .padding(0)
-                            .frame(minWidth: 0, maxWidth: .infinity, maxHeight: .infinity)
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .frame(height: recipeCardDimensions.height)
                     }.padding(0)
                     LikeButton(likeButtonInfo: LikeButtonInfo(recipeId: recipe.id))
                         .padding(dimensions.lPadding)
@@ -75,7 +75,6 @@ public struct MiamNeutralMealPlannerRecipeCard: MealPlannerRecipeCardProtocol {
         .onTapGesture {
             onShowRecipeDetails(recipe.id)
         }
-        .padding(0)
         .frame(maxWidth: .infinity)
         .frame(height: recipeCardDimensions.height)
     }
