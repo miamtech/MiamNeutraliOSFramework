@@ -92,7 +92,7 @@ public struct MiamNeutralBasketProduct: BasketProductProtocol {
         } label: {
             HStack {
                 Image.miamNeutralImage(icon: .refresh)
-                Text("Remplacer")
+                Text(Localization.basket.swapProduct.localised)
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyMediumBoldStyle)
                     .foregroundColor(Color.miamNeutralColor(.primary))
             }
@@ -100,7 +100,7 @@ public struct MiamNeutralBasketProduct: BasketProductProtocol {
     }
 
     func formatPricePerUnit(pricePerUnit: Double, unit: String) -> String {
-        return "\(pricePerUnit) / \(unit)"
+        return String(format: "%.2f / %@", pricePerUnit, unit)
     }
 }
 
