@@ -61,7 +61,8 @@ public struct MiamNeutralRecipeCard: CatalogRecipeCardProtocol {
                         ctaAction(recipe.id)
                     } label: {
                         Label {
-                            Text("Ajouter")
+                            Text(Localization.recipe.add.localised)
+                                .foregroundColor(Color.miamNeutralColor(.primary))
                         } icon: {
                             Image.miamNeutralImage(icon: .plus)
                         }
