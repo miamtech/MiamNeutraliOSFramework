@@ -47,9 +47,17 @@ public struct MiamNeutralBasketRecipeOverview: BasketRecipeOverviewProtocol {
             HStack {
                 recipePicture()
                 VStack(alignment: .leading) {
-                    Text(data.recipe.attributes?.title ?? "")
-                        .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleMediumStyle)
-                        .foregroundColor(Color.miamColor(.black))
+                    HStack(alignment: .top) {
+                        Text(data.recipe.attributes?.title ?? "")
+                            .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleMediumStyle)
+                            .foregroundColor(Color.miamColor(.black))
+                        Spacer()
+                        Button {
+                            actions.onDeleteRecipe()
+                        } label: {
+                            Image.miamNeutralImage(icon: .bin)
+                        }
+                    }.frame(maxWidth: .infinity)
                     Text(data.price.pricePerPerson(numberOfGuests: data.guests))
                         .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigLightStyle)
                         .foregroundColor(Color.miamColor(.secondaryText))
