@@ -7,7 +7,6 @@
 
 import SwiftUI
 import MiamIOSFramework
-import miamCore
 
 /**
  A class implemening the necessary parameters for the Catalog Page.
@@ -27,8 +26,8 @@ import miamCore
 @available(iOS 14, *)
 public struct CatalogParameters: CatalogParametersProtocol {
     
-    public var onFiltersTapped: (SingletonFilterViewModel) -> Void
-    public var onSearchTapped: () -> Void
+    public var onFiltersTapped: (FilterInstance) -> Void
+    public var onSearchTapped: (FilterInstance) -> Void
     public var onFavoritesTapped: () -> Void
     public var onPreferencesTapped: () -> Void
     public var onLaunchMealPlanner: (() -> Void)?
@@ -42,8 +41,8 @@ public struct CatalogParameters: CatalogParametersProtocol {
     public var mealsInBasketButton: MealsInBasketButtonParameters
     
     public init(
-        onFiltersTapped: @escaping (SingletonFilterViewModel) -> Void,
-        onSearchTapped: @escaping () -> Void,
+        onFiltersTapped: @escaping (FilterInstance) -> Void,
+        onSearchTapped: @escaping (FilterInstance) -> Void,
         onFavoritesTapped: @escaping () -> Void,
         onPreferencesTapped: @escaping () -> Void,
         onLaunchMealPlanner: (() -> Void)? = nil,

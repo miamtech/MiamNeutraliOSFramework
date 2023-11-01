@@ -11,7 +11,7 @@ import miamCore
 
 @available(iOS 14, *)
 public struct MiamNeutralCatalogRecipesListNoResults: CatalogRecipesListNoResultsProtocol {
-    let searchString: String = FilterViewModelInstance.shared.instance.currentState.searchString ?? ""
+    let searchString: String = "" // i will fix this in next PR
     public init() {}
     public func content(
         catalogContent: CatalogContent,
