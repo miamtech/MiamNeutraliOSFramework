@@ -11,10 +11,10 @@ import miamCore
 
 @available(iOS 14, *)
 public struct MiamNeutralCatalogRecipesListNoResults: CatalogRecipesListNoResultsProtocol {
-    let searchString: String = "" // i will fix this in next PR
     public init() {}
     public func content(
         catalogContent: CatalogContent,
+        searchText: String,
         onNoResultsRedirect: @escaping () -> Void
     ) -> some View {
         VStack(spacing: 32.0) {
@@ -36,17 +36,18 @@ public struct MiamNeutralCatalogRecipesListNoResults: CatalogRecipesListNoResult
                 .background(Capsule().foregroundColor(.white))
                 .overlay(Capsule().stroke(.white, lineWidth: 1.0))
             } else {
-                Text("\(Localization.catalog.noRecipeFound.localised) \"\(searchString)\"")
-                    .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleBigStyle)
+                Text("\(Localization.catalog.noRecipeFound.localised) \n\"\(searchText)\"")
+                    .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleStyle)
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color.miamColor(.white))
                 Text(Localization.catalog.tryAnotherSearch.localised)
+                    .italic()
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigStyle)
                     .foregroundColor(Color.miamColor(.white))
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .padding(10)
+        .padding(Dimension.sharedInstance.mPadding)
         .background(Color.miamColor(.primaryDark))
     }
 }
@@ -56,6 +57,7 @@ struct MiamNeutralCatalogRecipesListNoResults_Previews: PreviewProvider {
     static var previews: some View {
         MiamNeutralCatalogRecipesListNoResults().content(
             catalogContent: CatalogContent.categoriesList,
+            searchText: "",
             onNoResultsRedirect: {})
     }
 }
