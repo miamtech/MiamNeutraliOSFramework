@@ -25,7 +25,7 @@ import miamCore
 public class MealPlannerRecipePickerParameters: MealPlannerRecipePickerParametersProtocol {
     public var onShowRecipeDetails: (String) -> Void
     public var onSelectRecipeForMealPlanner: (String) -> Void
-    public var onOpenFiltersOptions: (SingletonFilterViewModel) -> Void
+    public var onOpenFiltersOptions: (FilterInstance) -> Void
     
     public var search: TypeSafeSearch
     public var recipeCard: TypeSafeCatalogRecipeCard
@@ -37,7 +37,7 @@ public class MealPlannerRecipePickerParameters: MealPlannerRecipePickerParameter
     public init(
         onShowRecipeDetails: @escaping (String) -> Void,
         onSelectRecipeForMealPlanner: @escaping (String) -> Void,
-        onOpenFiltersOptions: @escaping (SingletonFilterViewModel) -> Void,
+        onOpenFiltersOptions: @escaping (FilterInstance) -> Void,
         viewOptions: MealPlannerRecipePickerViewOptions = MealPlannerRecipePickerViewOptions()
     ) {
         self.onShowRecipeDetails = onShowRecipeDetails
