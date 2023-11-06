@@ -51,7 +51,7 @@ Created by miam x didi on 27/10/2023.
 "com_miam_catalog_preferences_no_result" = "Pas de résultat sur cette page avec vos préférences " ;
 "com_miam_catalog_prefrences_try_another" = "Modifiez les pour avoir plus de résultats " ;
 "com_miam_catalog_browse_recipes" = "Parcourir les idées repas " ;
-"com_miam_catalog_no_recipe_found" = "Oups, aucune recette n\'a été trouvée " ;
+"com_miam_catalog_no_recipe_found" = "Oups, aucune recette n'a été trouvée pour :" ;
 "com_miam_catalog_try_another_search" = "Essayez une nouvelle recherche " ;
 // Favorites stand alone (not the one in catalog)
 "com_miam_favorites_title" = "Mes idées repas " ;
