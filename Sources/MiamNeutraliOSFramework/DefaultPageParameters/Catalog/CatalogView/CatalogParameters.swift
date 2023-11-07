@@ -21,7 +21,7 @@ import miamCore
  - onMealsInBasketButtonTapped: () -> Void: A closure that navigates to the MyMeals Page when the user taps on MyMeals Button.
  
  Optional Parameters:
- - viewOptions: ``CatalogParametersViewOptions`` -> An optional object where you can override the default Miam views for the component.
+ - viewOptions: ``CatalogViewOptions`` -> An optional object where you can override the default Miam views for the component.
  
  */
 @available(iOS 14, *)
@@ -48,7 +48,7 @@ public struct CatalogParameters: CatalogParametersProtocol {
         onPreferencesTapped: @escaping () -> Void,
         onLaunchMealPlanner: (() -> Void)? = nil,
         onMealsInBasketButtonTapped: @escaping () -> Void,
-        viewOptions: CatalogParametersViewOptions = CatalogParametersViewOptions()
+        viewOptions: CatalogViewOptions = CatalogViewOptions()
     ) {
         self.onFiltersTapped = onFiltersTapped
         self.onSearchTapped = onSearchTapped
