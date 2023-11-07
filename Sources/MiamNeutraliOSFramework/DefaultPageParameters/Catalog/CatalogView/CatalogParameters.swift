@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MiamIOSFramework
+import miamCore
 
 /**
  A class implemening the necessary parameters for the Catalog Page.
