@@ -1,5 +1,5 @@
 //
-//  CatalogParametersViewOptions.swift
+//  CatalogViewOptions.swift
 //  
 //
 //  Created by didi on 18/10/2023.
@@ -22,7 +22,7 @@ import MiamIOSFramework
 
  */
 @available(iOS 14, *)
-public struct CatalogParametersViewOptions {
+public struct CatalogViewOptions {
     public var catalogToolbar: TypeSafeCatalogToolbar
     public var resultsToolbar: TypeSafeCatalogToolbar
     public var background: TypeSafeBackground
