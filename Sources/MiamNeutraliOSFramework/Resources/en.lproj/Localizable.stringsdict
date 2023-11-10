@@ -11,28 +11,28 @@
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>f</string>
+			<string>d</string>
 			<key>one</key>
 			<string>%d meal added</string>
 			<key>other</key>
 			<string>%d meals added</string>
 		</dict>
 	</dict>
-    <key>com_miam_basket_product</key>
-    <dict>
-        <key>NSStringLocalizedFormatKey</key>
-        <string>%#@VARIABLE@</string>
-        <key>VARIABLE</key>
-        <dict>
-            <key>NSStringFormatSpecTypeKey</key>
-            <string>NSStringPluralRuleType</string>
-            <key>NSStringFormatValueTypeKey</key>
-            <string>f</string>
-            <key>one</key>
-            <string>%d article</string>
-            <key>other</key>
-            <string>%d articles</string>
-        </dict>
-    </dict>
+	<key>com_miam_basket_product</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@VARIABLE@</string>
+		<key>VARIABLE</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d article</string>
+			<key>other</key>
+			<string>%d articles</string>
+		</dict>
+	</dict>
 </dict>
 </plist>
