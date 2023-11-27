@@ -20,8 +20,6 @@ import MiamIOSFramework
  */
 @available(iOS 14, *)
 public class RecipeCarouselParameters: RecipeCarouselParametersProtocol {
-    
-    public var onNoResultsRedirect: () -> Void
     public var onShowRecipeDetails: (String) -> Void
     public var onRecipeCallToActionTapped: (String) -> Void
     
@@ -32,12 +30,10 @@ public class RecipeCarouselParameters: RecipeCarouselParametersProtocol {
     public var loading: TypeSafeLoading
     
     public init(
-        onNoResultsRedirect: @escaping () -> Void,
         onShowRecipeDetails: @escaping (String) -> Void,
         onRecipeCallToActionTapped: @escaping (String) -> Void,
         viewOptions: RecipeCarouselViewOptions = RecipeCarouselViewOptions()
     ) {
-        self.onNoResultsRedirect = onNoResultsRedirect
         self.onShowRecipeDetails = onShowRecipeDetails
         self.onRecipeCallToActionTapped = onRecipeCallToActionTapped
         self.recipeCard = viewOptions.recipeCard
