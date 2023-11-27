@@ -122,7 +122,7 @@ struct MiamNeutralRecipeCard_Previews: PreviewProvider {
             id: RecipeFakeFactory().FAKE_ID,
             attributes: RecipeFakeFactory().createAttributes(
                 title: "Parmentier de Poulet",
-                 mediaUrl: "https://lh3.googleusercontent.com/tbMNuhJ4KxReIPF_aE0yve0akEHeN6O8hauty_XNUF2agWsmyprACLg0Zw6s8gW-QCS3A0QmplLVqBKiMmGf_Ctw4SdhARvwldZqAtMG"),
+                mediaUrl: "https://lh3.googleusercontent.com/tbMNuhJ4KxReIPF_aE0yve0akEHeN6O8hauty_XNUF2agWsmyprACLg0Zw6s8gW-QCS3A0QmplLVqBKiMmGf_Ctw4SdhARvwldZqAtMG"),
             relationships: nil)
         MiamNeutralRecipeCard().content(
             recipeCardDimensions: CGSize(width: 380, height: 100),
@@ -132,5 +132,52 @@ struct MiamNeutralRecipeCard_Previews: PreviewProvider {
             onShowRecipeDetails: {_ in}
         )
         .padding(80.0)
+    }
+}
+
+@available(iOS 14, *)
+public struct DemoCatalogRecipeCardView: CatalogRecipeCardProtocol {
+    public init() {} // if your views are in separate package like ours, make sure you have a public init
+    public func content(
+        recipeCardDimensions: CGSize,
+        recipe: Recipe,
+        isCurrentlyInBasket: Bool,
+        onAddToBasket: @escaping (String) -> Void,
+        onShowRecipeDetails: @escaping (String) -> Void
+    ) -> some View {
+        VStack {
+            ZStack(alignment: .topTrailing) { // image & like button
+                AsyncImage(url: recipe.pictureURL) { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(minWidth: 0, maxWidth: recipeCardDimensions.width, maxHeight: 150)
+                }
+                LikeButton( // there are other parameters you can change to customize
+                    likeButtonInfo: LikeButtonInfo(
+                        recipeId: recipe.id,
+                        likedIcon: Image.miamImage(icon: .caret),
+                        unlikedIcon: Image.miamImage(icon: .cart),
+                        iconSize: CGSize(width: 20, height: 20),
+                        backgroundSize: CGSize(width: 25, height: 25),
+                        backgroundColor: Color.red,
+                        backgroundShape: AnyShape(Rectangle())
+                    )
+                ).padding(10)
+            }
+            .frame(height: 150)
+            Text(recipe.title)
+                .lineLimit(2)
+            if !isCurrentlyInBasket { // button to add to basket if not here
+                Button {
+                    onAddToBasket(recipe.id)
+                } label: {
+                    Text(Localization.recipe.add.localised)
+                }
+            }
+        }
+        .onTapGesture { onShowRecipeDetails(recipe.id) } // tap entire card to see details
+        .frame(width: recipeCardDimensions.width, height: recipeCardDimensions.height)
+        .background(Color.green).cornerRadius(10)
     }
 }
