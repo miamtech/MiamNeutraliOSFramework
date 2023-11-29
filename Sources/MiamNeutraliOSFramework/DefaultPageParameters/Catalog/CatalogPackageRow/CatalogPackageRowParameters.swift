@@ -27,7 +27,6 @@ public class CatalogPackageRowParameters: CatalogPackageRowParametersProtocol {
     public var onRecipeCallToActionTapped: (String) -> Void
     
     public var callToAction: TypeSafeCatalogPackageCTA
-    public var title: TypeSafeBaseTitle
     public var recipeCard: TypeSafeCatalogRecipeCard
     public var recipeCardLoading: TypeSafeRecipeCardLoading
     
@@ -41,7 +40,6 @@ public class CatalogPackageRowParameters: CatalogPackageRowParametersProtocol {
         self.onShowRecipeDetails = onShowRecipeDetails
         self.onRecipeCallToActionTapped = onRecipeCallToActionTapped
         self.callToAction = viewOptions.callToAction
-        self.title = viewOptions.title
         self.recipeCard = viewOptions.recipeCard
         self.recipeCardLoading = viewOptions.recipeCardLoading
     }
