@@ -22,7 +22,7 @@ public struct MiamNeutralFiltersHeader: FiltersHeaderProtocol {
             Button {
                 onCloseFilters()
             } label: {
-                Image.miamImage(icon: .cross)
+                Image.mealzIcon(icon: .plus)
             }
         }.padding([.top], 20)
     }

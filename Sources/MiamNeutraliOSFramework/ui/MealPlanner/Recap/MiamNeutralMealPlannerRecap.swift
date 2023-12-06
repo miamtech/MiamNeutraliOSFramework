@@ -20,7 +20,7 @@ public struct MiamNeutralMealPlannerRecap: MealPlannerRecapProtocol {
     ) -> some View {
         VStack(alignment: .center, spacing: 32.0) {
             HStack {
-                Image.miamNeutralImage(icon: .success)
+                Image.mealzIcon(icon: .check)
             }
             .padding(24.0)
             .frame(maxWidth: .infinity)

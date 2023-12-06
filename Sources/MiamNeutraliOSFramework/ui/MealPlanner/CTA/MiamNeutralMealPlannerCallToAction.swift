@@ -31,7 +31,7 @@ public struct MiamNeutralMealPlannerCallToAction: MealPlannerCTAProtocol {
                         .foregroundColor(Color.miamColor(.unpureWhite))
                 }
                 Spacer()
-                Image.miamImage(icon: .caret)
+                Image.mealzIcon(icon: .caret)
                     .renderingMode(.template)
                     .foregroundColor(Color.miamColor(.white))
             }
@@ -44,7 +44,7 @@ public struct MiamNeutralMealPlannerCallToAction: MealPlannerCTAProtocol {
             GeometryReader { geometry in
                 ZStack {
                     Color(.black)
-                    Image.miamImage(icon: .budgetBackground)
+                    Image.mealzIcon(icon: .mealPlannerCTA)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .opacity(0.60)

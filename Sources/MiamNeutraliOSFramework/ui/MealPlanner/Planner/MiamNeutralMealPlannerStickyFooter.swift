@@ -39,7 +39,7 @@ struct MiamNeutralMealPlannerCTAFooter: View {
             }
         } label: {
             HStack {
-                Image.miamImage(icon: .cart)
+                Image.mealzIcon(icon: .basket)
                     .renderingMode(.template)
                     .foregroundColor(Color.miamColor(.white))
                     .frame(width: dimension.mButtonHeight, height: dimension.mButtonHeight)

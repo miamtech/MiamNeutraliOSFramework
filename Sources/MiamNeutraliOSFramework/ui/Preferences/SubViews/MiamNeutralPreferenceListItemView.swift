@@ -41,7 +41,7 @@ public struct MiamNeutralPreferenceListItemView: View {
                             .frame(width: 20, height: 20, alignment: .center)
                         
                         if tag.isChecked {
-                            Image.miamImage(icon: .check)
+                            Image.mealzIcon(icon: .check)
                                 .renderingMode(.original).frame( alignment: .center)
                         }
                     }

@@ -20,12 +20,12 @@ public struct MiamNeutralMealsInBasketButtonSuccess: MealsInBasketButtonSuccessP
             onNavigateToMyMeals()
         } label: {
             HStack {
-                Image.miamNeutralImage(icon: .fork)
+                Image.mealzIcon(icon: .cutlery)
                 Spacer()
                 Text(Localization.myMeals.mealsAdded(numberOfMeals: Int32(mealsCount)).localised)
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigBoldStyle)
                 Spacer()
-                Image.miamImage(icon: .rightArrow)
+                Image.mealzIcon(icon: .caret)
             }
             .frame(maxWidth: .infinity)
             .padding(Dimension.sharedInstance.lPadding)

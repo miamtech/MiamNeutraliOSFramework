@@ -28,7 +28,7 @@ public struct MiamNeutralGeneralSearch: SearchProtocol {
                         Button {
                             onApply()
                         } label: {
-                            Image.miamImage(icon: .search)
+                            Image.mealzIcon(icon: .search)
                                 .renderingMode(.template)
                                 .foregroundColor(Color.miamColor(.white))
                                 .padding(10)

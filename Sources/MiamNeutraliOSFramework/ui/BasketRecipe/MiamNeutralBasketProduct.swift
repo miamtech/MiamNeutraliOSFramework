@@ -70,7 +70,9 @@ public struct MiamNeutralBasketProduct: BasketProductProtocol {
                 Button {
                     delete()
                 } label: {
-                    Image.miamNeutralImage(icon: .bin)
+                    Image.mealzIcon(icon: .trash)
+                        .renderingMode(.template)
+                        .foregroundColor(Color.miamColor(.primaryText))
                 }
                 .padding(Dimension.sharedInstance.mlPadding)
         }.frame(maxWidth: .infinity)
@@ -91,7 +93,7 @@ public struct MiamNeutralBasketProduct: BasketProductProtocol {
             changeProduct()
         } label: {
             HStack {
-                Image.miamNeutralImage(icon: .refresh)
+                Image.mealzIcon(icon: .swap)
                 Text(Localization.basket.swapProduct.localised)
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyMediumBoldStyle)
                     .foregroundColor(Color.miamNeutralColor(.primary))

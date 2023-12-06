@@ -59,7 +59,7 @@ public struct MiamNeutralMealPlannerRecipeCard: MealPlannerRecipeCardProtocol {
                                 onReplaceRecipeFromMealPlanner()
                             }
                         if #unavailable(iOS 15.0) {
-                            Image.miamNeutralImage(icon: .bin)
+                            Image.mealzIcon(icon: .trash)
                                 .padding(dimensions.mPadding)
                                 .onTapGesture {
                                     onRemoveRecipeFromMealPlanner()

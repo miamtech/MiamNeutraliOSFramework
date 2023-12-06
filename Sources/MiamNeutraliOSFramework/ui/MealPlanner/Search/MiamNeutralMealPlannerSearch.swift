@@ -15,7 +15,7 @@ public struct MiamNeutralMealPlannerSearch: SearchProtocol {
     public func content(searchText: Binding<String>, onApply: @escaping () -> Void) -> some View {
         HStack(spacing: 8.0) {
             HStack(spacing: 4.0) {
-                Image.miamNeutralImage(icon: .search)
+                Image.mealzIcon(icon: .search)
                     .renderingMode(.template)
                     .foregroundColor(Color.miamNeutralColor(.primary))
                 TextField("Rechercher", text: searchText, onCommit: {
@@ -31,7 +31,7 @@ public struct MiamNeutralMealPlannerSearch: SearchProtocol {
             Button {
                 onApply()
             } label: {
-                Image.miamNeutralImage(icon: .filters)
+                Image.mealzIcon(icon: .filters)
             }
         }
         .padding(Dimension.sharedInstance.lPadding)

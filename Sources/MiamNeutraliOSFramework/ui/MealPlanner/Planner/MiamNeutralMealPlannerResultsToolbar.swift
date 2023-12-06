@@ -29,10 +29,10 @@ public struct MiamNeutralMealPlannerResultsToolbar: MealPlannerResultsToolbarPro
                 currency: Localization.price.currency.localised)
             MiamNeutralStepperCollapsed(
                 value: mealPlannerCriteria.numberOfGuests,
-                icon: Image.miamNeutralImage(icon: .guests))
+                icon: Image.mealzIcon(icon: .guests))
             MiamNeutralStepperCollapsed(
                 value: mealPlannerCriteria.numberOfMeals,
-                icon: Image.miamNeutralImage(icon: .fork))
+                icon: Image.mealzIcon(icon: .cutlery))
             SubmitButtonCollapsed(
                 isLoading: isLoadingRecipes,
                 activelyEditingTextField: activelyEditingTextField.wrappedValue) {
@@ -59,7 +59,7 @@ internal struct SubmitButtonCollapsed: View {
                 ProgressLoader(color: .white)
                     .scaleEffect(0.5)
             } else {
-                Image.miamNeutralImage(icon: .check)
+                Image.mealzIcon(icon: .check)
                     .renderingMode(.template)
                     .resizable()
                     .foregroundColor(Color.miamColor(.white))

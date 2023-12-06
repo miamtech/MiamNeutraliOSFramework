@@ -85,9 +85,10 @@ public struct MiamNeutralRecipeCard: CatalogRecipeCardProtocol {
                                         .miamFontStyle(style: MiamFontStyleProvider().bodyBoldStyle)
                                 } else {
                                     HStack {
-                                        Image.miamImage(icon: .plus)
-                                            .resizable()
+                                        Image.mealzIcon(icon: .plus)
+                                            .renderingMode(.template)
                                             .frame(width: 18, height: 18)
+                                            .foregroundColor(Color.miamColor(.white))
                                         Text(Localization.recipe.add.localised)
                                             .foregroundColor(Color.miamColor(.white))
                                             .miamFontStyle(style: MiamFontStyleProvider().bodyBoldStyle)
@@ -100,7 +101,7 @@ public struct MiamNeutralRecipeCard: CatalogRecipeCardProtocol {
                         .cornerRadius(Dimension.sharedInstance.sCornerRadius)
                     }
                 }
-                .padding(.horizontal, dimensions.mPadding)
+                .padding(.horizontal, dimensions.sPadding)
                 .padding(.vertical, dimensions.mPadding)
                 .frame(maxHeight: .infinity)
             }
@@ -160,8 +161,8 @@ public struct DemoCatalogRecipeCardView: CatalogRecipeCardProtocol {
                 LikeButton( // there are other parameters you can change to customize
                     likeButtonInfo: LikeButtonInfo(
                         recipeId: recipe.id,
-                        likedIcon: Image.miamImage(icon: .caret),
-                        unlikedIcon: Image.miamImage(icon: .cart),
+                        likedIcon: Image.mealzIcon(icon: .caret),
+                        unlikedIcon: Image.mealzIcon(icon: .basket),
                         iconSize: CGSize(width: 20, height: 20),
                         backgroundSize: CGSize(width: 25, height: 25),
                         backgroundColor: Color.red,

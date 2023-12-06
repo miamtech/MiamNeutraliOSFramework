@@ -33,7 +33,7 @@ struct ItemSelectorProductRow: View {
                         .frame(width: 90, height: 90)
                         .clipped()
                     } else {
-                        Image.miamImage(icon: .empty).frame(width: 90, height: 90)
+                        Image.mealzIcon(icon: .pan).frame(width: 90, height: 90)
                     }
                     VStack(alignment: .leading) {
                         Text(product.item.attributes?.brand ?? "" )

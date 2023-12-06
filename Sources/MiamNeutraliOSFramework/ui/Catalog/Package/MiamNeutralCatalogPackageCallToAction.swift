@@ -36,8 +36,7 @@ public struct MiamNeutralCatalogPackageCTA: CatalogPackageCTAProtocol {
                         .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigBoldStyle)
                         .foregroundColor(Color.miamColor(.primaryDark))
                     Image.miamImage(icon: .rightArrow)
-                        .resizable()
-                        .frame(width: 10, height: 18)
+                        .renderingMode(.template)
                         .foregroundColor(Color.miamColor(.primaryDark))
                 }
             })
