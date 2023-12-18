@@ -7,11 +7,11 @@ Created by miam x didi on 27/10/2023.
 */
 
 //-------------------------------- Override Miam -----------------------------------
-"com_miam_recipe_add" = "Ajouter les produits";
+"com_miam_recipe_add" = "Ajouter";
 "com_miam_recipe_added" = "1 repas ajouté à votre panier :  " ;
-"com_miam_recipe_difficulty_low" = "Chef débutant " ;
-"com_miam_recipe_difficulty_medium" = "Chef intermédiaire " ;
-"com_miam_recipe_difficulty_high" = "Top chef " ;
+"com_miam_recipe_difficulty_low" = "Débutant " ;
+"com_miam_recipe_difficulty_medium" = "Intermédiaire " ;
+"com_miam_recipe_difficulty_high" = "Confirmé " ;
 "com_miam_recipe_is_in_cart" = "Voir le détail " ;
 "com_miam_recipe_cook_time" = "Cuisson : " ;
 "com_miam_recipe_preparation_time" = "Préparation : " ;
