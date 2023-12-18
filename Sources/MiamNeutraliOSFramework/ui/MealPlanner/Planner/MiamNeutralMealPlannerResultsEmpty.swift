@@ -16,7 +16,7 @@ public struct MiamNeutralMealPlannerResultsEmpty: MealPlannerResultsEmptyProtoco
     public func content(mealPlannerCriteria: MealPlannerCriteria, reason: String) -> some View {
         
         VStack(alignment: .leading, spacing: 8.0) {
-            Image.miamNeutralImage(icon: .alert)
+            Image.mealzIcon(icon: .alert)
                 .padding([.top, .leading], 12.0)
             Text(reason)
                 .foregroundColor(Color.miamNeutralColor(.textNegative))

@@ -26,11 +26,11 @@ public struct MiamNeutralCatalogToolbar: CatalogToolbarProtocol {
             HStack(spacing: Dimension.sharedInstance.xlPadding) {
                 CatalogToolbarSearchButton(onSearchTapped: onSearchTapped)
                 Spacer()
-                CatalogToolbarButtonFormat(icon:  Image.miamImage(icon: .filters), action: onFiltersTapped)
+                CatalogToolbarButtonFormat(icon:  Image.mealzIcon(icon: .filters), action: onFiltersTapped)
                 if hasPreferences {
-                    CatalogToolbarButtonFormat(icon:  Image.miamImage(icon: .preferences), action: onPreferencesTapped)
+                    CatalogToolbarButtonFormat(icon:  Image.mealzIcon(icon: .chefHat), action: onPreferencesTapped)
                 }
-                CatalogToolbarButtonFormat(icon:  Image.miamImage(icon: .heart), action: onFavoritesTapped)
+                CatalogToolbarButtonFormat(icon:  Image.mealzIcon(icon: .heart), action: onFavoritesTapped)
             }
         }
         .padding(Dimension.sharedInstance.mlPadding)
@@ -49,7 +49,7 @@ struct CatalogToolbarButtonFormat: View {
             icon
                 .renderingMode(.template)
                 .resizable()
-                .frame(width: 18, height: 18)
+                .frame(width: 25, height: 24)
                 .foregroundColor(Color.miamColor(.primaryDark))
         }
         .frame(width: 30)
@@ -63,9 +63,10 @@ struct CatalogToolbarSearchButton: View {
         Button {
             onSearchTapped()
         } label: {
-            Image.miamImage(icon: .search)
+            Image.mealzIcon(icon: .search)
+                .renderingMode(.template)
                 .resizable()
-                .frame(width: 18, height: 18)
+                .frame(width: 25, height: 25)
                 .foregroundColor(.white)
         }
         .padding(Dimension.sharedInstance.mlPadding)

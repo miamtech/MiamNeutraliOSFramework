@@ -55,7 +55,9 @@ public struct MiamNeutralBasketRecipeOverview: BasketRecipeOverviewProtocol {
                         Button {
                             actions.onDeleteRecipe()
                         } label: {
-                            Image.miamNeutralImage(icon: .bin)
+                            Image.mealzIcon(icon: .trash)
+                                .renderingMode(.template)
+                                .foregroundColor(Color.miamColor(.primaryDark))
                         }
                     }.frame(maxWidth: .infinity)
                     Text(data.price.pricePerPerson(numberOfGuests: data.guests))
@@ -70,7 +72,7 @@ public struct MiamNeutralBasketRecipeOverview: BasketRecipeOverviewProtocol {
                                     actions.onExpand()
                                 }
                             } label: {
-                                Image.miamImage(icon: .chevronDown).rotationEffect(Angle.degrees(chevronAngle))
+                                Image.mealzIcon(icon: .caret).rotationEffect(Angle.degrees(chevronAngle))
                             }.padding([.trailing], Dimension.sharedInstance.lPadding)
                         }
                     }

@@ -29,7 +29,7 @@ public struct MiamNeutralRecipeDetailsHeaderView: RecipeDetailsHeaderProtocol {
                     .frame(height: imageHeight)
                     .clipped()
                 } else {
-                    Image.miamImage(icon: .empty).frame( height: imageHeight)
+                    Image.mealzIcon(icon: .pan).frame( height: imageHeight)
                 }
                 HStack {
                     if infos.isLikeEnabled {

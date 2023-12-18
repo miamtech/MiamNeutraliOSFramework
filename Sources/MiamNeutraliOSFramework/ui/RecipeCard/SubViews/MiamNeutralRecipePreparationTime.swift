@@ -18,10 +18,10 @@ public struct MiamNeutralRecipePreparationTime: View {
 
     public var body: some View {
         VStack {
-            Image.miamNeutralImage(icon: .time)
+            Image.mealzIcon(icon: .time)
             Text(duration.spellOutTimeUnit())
                 .miamFontStyle(style: MiamFontStyleProvider().bodyMediumBoldStyle)
-                .lineLimit(2)
+                .lineLimit(1)
                 .multilineTextAlignment(.leading)
         }
     }

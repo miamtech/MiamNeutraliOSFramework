@@ -23,9 +23,9 @@ public struct MiamNeutralCatalogResultsToolbar: CatalogToolbarProtocol {
         HStack(spacing: Dimension.sharedInstance.xlPadding) {
             CatalogToolbarSearchButton(onSearchTapped: onSearchTapped)
             Spacer()
-            CatalogToolbarButtonFormat(icon:  Image.miamImage(icon: .filters), action: onFiltersTapped)
+            CatalogToolbarButtonFormat(icon:  Image.mealzIcon(icon: .filters), action: onFiltersTapped)
             if hasPreferences {
-                CatalogToolbarButtonFormat(icon:  Image.miamImage(icon: .preferences), action: onPreferencesTapped)
+                CatalogToolbarButtonFormat(icon:  Image.mealzIcon(icon: .chefHat), action: onPreferencesTapped)
             }
         }
         .padding(Dimension.sharedInstance.mlPadding)

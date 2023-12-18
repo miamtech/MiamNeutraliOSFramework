@@ -32,8 +32,7 @@ internal struct MiamNeutralStepper: View {
                         value -= 1
                     }
                 }, label: {
-                    Image.miamNeutralImage(icon: .minus)
-                        .renderingMode(.template)
+                    Image.mealzIcon(icon: .minus)
                         .resizable()
                         .frame(width: dimension.lButtonHeight, height: dimension.lButtonHeight)
                         .foregroundColor(Color.miamNeutralColor(.primary))
@@ -47,8 +46,7 @@ internal struct MiamNeutralStepper: View {
                         value += 1
                     }
                 }, label: {
-                    Image.miamNeutralImage(icon: .plus)
-                        .renderingMode(.template)
+                    Image.mealzIcon(icon: .plus)
                         .resizable()
                         .foregroundColor(Color.miamNeutralColor(.primary))
                         .frame(width: dimension.lButtonHeight, height: dimension.lButtonHeight)
@@ -139,7 +137,7 @@ struct MiamNeutralStepper_Previews: PreviewProvider {
         var body: some View {
             VStack {
                 MiamNeutralStepper(value: $value, caption: "Number of meals")
-                MiamNeutralStepperCollapsed(value: $value, icon: Image.miamNeutralImage(icon: .guests))
+                MiamNeutralStepperCollapsed(value: $value, icon: Image.mealzIcon(icon: .guests))
             }
         }
     }

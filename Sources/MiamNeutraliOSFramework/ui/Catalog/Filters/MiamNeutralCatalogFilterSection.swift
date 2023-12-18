@@ -27,10 +27,10 @@ public struct MiamNeutralFiltersSection: FiltersSectionProtocol {
                             onFilterSelected(filter)
                         } label: {
                             if filter.isSelected {
-                                var icon: MiamIOSFramework.MiamIcon {
-                                    filter.isSelected ? .check : .cross
+                                var icon: MealzIcons {
+                                    filter.isSelected ? .check : .plus
                                 }
-                                Image.miamImage(icon: icon)
+                                Image.mealzIcon(icon: icon)
                             } else {
                                 Rectangle().foregroundColor(.clear)
                             }

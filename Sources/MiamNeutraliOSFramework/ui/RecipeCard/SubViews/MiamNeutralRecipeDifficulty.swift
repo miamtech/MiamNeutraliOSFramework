@@ -18,10 +18,10 @@ public struct MiamNeutralRecipeDifficulty: View {
 
     public var body: some View {
         VStack {
-            Image.miamNeutralImage(icon: .chefHat)
+            Image.mealzIcon(icon: .chefHat)
             Text(difficultyDescription)
                 .miamFontStyle(style: MiamFontStyleProvider().bodyMediumBoldStyle)
-                .lineLimit(2)
+                .lineLimit(1)
                 .multilineTextAlignment(.leading)
         }
     }

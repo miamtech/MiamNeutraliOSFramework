@@ -51,7 +51,7 @@ public struct MiamNeutralRecipeDetailsStepRow: View {
                                 .frame(width: 20, height: 20, alignment: .center)
 
                     if self.checkState {
-                        Image.miamImage(icon: .check)
+                        Image.mealzIcon(icon: .check)
                             .renderingMode(.original)
                             .frame( alignment: .center)
                     }

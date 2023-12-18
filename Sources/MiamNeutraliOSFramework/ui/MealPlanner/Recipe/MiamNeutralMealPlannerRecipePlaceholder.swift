@@ -36,7 +36,7 @@ public struct MiamNeutralMealPlannerRecipePlaceholder: MealPlannerRecipePlacehol
                             .fill(Color.miamColor(.primary))
                             .frame(width: dimension.xlButtonHeight, height: dimension.xlButtonHeight)
                             .overlay(
-                                Image.miamImage(icon: .plus)
+                                Image.mealzIcon(icon: .plus)
                                     .renderingMode(.template)
                                     .foregroundColor(Color.miamColor(.white))
                                     .frame(width: dimension.mButtonHeight, height: dimension.mButtonHeight)

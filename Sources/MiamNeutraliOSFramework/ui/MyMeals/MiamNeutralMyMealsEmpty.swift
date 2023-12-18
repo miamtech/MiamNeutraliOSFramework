@@ -14,11 +14,12 @@ public struct MiamNeutralMyMealsEmpty: EmptyProtocol {
     
     public func content(onOptionalCallback: (() -> Void)?) -> some View {
         VStack(spacing: Dimension.sharedInstance.lPadding) {
-            Image.miamImage(icon: .noResults)
+            Image.mealzIcon(icon: .feelingBlue)
                 .resizable()
-                .frame(width: 100, height: 100)
+                .scaledToFit()
+                .frame(height: 250)
             Text(Localization.myMeals.noMealIdeaInBasket.localised)
-                .foregroundColor(Color.white)
+                .foregroundColor(Color.miamColor(.primaryDark))
                 .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleMediumStyle)
                 .multilineTextAlignment(.center)
             if let optionalCallBack = onOptionalCallback {
@@ -28,12 +29,12 @@ public struct MiamNeutralMyMealsEmpty: EmptyProtocol {
                     }
                 } label: {
                     Text(Localization.myMeals.goToCatalog.localised)
-                        .foregroundColor(Color.miamColor(.primary))
+                        .foregroundColor(Color.miamColor(.white))
                         .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyStyle)
                 }
                 .padding(.horizontal)
                 .padding(.vertical, 15)
-                .background(Color.miamColor(.white))
+                .background(Color.miamColor(.primary))
                 .cornerRadius(Dimension.sharedInstance.lCornerRadius)
                 .overlay(RoundedRectangle(cornerRadius: Dimension.sharedInstance.lCornerRadius)
                     .stroke(Color.clear, lineWidth: 1.0)
@@ -42,7 +43,7 @@ public struct MiamNeutralMyMealsEmpty: EmptyProtocol {
         }
         .padding(Dimension.sharedInstance.lPadding)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.miamColor(.primary))
+        .background(Color.miamColor(.white))
     }
 }
 
