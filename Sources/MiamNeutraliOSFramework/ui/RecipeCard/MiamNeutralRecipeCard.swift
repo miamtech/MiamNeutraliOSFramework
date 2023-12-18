@@ -79,20 +79,20 @@ public struct MiamNeutralRecipeCard: CatalogRecipeCardProtocol {
                         Button {
                             ctaAction(recipe.id)
                         } label: {
-                            Label {
                                 if isCurrentlyInBasket {
                                     Text(Localization.recipe.showBasketPreview.localised)
                                         .foregroundColor(Color.miamColor(.white))
+                                        .miamFontStyle(style: MiamFontStyleProvider().bodyBoldStyle)
                                 } else {
-                                    Text(Localization.recipe.add.localised)
-                                        .foregroundColor(Color.miamColor(.white))
+                                    HStack {
+                                        Image.miamImage(icon: .plus)
+                                            .resizable()
+                                            .frame(width: 18, height: 18)
+                                        Text(Localization.recipe.add.localised)
+                                            .foregroundColor(Color.miamColor(.white))
+                                            .miamFontStyle(style: MiamFontStyleProvider().bodyBoldStyle)
+                                    }
                                 }
-                            } icon: {
-                                Image.miamImage(icon: .plus)
-                                    .resizable()
-                                    .frame(width: 18, height: 18)
-                            }
-                            .miamFontStyle(style: MiamFontStyleProvider().bodyBoldStyle)
                         }
                         .padding(.vertical, Dimension.sharedInstance.mPadding)
                         .padding(.horizontal, Dimension.sharedInstance.lPadding)
