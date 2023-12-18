@@ -68,11 +68,9 @@ public struct MiamNeutralRecipeCard: CatalogRecipeCardProtocol {
                         )
                     if showTimeAndDifficulty() {
                         HStack(spacing: 0.0) {
-                            Spacer()
                             MiamNeutralRecipeDifficulty(difficulty: recipe.difficulty)
                             Spacer()
                             MiamNeutralRecipePreparationTime(duration: recipe.cookingTimeIos)
-                            Spacer()
                         }
                     }
                     if showCTA() {
@@ -89,15 +87,13 @@ public struct MiamNeutralRecipeCard: CatalogRecipeCardProtocol {
                                 }
                             } icon: {
                                 Image.miamImage(icon: .plus)
-                                    .resizable()
-                                    .frame(width: 18, height: 18)
                             }
-                            .miamFontStyle(style: MiamFontStyleProvider().bodyBoldStyle)
+                            .miamFontStyle(style: MiamFontStyleProvider().bodySmallBoldStyle)
                         }
-                        .padding(.vertical, Dimension.sharedInstance.mPadding)
-                        .padding(.horizontal, Dimension.sharedInstance.lPadding)
+                        .padding(Dimension.sharedInstance.mPadding)
+                        .overlay(RoundedRectangle(cornerRadius: Dimension.sharedInstance.sCornerRadius)
+                            .stroke(Color.miamNeutralColor(.primary), lineWidth: 1))
                         .background(Color.miamNeutralColor(.primary))
-                        .cornerRadius(Dimension.sharedInstance.sCornerRadius)
                     }
                 }
                 .padding(.horizontal, dimensions.mPadding)

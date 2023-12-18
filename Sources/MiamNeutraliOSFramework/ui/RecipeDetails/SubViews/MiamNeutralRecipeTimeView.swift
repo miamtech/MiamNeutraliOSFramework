@@ -18,31 +18,29 @@ struct MiamNeutralRecipeTimeView: View {
     let noCookingTime = "0s"
     let noRestingTime = "0s"
     
-    let spaceBetweenTime: CGFloat = 1
-    
     var body: some View {
         VStack(alignment: .leading) {
             if preparationTime != noPreparationTime {
-                HStack(spacing: spaceBetweenTime) {
+                HStack {
                     Text(Localization.recipe.preparationTime.localised)
                         .miamFontStyle(style: MiamFontStyleProvider().bodyStyle)
-                    Text(preparationTime.spellOutTimeUnit())
+                    Text(preparationTime)
                         .miamFontStyle(style: MiamFontStyleProvider().bodyBoldStyle)
                 }
             }
             if cookingTime != noCookingTime {
-                HStack(spacing: spaceBetweenTime) {
+                HStack {
                     Text(Localization.recipe.cookTime.localised)
                         .miamFontStyle(style: MiamFontStyleProvider().bodyStyle)
-                    Text(cookingTime.spellOutTimeUnit())
+                    Text(cookingTime)
                         .miamFontStyle(style: MiamFontStyleProvider().bodyBoldStyle)
                 }
             }
             if restingTime != noRestingTime {
-                HStack(spacing: spaceBetweenTime) {
+                HStack {
                     Text(Localization.recipe.restingTime.localised)
                         .miamFontStyle(style: MiamFontStyleProvider().bodyStyle)
-                    Text(restingTime.spellOutTimeUnit())
+                    Text(restingTime)
                         .miamFontStyle(style: MiamFontStyleProvider().bodyBoldStyle)
                 }
             }

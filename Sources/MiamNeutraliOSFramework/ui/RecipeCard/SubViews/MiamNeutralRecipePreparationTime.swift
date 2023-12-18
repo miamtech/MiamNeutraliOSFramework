@@ -10,7 +10,7 @@ import SwiftUI
 
 @available(iOS 14, *)
 public struct MiamNeutralRecipePreparationTime: View {
-    var duration: String
+    let duration: String
 
     public init(duration: String) {
         self.duration = duration
@@ -19,7 +19,7 @@ public struct MiamNeutralRecipePreparationTime: View {
     public var body: some View {
         VStack {
             Image.miamNeutralImage(icon: .time)
-            Text(duration.spellOutTimeUnit())
+            Text(duration)
                 .miamFontStyle(style: MiamFontStyleProvider().bodyMediumBoldStyle)
                 .lineLimit(2)
                 .multilineTextAlignment(.leading)
