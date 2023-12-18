@@ -19,18 +19,19 @@ public struct MiamNeutralMealsInBasketButtonSuccess: MealsInBasketButtonSuccessP
         Button {
             onNavigateToMyMeals()
         } label: {
-            VStack {
-                Image.miamImage(icon: .greyChevronDown)
-                    .rotationEffect(Angle(degrees: 180.0))
-                let mealsAdded = Localization.myMeals.mealsAdded(numberOfMeals: Int32(mealsCount)).localised
-                Text(mealsAdded)
+            HStack {
+                Image.miamNeutralImage(icon: .fork)
+                Spacer()
+                Text(Localization.myMeals.mealsAdded(numberOfMeals: Int32(mealsCount)).localised)
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigBoldStyle)
+                Spacer()
+                Image.miamImage(icon: .rightArrow)
             }
             .frame(maxWidth: .infinity)
-            .padding(EdgeInsets(top: 16.0, leading: 20.0, bottom: 8.0, trailing: 20.0))
+            .padding(Dimension.sharedInstance.lPadding)
         }
-        .background(Color.miamColor(.primary))
-        .foregroundColor(Color.miamColor(.white))
-        .cornerRadius(50, corners: [.top])
+        .background(Color.miamColor(.greySurface))
+        .foregroundColor(Color.miamColor(.primaryDark))
+        .cornerRadius(Dimension.sharedInstance.mCornerRadius, corners: [.top])
     }
 }
