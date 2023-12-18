@@ -12,24 +12,49 @@ import MiamIOSFramework
 public struct MiamNeutralCatalogPackageCTA: CatalogPackageCTAProtocol {
     public init () {}
     public func content(
+        title: String,
+        subtitle: String?,
         onSeeAllRecipes: @escaping () -> Void
     ) -> some View {
-        Button( action: {
-            onSeeAllRecipes()
-        }, label: {
-            Text(Localization.catalog.showAll.localised)
-                .underline()
-                .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigStyle)
-                .foregroundColor(Color.miamColor(.primary))
-                .padding([.trailing], 16.0).padding([.top], 8)
-                .frame(maxWidth: .infinity, alignment: .trailing)
-        })
+        HStack(alignment: .bottom) {
+            VStack(alignment: .leading) {
+                Text(title)
+                    .foregroundColor(Color.miamNeutralColor(.textPrimary))
+                    .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleBigStyle)
+                    .lineLimit(1)
+                if let subtitle = subtitle {
+                    Text(subtitle)
+                        .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyStyle)
+                        .lineLimit(1)
+                }
+            }
+            Button( action: {
+                onSeeAllRecipes()
+            }, label: {
+                HStack {
+                    Text(Localization.catalog.showAll.localised)
+                        .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigBoldStyle)
+                        .foregroundColor(Color.miamColor(.primaryDark))
+                    Image.miamImage(icon: .rightArrow)
+                        .resizable()
+                        .frame(width: 10, height: 18)
+                        .foregroundColor(Color.miamColor(.primaryDark))
+                }
+            })
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.vertical, Dimension.sharedInstance.lPadding)
+        .padding(.horizontal, Dimension.sharedInstance.mPadding)
     }
 }
 
 @available(iOS 14, *)
 struct MiamNeutralCatalogPackageCTA_Previews: PreviewProvider {
     static var previews: some View {
-        MiamNeutralCatalogPackageCTA().content(onSeeAllRecipes: {})
+        MiamNeutralCatalogPackageCTA().content(
+            title: "test",
+            subtitle: "test 1",
+            onSeeAllRecipes: {}
+        )
     }
 }

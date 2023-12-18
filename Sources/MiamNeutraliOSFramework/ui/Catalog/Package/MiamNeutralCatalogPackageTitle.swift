@@ -12,14 +12,16 @@ import MiamIOSFramework
 public struct MiamNeutralCatalogPackageTitle: BaseTitleProtocol {
     public init() {}
     public func content(title: String, subtitle: String?) -> some View {
-        VStack(alignment: .leading) {
-            Text(title)
-                .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleMediumStyle)
-                .padding(Dimension.sharedInstance.mlPadding)
-            if let subtitle = subtitle {
-                Text(subtitle)
-                    .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleSmallStyle)
-                    .padding(Dimension.sharedInstance.mlPadding)
+        HStack(alignment: .bottom) {
+            VStack(alignment: .leading) {
+                Text(title)
+                    .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleBigStyle)
+                    .lineLimit(1)
+                if let subtitle = subtitle {
+                    Text(subtitle)
+                        .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyStyle)
+                        .lineLimit(1)
+                }
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
