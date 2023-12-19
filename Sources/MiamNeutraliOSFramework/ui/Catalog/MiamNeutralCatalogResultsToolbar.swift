@@ -10,11 +10,9 @@ import MiamIOSFramework
 
 @available(iOS 14, *)
 public struct MiamNeutralCatalogResultsToolbar: CatalogToolbarProtocol {
-    let hasPreferences: Bool
-    public init (hasPreferences: Bool = true) {
-        self.hasPreferences = hasPreferences
-    }
+    public init () {}
     public func content(
+        usesPreferences: Bool,
         onFiltersTapped: @escaping () -> Void,
         onSearchTapped: @escaping () -> Void,
         onFavoritesTapped: @escaping () -> Void,
@@ -24,7 +22,7 @@ public struct MiamNeutralCatalogResultsToolbar: CatalogToolbarProtocol {
             CatalogToolbarSearchButton(onSearchTapped: onSearchTapped)
             Spacer()
             CatalogToolbarButtonFormat(icon:  Image.mealzIcon(icon: .filters), action: onFiltersTapped)
-            if hasPreferences {
+            if usesPreferences {
                 CatalogToolbarButtonFormat(icon:  Image.mealzIcon(icon: .chefHat), action: onPreferencesTapped)
             }
         }
@@ -36,6 +34,7 @@ public struct MiamNeutralCatalogResultsToolbar: CatalogToolbarProtocol {
 struct MiamNeutralCatalogResultsToolbar_Previews: PreviewProvider {
     static var previews: some View {
         MiamNeutralCatalogToolbar().content(
+            usesPreferences: true,
             onFiltersTapped: {},
             onSearchTapped: {},
             onFavoritesTapped: {},
