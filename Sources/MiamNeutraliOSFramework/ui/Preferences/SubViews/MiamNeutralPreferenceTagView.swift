@@ -24,9 +24,9 @@ public struct MiamNeutralPreferenceTagView: View {
     public var backgroundColor: Color {
         get {
             if tag.isChecked {
-                return Color.miamColor(.black)
+                return Color.mealzColor(.darkestGray)
             } else {
-                return Color.miamColor(.white)
+                return Color.mealzColor(.white)
             }
         }
     }
@@ -34,9 +34,9 @@ public struct MiamNeutralPreferenceTagView: View {
     public var foregroundColor: Color {
         get {
             if tag.isChecked {
-                return Color.miamColor(.white)
+                return Color.mealzColor(.white)
             } else {
-                return Color.miamColor(.black)
+                return Color.mealzColor(.darkestGray)
             }
         }
     }
@@ -54,7 +54,7 @@ public struct MiamNeutralPreferenceTagView: View {
             .foregroundColor(foregroundColor)
             .background(backgroundColor)
             .clipShape(Capsule())
-            .overlay(Capsule().stroke(Color.miamColor(.borderLight), lineWidth: 1.0))
+            .overlay(Capsule().stroke(Color.mealzColor(.border), lineWidth: 1.0))
             .onTapGesture {
                 onToggleTag(tag)
             }

@@ -17,13 +17,13 @@ internal struct MealPlannerSubmitCTA: View {
 
     @State var isEnabled = true
     var backgroundColor: Color {
-        return isEnabled ? Color.miamColor(.primary) : Color.miamColor(.greyLighter)
+        return isEnabled ? Color.mealzColor(.primary) : Color.mealzColor(.lightBackground)
     }
     var buttonStrokeColor: Color {
-        return isEnabled ? Color.miamColor(.primary) : Color.clear
+        return isEnabled ? Color.mealzColor(.primary) : Color.clear
     }
     var buttonTextColor: Color {
-        return isEnabled ? Color.miamNeutralColor(.primaryInverse) : Color.miamNeutralColor(.textDisabled)
+        return isEnabled ? Color.mealzColor(.lighterGray) : Color.mealzColor(.darkerGray)
     }
     var buttonText: String {
         Localization.myBudget.planMealsTitle.localised

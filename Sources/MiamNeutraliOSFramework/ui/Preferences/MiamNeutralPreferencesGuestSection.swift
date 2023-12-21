@@ -23,7 +23,7 @@ public struct MiamNeutralPreferencesGuest: PreferencesGuestProtocol {
                     onGuestChanged(count)
                 }
             }
-        }.background(Color.miamColor(.greyLighter))
+        }.background(Color.mealzColor(.lightBackground))
     }
 }
 

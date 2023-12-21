@@ -48,7 +48,7 @@ struct CatalogToolbarButtonFormat: View {
                 .renderingMode(.template)
                 .resizable()
                 .frame(width: 25, height: 24)
-                .foregroundColor(Color.miamColor(.primaryDark))
+                .foregroundColor(Color.mealzColor(.primary))
         }
         .frame(width: 30)
     }
@@ -68,7 +68,7 @@ struct CatalogToolbarSearchButton: View {
                 .foregroundColor(.white)
         }
         .padding(Dimension.sharedInstance.mlPadding)
-        .background(Color.miamColor(.primaryDark))
+        .background(Color.mealzColor(.primary))
         .cornerRadius(Dimension.sharedInstance.sCornerRadius)
     }
 }

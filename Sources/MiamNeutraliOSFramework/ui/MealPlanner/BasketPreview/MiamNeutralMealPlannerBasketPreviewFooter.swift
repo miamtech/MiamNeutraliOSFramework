@@ -26,7 +26,7 @@ public struct MiamNeutralMealPlannerBasketPreviewFooter: MealPlannerBasketFooter
             .padding(Dimension.sharedInstance.lPadding)
             .frame(maxWidth: .infinity)
             .foregroundColor(Color.white)
-            .background(Color.miamNeutralColor(.primary))
+            .background(Color.mealzColor(.primary))
             .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigBoldStyle)
             .cornerRadius(Dimension.sharedInstance.mCornerRadius)
 
@@ -37,10 +37,10 @@ public struct MiamNeutralMealPlannerBasketPreviewFooter: MealPlannerBasketFooter
             }
             .padding(Dimension.sharedInstance.lPadding)
             .frame(maxWidth: .infinity)
-            .foregroundColor(Color.miamNeutralColor(.primary))
+            .foregroundColor(Color.mealzColor(.primary))
             .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigBoldStyle)
             .overlay(RoundedRectangle(cornerRadius: Dimension.sharedInstance.mCornerRadius)
-                .stroke(Color.miamNeutralColor(.primary), lineWidth: 1.0))
+                .stroke(Color.mealzColor(.primary), lineWidth: 1.0))
         }
         .background(Color.white)
         .padding(Dimension.sharedInstance.lPadding)

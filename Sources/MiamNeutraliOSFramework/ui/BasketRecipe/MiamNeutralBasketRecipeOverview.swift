@@ -39,7 +39,7 @@ public struct MiamNeutralBasketRecipeOverview: BasketRecipeOverviewProtocol {
             } label: {
                 Text(Localization.recipe.showDetails.localised)
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigBoldStyle)
-                    .foregroundColor(Color.miamColor(.primaryText))
+                    .foregroundColor(Color.mealzColor(.primaryText))
             }.padding([.top], Dimension.sharedInstance.sPadding)
         }
         
@@ -50,19 +50,19 @@ public struct MiamNeutralBasketRecipeOverview: BasketRecipeOverviewProtocol {
                     HStack(alignment: .top) {
                         Text(data.recipe.attributes?.title ?? "")
                             .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleMediumStyle)
-                            .foregroundColor(Color.miamColor(.black))
+                            .foregroundColor(Color.mealzColor(.darkestGray))
                         Spacer()
                         Button {
                             actions.onDeleteRecipe()
                         } label: {
                             Image.mealzIcon(icon: .trash)
                                 .renderingMode(.template)
-                                .foregroundColor(Color.miamColor(.primaryDark))
+                                .foregroundColor(Color.mealzColor(.primary))
                         }
                     }.frame(maxWidth: .infinity)
                     Text(data.price.pricePerPerson(numberOfGuests: data.guests))
                         .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigLightStyle)
-                        .foregroundColor(Color.miamColor(.secondaryText))
+                        .foregroundColor(Color.mealzColor(.darkGray))
                     HStack {
                         linkToRecipeDetail()
                         Spacer()
@@ -81,12 +81,12 @@ public struct MiamNeutralBasketRecipeOverview: BasketRecipeOverviewProtocol {
             .frame(height: recipeCardDimensions.height, alignment: .topLeading)
             HStack {
                 if data.isReloading {
-                    ProgressLoader(color: Color.miamNeutralColor(.primary))
+                    ProgressLoader(color: Color.mealzColor(.primary))
                         .scaleEffect(0.5)
                 } else {
                     Text(data.price.currencyFormatted)
                         .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigBoldStyle)
-                        .foregroundColor(Color.miamColor(.primary))
+                        .foregroundColor(Color.mealzColor(.primary))
                 }
                 Spacer()
                 MiamNeutralCounterView(

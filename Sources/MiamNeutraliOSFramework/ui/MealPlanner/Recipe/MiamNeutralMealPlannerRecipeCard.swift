@@ -52,7 +52,7 @@ public struct MiamNeutralMealPlannerRecipeCard: MealPlannerRecipeCardProtocol {
                     }
                     HStack {
                         Text(Localization.basket.swapProduct.localised)
-                            .foregroundColor(Color.miamColor(.primary))
+                            .foregroundColor(Color.mealzColor(.primary))
                             .miamFontStyle(style: MiamFontStyleProvider().bodyMediumBoldStyle)
                             .padding(dimensions.lPadding)
                             .onTapGesture {

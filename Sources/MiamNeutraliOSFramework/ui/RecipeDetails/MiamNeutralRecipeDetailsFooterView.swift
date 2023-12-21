@@ -31,7 +31,7 @@ public struct MiamNeutralRecipeDetailsFooterView: RecipeDetailsFooterProtocol {
                         }
                     }, label: {
                         Text(Localization.recipe.add.localised)
-                            .foregroundColor(Color.miamNeutralColor(.primary))
+                            .foregroundColor(Color.mealzColor(.primary))
                             .miamFontStyle(style: MiamFontStyleProvider().bodyStyle)
                     })
                     Spacer()
@@ -44,7 +44,7 @@ public struct MiamNeutralRecipeDetailsFooterView: RecipeDetailsFooterProtocol {
                     recipeId: recipeId,
                     guestNumber: guestCount)
                 Text(Localization.price.perGuest.localised)
-                    .foregroundColor(Color.miamColor(.lightGrey))
+                    .foregroundColor(Color.mealzColor(.lightGray))
                     .miamFontStyle(style: MiamFontStyleProvider().bodySmallStyle)
                 Spacer()
             }.frame(height: 55)

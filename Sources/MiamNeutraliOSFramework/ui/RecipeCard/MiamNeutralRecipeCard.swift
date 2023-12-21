@@ -81,23 +81,23 @@ public struct MiamNeutralRecipeCard: CatalogRecipeCardProtocol {
                         } label: {
                                 if isCurrentlyInBasket {
                                     Text(Localization.recipe.showBasketPreview.localised)
-                                        .foregroundColor(Color.miamColor(.white))
+                                        .foregroundColor(Color.mealzColor(.white))
                                         .miamFontStyle(style: MiamFontStyleProvider().bodyBoldStyle)
                                 } else {
                                     HStack {
                                         Image.mealzIcon(icon: .plus)
                                             .renderingMode(.template)
                                             .frame(width: 18, height: 18)
-                                            .foregroundColor(Color.miamColor(.white))
+                                            .foregroundColor(Color.mealzColor(.white))
                                         Text(Localization.recipe.add.localised)
-                                            .foregroundColor(Color.miamColor(.white))
+                                            .foregroundColor(Color.mealzColor(.white))
                                             .miamFontStyle(style: MiamFontStyleProvider().bodyBoldStyle)
                                     }
                                 }
                         }
                         .padding(.vertical, Dimension.sharedInstance.mPadding)
                         .padding(.horizontal, Dimension.sharedInstance.lPadding)
-                        .background(Color.miamNeutralColor(.primary))
+                        .background(Color.mealzColor(.primary))
                         .cornerRadius(Dimension.sharedInstance.sCornerRadius)
                     }
                 }
@@ -115,7 +115,7 @@ public struct MiamNeutralRecipeCard: CatalogRecipeCardProtocol {
         .overlay(
             RoundedRectangle(
                 cornerRadius: 12.0)
-            .stroke(Color.miamNeutralColor(.lightBorder)
+            .stroke(Color.mealzColor(.border)
                     , lineWidth: 1.0))
     }
 }

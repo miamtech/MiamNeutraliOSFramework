@@ -19,7 +19,7 @@ public struct MiamNeutralMyMealsEmpty: EmptyProtocol {
                 .scaledToFit()
                 .frame(height: 250)
             Text(Localization.myMeals.noMealIdeaInBasket.localised)
-                .foregroundColor(Color.miamColor(.primaryDark))
+                .foregroundColor(Color.mealzColor(.primary))
                 .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleMediumStyle)
                 .multilineTextAlignment(.center)
             if let optionalCallBack = onOptionalCallback {
@@ -29,12 +29,12 @@ public struct MiamNeutralMyMealsEmpty: EmptyProtocol {
                     }
                 } label: {
                     Text(Localization.myMeals.goToCatalog.localised)
-                        .foregroundColor(Color.miamColor(.white))
+                        .foregroundColor(Color.mealzColor(.white))
                         .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyStyle)
                 }
                 .padding(.horizontal)
                 .padding(.vertical, 15)
-                .background(Color.miamColor(.primary))
+                .background(Color.mealzColor(.primary))
                 .cornerRadius(Dimension.sharedInstance.lCornerRadius)
                 .overlay(RoundedRectangle(cornerRadius: Dimension.sharedInstance.lCornerRadius)
                     .stroke(Color.clear, lineWidth: 1.0)
@@ -43,7 +43,7 @@ public struct MiamNeutralMyMealsEmpty: EmptyProtocol {
         }
         .padding(Dimension.sharedInstance.lPadding)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.miamColor(.white))
+        .background(Color.mealzColor(.white))
     }
 }
 

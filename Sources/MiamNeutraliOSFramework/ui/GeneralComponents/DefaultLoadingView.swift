@@ -15,7 +15,7 @@ public struct DefaultLoadingView: LoadingProtocol {
     }
     public func content() -> some View {
         ProgressLoader(
-            color: Color.miamColor(.primary),
+            color: Color.mealzColor(.primary),
             size: size
         )
     }

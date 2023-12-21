@@ -19,7 +19,7 @@ public struct MiamNeutralCatalogPackageCTA: CatalogPackageCTAProtocol {
         HStack(alignment: .bottom) {
             VStack(alignment: .leading) {
                 Text(title)
-                    .foregroundColor(Color.miamNeutralColor(.textPrimary))
+                    .foregroundColor(Color.mealzColor(.primaryText))
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleBigStyle)
                     .lineLimit(1)
                 if let subtitle = subtitle {
@@ -34,10 +34,10 @@ public struct MiamNeutralCatalogPackageCTA: CatalogPackageCTAProtocol {
                 HStack {
                     Text(Localization.catalog.showAll.localised)
                         .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigBoldStyle)
-                        .foregroundColor(Color.miamColor(.primaryDark))
+                        .foregroundColor(Color.mealzColor(.primary))
                     Image.miamImage(icon: .rightArrow)
                         .renderingMode(.template)
-                        .foregroundColor(Color.miamColor(.primaryDark))
+                        .foregroundColor(Color.mealzColor(.primary))
                 }
             })
         }

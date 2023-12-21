@@ -22,7 +22,7 @@ public struct MiamNeutralFiltersCTA: FiltersCTAProtocol {
             } label: {
                 Text(Localization.catalog.removeFilters.localised)
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigStyle)
-                    .foregroundColor(Color.miamColor(.primaryText))
+                    .foregroundColor(Color.mealzColor(.primaryText))
             }.padding(EdgeInsets(top: 9, leading: 20, bottom: 9, trailing: 20))
             Divider().padding([.bottom, .top], 10)
             Button {
@@ -32,7 +32,7 @@ public struct MiamNeutralFiltersCTA: FiltersCTAProtocol {
                     .padding(EdgeInsets(top: 9, leading: 20, bottom: 9, trailing: 20))
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigStyle)
                     .foregroundColor(.white)
-                    .background(Color.miamColor(.primary))
+                    .background(Color.mealzColor(.primary))
                     .clipShape(Capsule())
             }
         }
