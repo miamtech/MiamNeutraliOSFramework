@@ -6,6 +6,7 @@
 //
 
 import MiamIOSFramework
+import SwiftUI
 
 /**
  A protocol defining the necessary parameters for RecipeDetails
@@ -25,7 +26,10 @@ public struct RecipeDetailsViewOptions {
     public var header: TypeSafeRecipeDetailsHeader
     public var sponsor: TypeSafeRecipeDetailsSponsor
     public var ingredients: TypeSafeRecipeDetailsIngredients
+    public var selectedControl: TypeSafeRecipeDetailsSelectedControl
+    public var products: TypeSafeRecipeDetailsProducts
     public var steps: TypeSafeRecipeDetailsSteps
+    public var tags: TypeSafeRecipeDetailsTags
     public var footer: TypeSafeRecipeDetailsFooter
     public var background: TypeSafeBackground
     public var empty: TypeSafeEmpty
@@ -35,7 +39,10 @@ public struct RecipeDetailsViewOptions {
         header: TypeSafeRecipeDetailsHeader = TypeSafeRecipeDetailsHeader(MiamNeutralRecipeDetailsHeaderView()),
         sponsor: TypeSafeRecipeDetailsSponsor = TypeSafeRecipeDetailsSponsor(MiamNeutralRecipeDetailsSponsor()),
         ingredients: TypeSafeRecipeDetailsIngredients = TypeSafeRecipeDetailsIngredients(MiamNeutralRecipeDetailsIngredientsView()),
+        selectedControl : TypeSafeRecipeDetailsSelectedControl = TypeSafeRecipeDetailsSelectedControl(MiamNeutralRecipeDetailsSelectedControlView()),
+        products: TypeSafeRecipeDetailsProducts = TypeSafeRecipeDetailsProducts(MiamNeutralRecipeDetailsProductsView()),
         steps: TypeSafeRecipeDetailsSteps = TypeSafeRecipeDetailsSteps(MiamNeutralRecipeDetailsStepsView()),
+        tags: TypeSafeRecipeDetailsTags = TypeSafeRecipeDetailsTags(MiamNeutralRecipeDetailsTagsView()),
         footer: TypeSafeRecipeDetailsFooter = TypeSafeRecipeDetailsFooter(MiamNeutralRecipeDetailsFooterView()),
         empty: TypeSafeEmpty = TypeSafeEmpty(DefaultEmptyView()),
         loading: TypeSafeLoading = TypeSafeLoading(DefaultLoadingView()),
@@ -44,10 +51,14 @@ public struct RecipeDetailsViewOptions {
         self.header = header
         self.sponsor = sponsor
         self.ingredients = ingredients
+        self.selectedControl = selectedControl
+        self.products = products
         self.steps = steps
+        self.tags = tags
         self.footer = footer
         self.background = background
         self.empty = empty
         self.loading = loading
     }
 }
+
