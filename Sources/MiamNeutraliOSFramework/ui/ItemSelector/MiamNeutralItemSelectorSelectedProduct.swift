@@ -15,7 +15,7 @@ public struct MiamNeutralItemSelectorSelectedProduct: ItemSelectorSelectedProduc
     
     public init(){}
     
-    public func content(product: PricedItem) -> some View {
+    public func content(product: Item) -> some View {
         ItemSelectorProductRow(product:product,isSelected:true)
     }
 }
