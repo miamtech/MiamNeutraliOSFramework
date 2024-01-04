@@ -20,7 +20,7 @@ public struct MiamNeutralRecipeDifficulty: View {
         VStack {
             Image.mealzIcon(icon: .chefHat)
             Text(difficultyDescription)
-                .miamFontStyle(style: MiamFontStyleProvider().bodyMediumBoldStyle)
+                .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyMediumBoldStyle)
                 .lineLimit(1)
                 .multilineTextAlignment(.leading)
         }

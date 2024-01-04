@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import MiamIOSFramework
 
 @available(iOS 14, *)
 public struct MiamNeutralRecipePreparationTime: View {
@@ -20,7 +21,7 @@ public struct MiamNeutralRecipePreparationTime: View {
         VStack {
             Image.mealzIcon(icon: .time)
             Text(duration.spellOutTimeUnit())
-                .miamFontStyle(style: MiamFontStyleProvider().bodyMediumBoldStyle)
+                .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyMediumBoldStyle)
                 .lineLimit(1)
                 .multilineTextAlignment(.leading)
         }

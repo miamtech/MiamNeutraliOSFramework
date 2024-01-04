@@ -14,7 +14,7 @@ public struct MiamNeutralNoSearchResults: View {
         HStack {
             Image(systemName: "exclamationmark")
                 .resizable()
-                .foregroundColor(Color.danger)
+                .foregroundColor(Color.miamColor(.danger))
                 .frame(width: 5, height: 25)
                 .padding(.trailing, Dimension.sharedInstance.lPadding)
             Text(message)
@@ -22,7 +22,7 @@ public struct MiamNeutralNoSearchResults: View {
         }
         .padding(.vertical, Dimension.sharedInstance.lPadding)
         .padding(.horizontal, Dimension.sharedInstance.xlPadding)
-        .background(Color.dangerBackground)
+        .background(Color.miamColor(.primaryDark))
         .cornerRadius(Dimension.sharedInstance.mCornerRadius)
     }
 }

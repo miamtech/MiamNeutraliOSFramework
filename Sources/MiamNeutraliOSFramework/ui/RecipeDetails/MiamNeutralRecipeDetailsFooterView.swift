@@ -32,7 +32,7 @@ public struct MiamNeutralRecipeDetailsFooterView: RecipeDetailsFooterProtocol {
                     }, label: {
                         Text(Localization.recipe.add.localised)
                             .foregroundColor(Color.miamNeutralColor(.primary))
-                            .miamFontStyle(style: MiamFontStyleProvider().bodyStyle)
+                            .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyStyle)
                     })
                     Spacer()
                 }.frame(height: 35)
@@ -45,7 +45,7 @@ public struct MiamNeutralRecipeDetailsFooterView: RecipeDetailsFooterProtocol {
                     guestNumber: guestCount)
                 Text(Localization.price.perGuest.localised)
                     .foregroundColor(Color.miamColor(.lightGrey))
-                    .miamFontStyle(style: MiamFontStyleProvider().bodySmallStyle)
+                    .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodySmallStyle)
                 Spacer()
             }.frame(height: 55)
         }
@@ -58,7 +58,7 @@ public struct MiamNeutralRecipeDetailsFooterView: RecipeDetailsFooterProtocol {
 struct CoursesURecipeDetailsFooterView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            Color.budgetBackgroundColor
+            Color.miamColor(.lightGreyBackground)
             VStack {
                 MiamNeutralRecipeDetailsFooterView().content(recipeId: "34134321", guestCount: 4, isInCart: false, onContinueToBasket: nil)
                 MiamNeutralRecipeDetailsFooterView().content(recipeId: "34134321", guestCount: 4, isInCart: true, onContinueToBasket: nil)

@@ -13,10 +13,10 @@ public struct MiamNeutralMealPlannerRecipePickerEmpty: EmptyProtocol {
     public func content(onOptionalCallback: (() -> Void)?) -> some View {
             VStack {
                 Text(Localization.catalog.noRecipeFound.localised)
-                    .miamFontStyle(style: MiamFontStyleProvider().titleStyle)
+                    .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleStyle)
                     .padding(.top, 35)
                 Text(Localization.catalog.noRecipeFound.localised)
-                    .miamFontStyle(style: MiamFontStyleProvider().subtitleStyle)
+                    .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.subtitleStyle)
                 Spacer()
             }
     }

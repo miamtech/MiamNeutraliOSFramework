@@ -58,7 +58,7 @@ public struct MiamNeutralRecipeCard: CatalogRecipeCardProtocol {
                 .clipped()
                 VStack(spacing: dimensions.lPadding) {
                     Text(recipe.title)
-                        .miamFontStyle(style: MiamFontStyleProvider().bodyMediumBoldStyle)
+                        .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyMediumBoldStyle)
                         .lineLimit(2)
                         .multilineTextAlignment(.center)
                         .minimumScaleFactor(0.75)
@@ -82,7 +82,7 @@ public struct MiamNeutralRecipeCard: CatalogRecipeCardProtocol {
                                 if isCurrentlyInBasket {
                                     Text(Localization.recipe.showBasketPreview.localised)
                                         .foregroundColor(Color.miamColor(.white))
-                                        .miamFontStyle(style: MiamFontStyleProvider().bodyBoldStyle)
+                                        .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBoldStyle)
                                 } else {
                                     HStack {
                                         Image.mealzIcon(icon: .plus)
@@ -91,7 +91,7 @@ public struct MiamNeutralRecipeCard: CatalogRecipeCardProtocol {
                                             .foregroundColor(Color.miamColor(.white))
                                         Text(Localization.recipe.add.localised)
                                             .foregroundColor(Color.miamColor(.white))
-                                            .miamFontStyle(style: MiamFontStyleProvider().bodyBoldStyle)
+                                            .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBoldStyle)
                                     }
                                 }
                         }

@@ -21,7 +21,7 @@ public struct MiamNeutralRecipeDetailsIngredientsView: RecipeDetailsIngredientsP
             HStack {
                 // TODO: RecipeDetails localize
                 Text("\(infos.ingredients.count) ingrédients")
-                    .miamFontStyle(style: MiamFontStyleProvider().titleStyle)
+                    .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleStyle)
                     .foregroundColor(Color.black)
                 Spacer()
             }.padding(.horizontal, Dimension.sharedInstance.lPadding)
