@@ -14,17 +14,18 @@ import MiamIOSFramework
 struct ItemSelectorProductRow: View {
 
     private var isSelected: Bool
-    private var product: PricedItem
+    private var product: Item
 
-    init(product: PricedItem, isSelected: Bool = false) {
+    init(product: Item, isSelected: Bool = false) {
         self.isSelected = isSelected
         self.product = product
     }
 
     var body: some View {
-            VStack {
+        let unitPrice = Double(product.attributes?.unitPrice ?? "0.0")?.currencyFormatted
+            return VStack {
                 HStack {
-                    if let picture = URL(string: product.item.attributes?.image ?? "") {
+                    if let picture = URL(string: product.attributes?.image ?? "") {
                         AsyncImage(url: picture) { image in
                             image
                                 .resizable()
@@ -36,15 +37,15 @@ struct ItemSelectorProductRow: View {
                         Image.mealzIcon(icon: .pan).frame(width: 90, height: 90)
                     }
                     VStack(alignment: .leading) {
-                        Text(product.item.attributes?.brand ?? "" )
+                        Text(product.attributes?.brand ?? "" )
                             .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodySmallBoldStyle)
                             .padding(.bottom, 8)
-                        Text(product.item.attributes?.name ??  "")
+                        Text(product.attributes?.name ??  "")
                             .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodySmallBoldStyle)
                             .padding(.bottom, 32)
                         HStack {
                             Spacer()
-                            Text(product.price.currencyFormatted)
+                            Text(unitPrice ?? "0.0")
                                 .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigBoldStyle)
                                 .padding(.trailing, 16)
                             Text(isSelected ? Localization.itemSelector.inBasket.localised : Localization.itemSelector.select.localised )

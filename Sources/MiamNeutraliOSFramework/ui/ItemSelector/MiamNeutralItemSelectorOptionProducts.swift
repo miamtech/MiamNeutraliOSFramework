@@ -16,8 +16,8 @@ public struct MiamNeutralItemSelectorOptionProducts: ItemSelectorOptionProductsP
     public init() {}
 
     public func content(
-        products: [PricedItem],
-        onItemSelected: @escaping (PricedItem) -> Void
+        products: [Item],
+        onItemSelected: @escaping (Item) -> Void
     ) -> some View {
         ForEach(products, id: \.self) { product in
             HStack {
