@@ -61,7 +61,7 @@ public struct MiamNeutralBasketProduct: BasketProductProtocol {
             return HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: Dimension.sharedInstance.sPadding) {
                     Text(name)
-                        .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyStyle)
+                        .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBoldStyle)
                     Text(description)
                         .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyStyle)
                     // TODO: add line with quantity?
@@ -94,6 +94,7 @@ public struct MiamNeutralBasketProduct: BasketProductProtocol {
         } label: {
             HStack {
                 Image.mealzIcon(icon: .swap)
+                
                 Text(Localization.basket.swapProduct.localised)
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyMediumBoldStyle)
                     .foregroundColor(Color.mealzColor(.primary))

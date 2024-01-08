@@ -57,6 +57,7 @@ public struct MiamNeutralOptionalIngredients: OptionalIngredientsProtocol {
             Spacer()
             Button(action: addIngredientAction) {
                 Image.mealzIcon(icon: .plus)
+                    .renderingMode(.template)
                     .resizable()
                     .aspectRatio( contentMode: .fit)
                     .frame(width: 30, height: 30, alignment: .center)

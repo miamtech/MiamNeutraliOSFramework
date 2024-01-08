@@ -61,6 +61,7 @@ public struct MiamNeutralCounterView: View {
                     decrease()
                 } label: {
                     Image.mealzIcon(icon: .minus)
+                        .renderingMode(.template)
                         .resizable()
                         .scaledToFill()
                         .frame(width: 18, height: 18)
@@ -87,6 +88,7 @@ public struct MiamNeutralCounterView: View {
                    increase()
                 } label: {
                     Image.mealzIcon(icon: .plus)
+                        .renderingMode(.template)
                         .resizable()
                         .scaledToFill()
                         .frame(width: 18, height: 18)

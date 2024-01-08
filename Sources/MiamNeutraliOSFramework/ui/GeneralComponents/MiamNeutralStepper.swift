@@ -33,6 +33,7 @@ internal struct MiamNeutralStepper: View {
                     }
                 }, label: {
                     Image.mealzIcon(icon: .minus)
+                        .renderingMode(.template)
                         .resizable()
                         .frame(width: dimension.lButtonHeight, height: dimension.lButtonHeight)
                         .foregroundColor(Color.mealzColor(.primary))
@@ -47,6 +48,7 @@ internal struct MiamNeutralStepper: View {
                     }
                 }, label: {
                     Image.mealzIcon(icon: .plus)
+                        .renderingMode(.template)
                         .resizable()
                         .foregroundColor(Color.mealzColor(.primary))
                         .frame(width: dimension.lButtonHeight, height: dimension.lButtonHeight)
