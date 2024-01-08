@@ -28,6 +28,10 @@ public class RecipeDetailParameters: RecipeDetailsParametersProtocol {
     
     public var header: TypeSafeRecipeDetailsHeader
     public var sponsor: TypeSafeRecipeDetailsSponsor
+    public var selectedControl : TypeSafeRecipeDetailsSelectedControl
+    public var products: TypeSafeRecipeDetailsProducts
+    public var tags: TypeSafeRecipeDetailsTags
+
     public var ingredients: TypeSafeRecipeDetailsIngredients
     public var steps: TypeSafeRecipeDetailsSteps
     public var footer: TypeSafeRecipeDetailsFooter
@@ -46,8 +50,11 @@ public class RecipeDetailParameters: RecipeDetailsParametersProtocol {
         self.onContinueToBasket = onContinueToBasket
         self.header = viewOption.header
         self.sponsor = viewOption.sponsor
+        self.selectedControl = viewOption.selectedControl
+        self.products = viewOption.products
         self.ingredients = viewOption.ingredients
         self.steps = viewOption.steps
+        self.tags = viewOption.tags
         self.footer = viewOption.footer
         self.background = viewOption.background
         self.empty = viewOption.empty
