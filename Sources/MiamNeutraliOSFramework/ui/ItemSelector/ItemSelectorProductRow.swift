@@ -51,8 +51,8 @@ struct ItemSelectorProductRow: View {
                                 .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyMediumBoldStyle)
                                 .padding(.horizontal, 20)
                                 .padding(.vertical, 9)
-                                .foregroundColor(Color.miamColor(.white))
-                                .background( isSelected ? Color.miamColor(.grey) : Color.miamColor(.primary))
+                                .foregroundColor(Color.mealzColor(.white))
+                                .background( isSelected ? Color.mealzColor(.lightBackground) : Color.mealzColor(.primary))
                                 .cornerRadius(1000)
                         }
                     }.padding(16)

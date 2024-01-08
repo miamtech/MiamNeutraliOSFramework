@@ -61,7 +61,7 @@ public struct MiamNeutralBasketProduct: BasketProductProtocol {
             return HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: Dimension.sharedInstance.sPadding) {
                     Text(name)
-                        .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyStyle)
+                        .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBoldStyle)
                     Text(description)
                         .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyStyle)
                     // TODO: add line with quantity?
@@ -72,7 +72,7 @@ public struct MiamNeutralBasketProduct: BasketProductProtocol {
                 } label: {
                     Image.mealzIcon(icon: .trash)
                         .renderingMode(.template)
-                        .foregroundColor(Color.miamColor(.primaryText))
+                        .foregroundColor(Color.mealzColor(.primaryText))
                 }
                 .padding(Dimension.sharedInstance.mlPadding)
         }.frame(maxWidth: .infinity)
@@ -82,7 +82,7 @@ public struct MiamNeutralBasketProduct: BasketProductProtocol {
         return  VStack {
             Text(price.currencyFormatted)
                 .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigBoldStyle)
-                .foregroundColor(Color.miamNeutralColor(.primary))
+                .foregroundColor(Color.mealzColor(.primary))
             Text(formatPricePerUnit(pricePerUnit: price, unit: Localization.price.currency.localised))
                 .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodySmallStyle)
         }
@@ -94,9 +94,10 @@ public struct MiamNeutralBasketProduct: BasketProductProtocol {
         } label: {
             HStack {
                 Image.mealzIcon(icon: .swap)
+                
                 Text(Localization.basket.swapProduct.localised)
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyMediumBoldStyle)
-                    .foregroundColor(Color.miamNeutralColor(.primary))
+                    .foregroundColor(Color.mealzColor(.primary))
             }
         }
     }

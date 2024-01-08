@@ -12,7 +12,7 @@ import MiamIOSFramework
 public struct MiamNeutralGeneralLoading: LoadingProtocol {
     public init() {}
     public func content() -> some View {
-        ProgressLoader(color: Color.miamColor(.primary))
+        ProgressLoader(color: Color.mealzColor(.primary))
     }
 }
 

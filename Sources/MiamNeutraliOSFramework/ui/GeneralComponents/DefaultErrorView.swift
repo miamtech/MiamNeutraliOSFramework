@@ -14,7 +14,7 @@ public struct DefaultErrorView: ErrorProtocol {
   
     public func content(onOptionalCallback: (() -> Void)?) -> some View {
         return VStack {
-            Text(Localisation.Error.shared.generic.localised).foregroundColor(Color.miamColor(.danger))
+            Text(Localisation.Error.shared.generic.localised).foregroundColor(Color.mealzColor(.danger))
             Button {
                 onOptionalCallback?()
             } label: {

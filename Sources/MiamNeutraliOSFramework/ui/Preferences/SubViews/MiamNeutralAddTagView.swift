@@ -21,10 +21,10 @@ public struct MiamNeutralAddTagView: View {
             .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigStyle)
             .padding(14.0)
             .frame(height: 40.0)
-            .foregroundColor(Color.miamColor(.black))
-            .background(Color.miamColor(.white))
+            .foregroundColor(Color.mealzColor(.darkestGray))
+            .background(Color.mealzColor(.white))
             .clipShape(Capsule())
-            .overlay(Capsule().stroke(Color.miamColor(.borderLight), lineWidth: 1.0))
+            .overlay(Capsule().stroke(Color.mealzColor(.border), lineWidth: 1.0))
             .onTapGesture {
                 onTapped()
             }

@@ -33,11 +33,11 @@ public struct MiamNeutralMealPlannerRecipeCardLoading: RecipeCardLoadingProtocol
         var body: some View {
             VStack {
                 RoundedRectangle(cornerRadius: iconPlaceholderCornerRadius)
-                    .fill(Color.miamNeutralColor(.lightBackground))
+                    .fill(Color.mealzColor(.lightBackground))
                     .frame(width: iconPlaceholderWidth, height: iconPlaceholderHeight)
 
                 RoundedRectangle(cornerRadius: linePlaceholderCornerRadius)
-                    .fill(Color.miamNeutralColor(.lightBackground))
+                    .fill(Color.mealzColor(.lightBackground))
                     .frame(width: linePlaceholderWidth, height: linePlaceholderHeight)
             }
         }
@@ -46,16 +46,16 @@ public struct MiamNeutralMealPlannerRecipeCardLoading: RecipeCardLoadingProtocol
     public func content(recipeCardDimensions: CGSize) -> some View {
         HStack(alignment: .top, spacing: 0.0) {
             Rectangle()
-                .fill(Color.miamNeutralColor(.lightBackground))
+                .fill(Color.mealzColor(.lightBackground))
                 .frame(width: 150.0)
 
             VStack(alignment: .center, spacing: dimensions.xlPadding) {
                 VStack {
                     RoundedRectangle(cornerRadius: linePlaceholderCornerRadius)
-                        .fill(Color.miamNeutralColor(.lightBackground))
+                        .fill(Color.mealzColor(.lightBackground))
                         .frame(width: 140.0, height: linePlaceholderHeight)
                     RoundedRectangle(cornerRadius: linePlaceholderCornerRadius)
-                        .fill(Color.miamNeutralColor(.lightBackground))
+                        .fill(Color.mealzColor(.lightBackground))
                         .frame(width: 160.0, height: linePlaceholderHeight)
                 }
 
@@ -64,7 +64,7 @@ public struct MiamNeutralMealPlannerRecipeCardLoading: RecipeCardLoadingProtocol
                     IconAndTextLoadingView()
                 }
                 RoundedRectangle(cornerRadius: linePlaceholderCornerRadius)
-                    .fill(Color.miamNeutralColor(.lightBackground))
+                    .fill(Color.mealzColor(.lightBackground))
                     .frame(width: 70.0, height: linePlaceholderHeight)
             }
             .frame(maxWidth: .infinity)

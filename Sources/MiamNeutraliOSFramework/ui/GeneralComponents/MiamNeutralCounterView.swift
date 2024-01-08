@@ -61,10 +61,11 @@ public struct MiamNeutralCounterView: View {
                     decrease()
                 } label: {
                     Image.mealzIcon(icon: .minus)
+                        .renderingMode(.template)
                         .resizable()
                         .scaledToFill()
                         .frame(width: 18, height: 18)
-                        .foregroundColor(Color.miamColor(.white))
+                        .foregroundColor(Color.mealzColor(.white))
                 }
                 .padding(.leading, Dimension.sharedInstance.lPadding)
                 .frame(width: 20.0, height: 20.0, alignment: .leading)
@@ -72,7 +73,7 @@ public struct MiamNeutralCounterView: View {
 
                 Spacer()
                 if isLoading {
-                    ProgressLoader(color: Color.miamColor(.white))
+                    ProgressLoader(color: Color.mealzColor(.white))
                         .scaleEffect(0.5)
                 } else {
                     Text(
@@ -80,24 +81,25 @@ public struct MiamNeutralCounterView: View {
                         " \( lightMode ? "" : Localization.counter.persons.localised)"
                     )
                         .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleSmallStyle)
-                        .foregroundColor(Color.miamColor(.white))
+                        .foregroundColor(Color.mealzColor(.white))
                     Spacer()
                 }
                 Button {
                    increase()
                 } label: {
                     Image.mealzIcon(icon: .plus)
+                        .renderingMode(.template)
                         .resizable()
                         .scaledToFill()
                         .frame(width: 18, height: 18)
-                        .foregroundColor(Color.miamColor(.white))
+                        .foregroundColor(Color.mealzColor(.white))
                 }
                 .padding(.trailing, Dimension.sharedInstance.lPadding)
                 .frame(width: 20.0, height: 20.0, alignment: .trailing)
                 .disabled(self.isDisable)
 
             }.frame(width: lightMode ? 90 : 130.0, height: 40.0, alignment: .center)
-                .background(Color.miamColor(.primaryText))
+                .background(Color.mealzColor(.primaryText))
                 .cornerRadius(25.0).padding(.trailing, Dimension.sharedInstance.mPadding)
     }
 }

@@ -34,9 +34,10 @@ internal struct MiamNeutralStepper: View {
                     }
                 }, label: {
                     Image.mealzIcon(icon: .minus)
+                        .renderingMode(.template)
                         .resizable()
                         .frame(width: dimension.lButtonHeight, height: dimension.lButtonHeight)
-                        .foregroundColor(Color.miamNeutralColor(.primary))
+                        .foregroundColor(Color.mealzColor(.primary))
                 })
                 Spacer()
                 Text("\(value)")
@@ -48,15 +49,16 @@ internal struct MiamNeutralStepper: View {
                     }
                 }, label: {
                     Image.mealzIcon(icon: .plus)
+                        .renderingMode(.template)
                         .resizable()
-                        .foregroundColor(Color.miamNeutralColor(.primary))
+                        .foregroundColor(Color.mealzColor(.primary))
                         .frame(width: dimension.lButtonHeight, height: dimension.lButtonHeight)
                 })
             }
             .padding(dimension.mPadding)
             .overlay(
                 RoundedRectangle(cornerRadius: dimension.sCornerRadius)
-                    .stroke(Color.miamNeutralColor(.primary), lineWidth: 1)
+                    .stroke(Color.mealzColor(.primary), lineWidth: 1)
             )
         }
     }
@@ -70,7 +72,7 @@ internal struct MandatoryTextField: View {
             Text(caption)
                 .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyMediumStyle)
             Text("*")
-                .foregroundColor(Color.miamColor(.danger))
+                .foregroundColor(Color.mealzColor(.danger))
             Spacer()
         }
     }
@@ -105,11 +107,11 @@ internal struct MiamNeutralStepperCollapsed: View {
                         .resizable()
                         .frame(width: dimension.lButtonHeight, height: dimension.lButtonHeight)
                         .padding(.horizontal, dimension.sPadding)
-                        .foregroundColor(Color.miamColor(.black))
+                        .foregroundColor(Color.mealzColor(.darkestGray))
                     Divider()
-                        .background(Color.miamColor(.grey))
+                        .background(Color.mealzColor(.lightBackground))
                     Text(String(Int(value)))
-                        .foregroundColor(Color.miamColor(.black))
+                        .foregroundColor(Color.mealzColor(.darkestGray))
                         .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigBoldStyle)
                         .padding(.leading, dimension.mPadding)
                     Spacer()
@@ -119,7 +121,7 @@ internal struct MiamNeutralStepperCollapsed: View {
         .frame(maxWidth: .infinity)
         .frame(height: 50)
         .overlay(RoundedRectangle(cornerRadius: Dimension.sharedInstance.sCornerRadius)
-            .stroke(Color.miamColor(showBackground ? .primary : .grey), lineWidth: (showBackground ? 1.0 : 0.5)))
+            .stroke(Color.mealzColor(showBackground ? .primary : .lightBackground), lineWidth: (showBackground ? 1.0 : 0.5)))
         .onTapGesture {
             showBackground = true
         }

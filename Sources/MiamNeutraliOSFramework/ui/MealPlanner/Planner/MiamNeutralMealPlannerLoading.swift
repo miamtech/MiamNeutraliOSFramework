@@ -15,7 +15,7 @@ public struct MiamNeutralMealPlannerLoading: LoadingProtocol {
     public func content() -> some View {
         VStack {
             HStack {
-                ProgressLoader(color: Color.miamNeutralColor(.primary))
+                ProgressLoader(color: Color.mealzColor(.primary))
             }
         }
     }

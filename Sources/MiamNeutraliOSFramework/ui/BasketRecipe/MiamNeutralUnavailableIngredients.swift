@@ -47,7 +47,7 @@ public struct MiamNeutralUnavailableIngredients: UnavailableIngredientsProtocol 
         HStack {
             Text(name.capitalizingFirstLetter())
                 .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleMediumStyle)
-                .foregroundColor(Color.miamColor(.secondaryText))
+                .foregroundColor(Color.mealzColor(.darkGray))
             Spacer()
         }
         .padding(.horizontal, Dimension.sharedInstance.lPadding)

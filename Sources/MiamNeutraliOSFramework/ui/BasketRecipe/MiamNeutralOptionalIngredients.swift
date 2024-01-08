@@ -53,17 +53,18 @@ public struct MiamNeutralOptionalIngredients: OptionalIngredientsProtocol {
         HStack {
             Text(name.capitalizingFirstLetter())
                 .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleMediumStyle)
-                .foregroundColor(Color.miamColor(.secondaryText))
+                .foregroundColor(Color.mealzColor(.darkGray))
             Spacer()
             Button(action: addIngredientAction) {
                 Image.mealzIcon(icon: .plus)
+                    .renderingMode(.template)
                     .resizable()
                     .aspectRatio( contentMode: .fit)
                     .frame(width: 30, height: 30, alignment: .center)
-                    .foregroundColor(Color.miamNeutralColor(.primary))
+                    .foregroundColor(Color.mealzColor(.primary))
                 Text(Localization.basket.addProduct.localised)
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigBoldStyle)
-                    .foregroundColor(Color.miamNeutralColor(.primary))
+                    .foregroundColor(Color.mealzColor(.primary))
             }
         }
         .padding(.horizontal, Dimension.sharedInstance.lPadding)
