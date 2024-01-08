@@ -19,11 +19,11 @@ public struct DefaultTitleView: BaseTitleProtocol {
         return VStack {
             Text(title)
                 .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleBigStyle)
-                .foregroundColor(Color.miamColor(.primary))
+                .foregroundColor(Color.mealzColor(.primary))
             if let subtitle = subtitle {
                 Text(subtitle)
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleSmallStyle)
-                    .foregroundColor(Color.miamColor(.primary))
+                    .foregroundColor(Color.mealzColor(.primary))
             }
         }
     }

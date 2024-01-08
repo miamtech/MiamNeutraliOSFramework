@@ -27,29 +27,29 @@ public struct MiamNeutralPreferencesFooter: PreferencesFooterProtocol {
             } label: {
                 Text(Localization.preferences.cancel.localised)
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyMediumBoldStyle)
-                    .foregroundColor(Color.miamColor(.black))
+                    .foregroundColor(Color.mealzColor(.darkestGray))
             }
             .frame(maxWidth: .infinity)
             .fixedSize(horizontal: false, vertical: true)
             .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
             .background(
-                Capsule().foregroundColor(Color.miamColor(.white)))
+                Capsule().foregroundColor(Color.mealzColor(.white)))
             .overlay(
-                Capsule().stroke(Color.miamColor(.borderLight), lineWidth: 1.0))
+                Capsule().stroke(Color.mealzColor(.border), lineWidth: 1.0))
             Button {
                 onApplied()
             } label: {
                 Text(createCTAText)
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyMediumBoldStyle)
-                    .foregroundColor(Color.miamColor(.white))
+                    .foregroundColor(Color.mealzColor(.white))
             }
             .frame(maxWidth: .infinity)
             .fixedSize(horizontal: false, vertical: true)
             .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
-            .background(Capsule().foregroundColor(Color.miamColor(.primary)))
+            .background(Capsule().foregroundColor(Color.mealzColor(.primary)))
         }
         .padding(.horizontal, Dimension.sharedInstance.lPadding)
-        .background(Color.miamColor(.white))
+        .background(Color.mealzColor(.white))
     }
 }
 

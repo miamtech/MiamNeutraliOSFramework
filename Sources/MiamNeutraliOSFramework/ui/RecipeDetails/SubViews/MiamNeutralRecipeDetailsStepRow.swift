@@ -26,17 +26,17 @@ public struct MiamNeutralRecipeDetailsStepRow: View {
         HStack {
             ZStack {
                 Circle()
-                    .fill(Color.miamColor(.primaryText))
+                    .fill(Color.mealzColor(.primaryText))
                     .frame(width: 35.0, height: 35.0)
                 Text(String(index+1))
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigStyle)
-                    .foregroundColor(Color.miamColor(.white))
+                    .foregroundColor(Color.mealzColor(.white))
                     .frame( alignment: .center)
             }
 
             Text(step.attributes?.stepDescription ?? "")
                 .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigStyle)
-                .foregroundColor(Color.miamColor(.black20))
+                .foregroundColor(Color.mealzColor(.darkestGray))
                 .multilineTextAlignment(.leading)
                 .padding(Dimension.sharedInstance.mPadding).fixedSize(horizontal: false, vertical: true)
             Spacer()

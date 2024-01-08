@@ -37,7 +37,7 @@ public struct MiamNeutralPreferenceListItemView: View {
                         Rectangle()
                             .fill(.white)
                             .cornerRadius(4)
-                            .border(Color.miamColor(.borderLight), width: 1)
+                            .border(Color.mealzColor(.border), width: 1)
                             .frame(width: 20, height: 20, alignment: .center)
                         
                         if tag.isChecked {

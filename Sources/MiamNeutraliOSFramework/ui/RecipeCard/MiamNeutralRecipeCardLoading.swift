@@ -32,11 +32,11 @@ public struct MiamNeutralRecipeCardLoading: RecipeCardLoadingProtocol {
         var body: some View {
             VStack {
                 RoundedRectangle(cornerRadius: iconPlaceholderCornerRadius)
-                    .fill(Color.miamNeutralColor(.lightBackground))
+                    .fill(Color.mealzColor(.lightBackground))
                     .frame(width: iconPlaceholderWidth, height: iconPlaceholderHeight)
 
                 RoundedRectangle(cornerRadius: linePlaceholderCornerRadius)
-                    .fill(Color.miamNeutralColor(.lightBackground))
+                    .fill(Color.mealzColor(.lightBackground))
                     .frame(width: linePlaceholderWidth, height: linePlaceholderHeight)
             }
         }
@@ -45,16 +45,16 @@ public struct MiamNeutralRecipeCardLoading: RecipeCardLoadingProtocol {
     public func content(recipeCardDimensions: CGSize) -> some View {
         VStack(alignment: .center, spacing: 0.0) {
             Rectangle()
-                .fill(Color.miamNeutralColor(.lightBackground))
+                .fill(Color.mealzColor(.lightBackground))
                 .frame(width: 150.0)
 
             VStack(alignment: .center, spacing: dimensions.xlPadding) {
                 VStack {
                     RoundedRectangle(cornerRadius: linePlaceholderCornerRadius)
-                        .fill(Color.miamNeutralColor(.lightBackground))
+                        .fill(Color.mealzColor(.lightBackground))
                         .frame(width: 140.0, height: linePlaceholderHeight)
                     RoundedRectangle(cornerRadius: linePlaceholderCornerRadius)
-                        .fill(Color.miamNeutralColor(.lightBackground))
+                        .fill(Color.mealzColor(.lightBackground))
                         .frame(width: 160.0, height: linePlaceholderHeight)
                 }
 
@@ -63,7 +63,7 @@ public struct MiamNeutralRecipeCardLoading: RecipeCardLoadingProtocol {
                     IconAndTextLoadingView()
                 }
                 RoundedRectangle(cornerRadius: linePlaceholderCornerRadius)
-                    .fill(Color.miamNeutralColor(.lightBackground))
+                    .fill(Color.mealzColor(.lightBackground))
                     .frame(width: 70.0, height: linePlaceholderHeight)
             }
             .frame(maxHeight: .infinity)
@@ -73,7 +73,7 @@ public struct MiamNeutralRecipeCardLoading: RecipeCardLoadingProtocol {
         .frame(width: recipeCardDimensions.width, height: recipeCardDimensions.height)
         .redacted(reason: .placeholder).opacity(opacity)
         .cornerRadius(12.0)
-        .overlay(RoundedRectangle(cornerRadius: 12.0).stroke(Color.miamNeutralColor(.lightBorder), lineWidth: 1.0))
+        .overlay(RoundedRectangle(cornerRadius: 12.0).stroke(Color.mealzColor(.border), lineWidth: 1.0))
         .transition(.opacity).onAppear {
             let baseAnimation = Animation.easeInOut(duration: Constants.duration)
             let repeated = baseAnimation.repeatForever(autoreverses: true)

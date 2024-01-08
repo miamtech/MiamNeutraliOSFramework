@@ -21,14 +21,14 @@ public struct MiamNeutralRecipeDetailsIngredientRow: View {
         HStack {
             Text(ingredientName)
                 .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigStyle)
-                .foregroundColor(Color.miamColor(.black))
+                .foregroundColor(Color.mealzColor(.darkestGray))
                 .padding(Dimension.sharedInstance.mPadding)
 
             Spacer()
 
             Text(quantity)
                 .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleSmallStyle)
-                .foregroundColor(Color.miamColor(.black))
+                .foregroundColor(Color.mealzColor(.darkestGray))
                 .padding(Dimension.sharedInstance.mPadding)
         }
     }

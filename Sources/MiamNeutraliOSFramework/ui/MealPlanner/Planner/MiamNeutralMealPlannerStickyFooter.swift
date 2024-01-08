@@ -41,17 +41,17 @@ struct MiamNeutralMealPlannerCTAFooter: View {
             HStack {
                 Image.mealzIcon(icon: .basket)
                     .renderingMode(.template)
-                    .foregroundColor(Color.miamColor(.white))
+                    .foregroundColor(Color.mealzColor(.white))
                     .frame(width: dimension.mButtonHeight, height: dimension.mButtonHeight)
                 Text(Localization.recipe.add.localised)
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleStyle)
                     .padding(dimension.lPadding)
-                    .foregroundColor(Color.miamColor(.white))
+                    .foregroundColor(Color.mealzColor(.white))
             }
         }
         .frame(maxWidth: .infinity)
         .frame(height: 50)
-        .background(Color.miamColor(.primary))
+        .background(Color.mealzColor(.primary))
     }
 }
 
@@ -65,7 +65,7 @@ struct WithRoundedCornersProgressViewStyle: ProgressViewStyle {
         ZStack(alignment: .leading) {
             RoundedRectangle(cornerRadius: dimension.lCornerRadius)
                 .frame(width: widthOfRectangles, height: 10)
-                .foregroundColor(Color.miamColor(.greySurface))
+                .foregroundColor(Color.mealzColor(.lightBackground))
             Rectangle()
                 .frame(width: CGFloat(configuration.fractionCompleted ?? 0) * widthOfRectangles, height: 10)
                 .foregroundColor(progressColor)
@@ -78,7 +78,7 @@ struct WithRoundedCornersProgressViewStyle: ProgressViewStyle {
                     Rectangle()
                         .frame(maxWidth: .infinity)
                         .frame(width: 0.3 * widthOfRectangles, height: 10)
-                        .foregroundColor(Color.miamColor(.danger))
+                        .foregroundColor(Color.mealzColor(.danger))
                         .cornerRadius(dimension.lCornerRadius, corners: .right)
                 }
             }
@@ -95,12 +95,12 @@ struct MiamNeutralMealPlannerBudgetFooter: View {
         HStack(spacing: dimension.lPadding) {
             ProgressView(value: budgetSpent, total: totalBudgetPermitted)
                 .progressViewStyle(WithRoundedCornersProgressViewStyle(
-                    progressColor: Color.miamNeutralColor(.primary),
+                    progressColor: Color.mealzColor(.primary),
                     overBudget: budgetSpent > totalBudgetPermitted ? true : false))
             Text(budgetSpent.currencyFormatted)
                 .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleStyle)
                 .foregroundColor(budgetSpent > totalBudgetPermitted ?
-                                 Color.miamColor(.danger) : Color.miamNeutralColor(.textSuccess))
+                                 Color.mealzColor(.danger) : Color.mealzColor(.success))
         }
         .padding([.top, .horizontal], dimension.lPadding)
     }
@@ -153,6 +153,6 @@ struct StickyFooter<Content: View>: View {
     var body: some View {
         content()
             .padding(.bottom, safeArea.bottom)
-            .background(Color.miamColor(.white))
+            .background(Color.mealzColor(.white))
     }
 }

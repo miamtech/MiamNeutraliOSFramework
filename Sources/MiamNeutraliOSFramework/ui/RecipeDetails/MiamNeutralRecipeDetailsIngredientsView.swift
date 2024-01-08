@@ -27,7 +27,7 @@ public struct MiamNeutralRecipeDetailsIngredientsView: RecipeDetailsIngredientsP
             }.padding(.horizontal, Dimension.sharedInstance.lPadding)
         }
         Divider()
-            .background(Color.miamColor(.borderLight))
+            .background(Color.mealzColor(.border))
             .padding(.horizontal, Dimension.sharedInstance.lPadding)
         // Ingredients ListView
         VStack {
@@ -49,7 +49,7 @@ public struct MiamNeutralRecipeDetailsIngredientsView: RecipeDetailsIngredientsP
             }
             .padding(.vertical, Dimension.sharedInstance.lPadding)
         }
-        .background(Color.miamColor(.greyLighter)).cornerRadius(15.0)
+        .background(Color.mealzColor(.lightBackground)).cornerRadius(15.0)
         .padding( .horizontal,Dimension.sharedInstance.lPadding)
     }
     

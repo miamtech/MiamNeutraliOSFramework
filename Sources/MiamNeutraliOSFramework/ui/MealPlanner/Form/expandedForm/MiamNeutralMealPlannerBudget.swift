@@ -29,13 +29,13 @@ internal struct MiamNeutralMealPlannerBudget: View {
             HStack(spacing: 0) {
                 Currency(currency: currency)
                 Divider()
-                    .background(Color.miamColor(.grey))
+                    .background(Color.mealzColor(.lightBackground))
                 Budget(budget: $budget, onBudgetChanged: { _ in })
             }
             .frame(maxWidth: .infinity)
             .frame(height: 50)
             .overlay(RoundedRectangle(cornerRadius: Dimension.sharedInstance.sCornerRadius)
-                .stroke(Color.miamColor(.grey), lineWidth: 0.5))
+                .stroke(Color.mealzColor(.lightBackground), lineWidth: 0.5))
         }
     }
 }

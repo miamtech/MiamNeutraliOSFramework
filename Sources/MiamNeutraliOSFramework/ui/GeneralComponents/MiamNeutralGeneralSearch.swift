@@ -30,9 +30,9 @@ public struct MiamNeutralGeneralSearch: SearchProtocol {
                         } label: {
                             Image.mealzIcon(icon: .search)
                                 .renderingMode(.template)
-                                .foregroundColor(Color.miamColor(.white))
+                                .foregroundColor(Color.mealzColor(.white))
                                 .padding(10)
-                                .background(Color.miamColor(.primary)).clipShape(Circle())
+                                .background(Color.mealzColor(.primary)).clipShape(Circle())
                                 .shadow(radius: 2.0)
                         }
                     }

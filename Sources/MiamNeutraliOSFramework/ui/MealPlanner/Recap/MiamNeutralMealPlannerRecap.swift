@@ -24,7 +24,7 @@ public struct MiamNeutralMealPlannerRecap: MealPlannerRecapProtocol {
             }
             .padding(24.0)
             .frame(maxWidth: .infinity)
-            .background(Color.miamNeutralColor(.lightBackgroundSuccess))
+            .background(Color.mealzColor(.brownishYellow))
             .clipShape(RoundedRectangle(cornerRadius: 6.0))
 
             Text("Les produits associés ont bien été ajoutés au panier.")
@@ -39,14 +39,14 @@ public struct MiamNeutralMealPlannerRecap: MealPlannerRecapProtocol {
                 Spacer()
                     // Alternative Views and Spacers
                 Text(totalPrice.currencyFormatted)
-                    .foregroundColor(Color.miamNeutralColor(.primary))
+                    .foregroundColor(Color.mealzColor(.primary))
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleStyle)
             }
             .padding(16)
             .overlay(
                 RoundedRectangle(cornerRadius: 6)
                     .inset(by: 0.5)
-                    .stroke(Color.miamNeutralColor(.lightBorder), lineWidth: 1)
+                    .stroke(Color.mealzColor(.border), lineWidth: 1)
             )
 
             Divider()
@@ -63,7 +63,7 @@ public struct MiamNeutralMealPlannerRecap: MealPlannerRecapProtocol {
             .padding(.vertical, Dimension.sharedInstance.lPadding)
             .frame(maxWidth: .infinity)
             .foregroundColor(.white)
-            .background(Color.miamNeutralColor(.primary))
+            .background(Color.mealzColor(.primary))
             .clipShape(RoundedRectangle(cornerRadius: 6))
             Spacer()
         }

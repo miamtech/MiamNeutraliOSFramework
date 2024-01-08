@@ -23,13 +23,13 @@ public struct MiamNeutralCatalogRecipesListNoResults: CatalogRecipesListNoResult
                 Text(Localization.catalog.preferencesNoResult.localised)
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleBigStyle)
                     .multilineTextAlignment(.center)
-                    .foregroundColor(Color.miamColor(.white))
+                    .foregroundColor(Color.mealzColor(.white))
                 Button {
                     onNoResultsRedirect()
                 } label: {
                     Text(Localization.catalog.browseRecipes.localised)
                         .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigBoldStyle)
-                        .foregroundColor(Color.miamColor(.primary))
+                        .foregroundColor(Color.mealzColor(.primary))
                     Image.mealzIcon(icon: .caret)
                 }
                 .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
@@ -39,16 +39,16 @@ public struct MiamNeutralCatalogRecipesListNoResults: CatalogRecipesListNoResult
                 Text("\(Localization.catalog.noRecipeFound.localised) \n\"\(searchText)\"")
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleStyle)
                     .multilineTextAlignment(.center)
-                    .foregroundColor(Color.miamColor(.white))
+                    .foregroundColor(Color.mealzColor(.white))
                 Text(Localization.catalog.tryAnotherSearch.localised)
                     .italic()
                     .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigStyle)
-                    .foregroundColor(Color.miamColor(.white))
+                    .foregroundColor(Color.mealzColor(.white))
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(Dimension.sharedInstance.mPadding)
-        .background(Color.miamColor(.primaryDark))
+        .background(Color.mealzColor(.primary))
     }
 }
 

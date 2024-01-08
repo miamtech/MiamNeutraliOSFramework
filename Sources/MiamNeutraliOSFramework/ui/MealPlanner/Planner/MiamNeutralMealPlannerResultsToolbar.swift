@@ -62,12 +62,12 @@ internal struct SubmitButtonCollapsed: View {
                 Image.mealzIcon(icon: .check)
                     .renderingMode(.template)
                     .resizable()
-                    .foregroundColor(Color.miamColor(.white))
+                    .foregroundColor(Color.mealzColor(.white))
                     .frame(width: dimension.lButtonHeight, height: dimension.lButtonHeight)
             }
         }
         .frame(width: 50, height: 50)
-        .background(Color.miamColor(.primary))
+        .background(Color.mealzColor(.primary))
         .cornerRadius(dimension.mCornerRadius)
         .disabled(activelyEditingTextField)
         .darkenView(activelyEditingTextField)

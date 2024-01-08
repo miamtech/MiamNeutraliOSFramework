@@ -30,8 +30,8 @@ public struct MiamNeutralMealsInBasketButtonSuccess: MealsInBasketButtonSuccessP
             .frame(maxWidth: .infinity)
             .padding(Dimension.sharedInstance.lPadding)
         }
-        .background(Color.miamColor(.greySurface))
-        .foregroundColor(Color.miamColor(.primaryDark))
+        .background(Color.mealzColor(.lightBackground))
+        .foregroundColor(Color.mealzColor(.primary))
         .cornerRadius(Dimension.sharedInstance.mCornerRadius, corners: [.top])
     }
 }

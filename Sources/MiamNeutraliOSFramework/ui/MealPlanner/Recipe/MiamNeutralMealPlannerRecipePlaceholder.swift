@@ -20,12 +20,12 @@ public struct MiamNeutralMealPlannerRecipePlaceholder: MealPlannerRecipePlacehol
                 VStack {
                     RoundedRectangle(cornerRadius: 0)
                         .stroke(style: StrokeStyle(lineWidth: 1, dash: [4, 6]))
-                        .foregroundColor(Color.miamColor(.primary))
+                        .foregroundColor(Color.mealzColor(.primary))
                         .frame(height: 1)
                     Spacer()
                     RoundedRectangle(cornerRadius: 0)
                         .stroke(style: StrokeStyle(lineWidth: 1, dash: [4, 6]))
-                        .foregroundColor(Color.miamColor(.primary))
+                        .foregroundColor(Color.mealzColor(.primary))
                         .frame(height: 1)
                 }
                 VStack(spacing: dimension.lPadding) {
@@ -33,23 +33,23 @@ public struct MiamNeutralMealPlannerRecipePlaceholder: MealPlannerRecipePlacehol
                         onTapGesture()
                     } label: {
                         RoundedRectangle(cornerRadius: dimension.sCornerRadius)
-                            .fill(Color.miamColor(.primary))
+                            .fill(Color.mealzColor(.primary))
                             .frame(width: dimension.xlButtonHeight, height: dimension.xlButtonHeight)
                             .overlay(
                                 Image.mealzIcon(icon: .plus)
                                     .renderingMode(.template)
-                                    .foregroundColor(Color.miamColor(.white))
+                                    .foregroundColor(Color.mealzColor(.white))
                                     .frame(width: dimension.mButtonHeight, height: dimension.mButtonHeight)
                             )
                     }
                     .buttonStyle(PlainButtonStyle())
                     Text(Localization.myBudget.addMealIdea.localised)
                         .fontWeight(.bold)
-                        .foregroundColor(Color.miamColor(.primary))
+                        .foregroundColor(Color.mealzColor(.primary))
                 }
             }
         }
-        .foregroundColor(Color.miamColor(.white))
+        .foregroundColor(Color.mealzColor(.white))
         .frame(height: recipeCardSize.height)
     }
 }
