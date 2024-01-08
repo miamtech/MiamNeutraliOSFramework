@@ -29,7 +29,7 @@ public struct MiamNeutralPriceView: PriceSuccessProtocol {
         
         return Text(priceText())
                 .foregroundColor(Color.mealzColor(.primary))
-                .miamFontStyle(style: MiamFontStyleProvider().titleStyle)
+                .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleStyle)
     }
 }
 

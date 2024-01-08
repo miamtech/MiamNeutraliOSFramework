@@ -21,13 +21,13 @@ public struct MiamNeutralRecipeDetailsStepsView: RecipeDetailsStepsProtocol {
         HStack {
             Text(Localization.recipe.steps.localised)
                 .foregroundColor(Color.black)
-                .miamFontStyle(style: MiamFontStyleProvider().titleStyle)
+                .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleStyle)
                 .padding(Dimension.sharedInstance.lPadding)
             Spacer()
         }.padding(.top, Dimension.sharedInstance.lPadding)
         // Steps
         Divider()
-            .background(Color.lightGray)
+            .background(Color.miamColor(.lightGreyBackground))
             .padding(.horizontal, Dimension.sharedInstance.lPadding)
         // Steps ListView
         VStack {

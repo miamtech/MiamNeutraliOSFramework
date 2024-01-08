@@ -43,7 +43,7 @@ public struct MiamNeutralRecipeDetailsHeaderView: RecipeDetailsHeaderProtocol {
                 VStack(alignment: .leading, spacing: Dimension.sharedInstance.mPadding) {
                     Text(infos.title)
                             .bold()
-                            .miamFontStyle(style: MiamFontStyleProvider().titleStyle)
+                            .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.titleStyle)
                             .padding(.bottom, Dimension.sharedInstance.sPadding)
                     HStack(alignment: .center, spacing: Dimension.sharedInstance.xlPadding) {
                         MiamNeutralRecipeDifficulty(difficulty: infos.difficulty)

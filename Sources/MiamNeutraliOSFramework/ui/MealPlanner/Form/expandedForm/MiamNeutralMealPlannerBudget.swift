@@ -7,6 +7,8 @@
 //
 
 import SwiftUI
+import MiamIOSFramework
+
 @available(iOS 14, *)
 internal struct MiamNeutralMealPlannerBudget: View {
     @Binding var budget: Double
@@ -45,7 +47,7 @@ internal struct Currency: View {
     let currency: String
     var body: some View {
         Text(currency)
-            .miamFontStyle(style: MiamFontStyleProvider().bodyBigStyle)
+            .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigStyle)
             .padding(Dimension.sharedInstance.mPadding)
     }
 }
@@ -57,7 +59,7 @@ internal struct Budget: View {
 
     var body: some View {
         TextField("", value: $budget, formatter: NumberFormatter())
-            .miamFontStyle(style: MiamFontStyleProvider().bodyBigBoldStyle)
+            .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBigBoldStyle)
             .multilineTextAlignment(.leading)
             .keyboardType(.numberPad)
             .padding(Dimension.sharedInstance.mPadding)

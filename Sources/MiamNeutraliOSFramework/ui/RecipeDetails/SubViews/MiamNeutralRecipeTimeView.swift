@@ -25,25 +25,25 @@ struct MiamNeutralRecipeTimeView: View {
             if preparationTime != noPreparationTime {
                 HStack(spacing: spaceBetweenTime) {
                     Text(Localization.recipe.preparationTime.localised)
-                        .miamFontStyle(style: MiamFontStyleProvider().bodyStyle)
+                        .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyStyle)
                     Text(preparationTime.spellOutTimeUnit())
-                        .miamFontStyle(style: MiamFontStyleProvider().bodyBoldStyle)
+                        .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBoldStyle)
                 }
             }
             if cookingTime != noCookingTime {
                 HStack(spacing: spaceBetweenTime) {
                     Text(Localization.recipe.cookTime.localised)
-                        .miamFontStyle(style: MiamFontStyleProvider().bodyStyle)
+                        .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyStyle)
                     Text(cookingTime.spellOutTimeUnit())
-                        .miamFontStyle(style: MiamFontStyleProvider().bodyBoldStyle)
+                        .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBoldStyle)
                 }
             }
             if restingTime != noRestingTime {
                 HStack(spacing: spaceBetweenTime) {
                     Text(Localization.recipe.restingTime.localised)
-                        .miamFontStyle(style: MiamFontStyleProvider().bodyStyle)
+                        .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyStyle)
                     Text(restingTime.spellOutTimeUnit())
-                        .miamFontStyle(style: MiamFontStyleProvider().bodyBoldStyle)
+                        .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyBoldStyle)
                 }
             }
             Spacer()

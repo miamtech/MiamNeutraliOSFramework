@@ -42,7 +42,7 @@ public struct MiamNeutralMealPlannerRecipeCard: MealPlannerRecipeCardProtocol {
                 .clipped()
                 VStack(spacing: dimensions.sPadding) {
                     Text(recipe.title + "\n")
-                        .miamFontStyle(style: MiamFontStyleProvider().bodyMediumBoldStyle)
+                        .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyMediumBoldStyle)
                         .lineLimit(2)
                         .minimumScaleFactor(0.9)
                         .multilineTextAlignment(.leading)
@@ -53,7 +53,7 @@ public struct MiamNeutralMealPlannerRecipeCard: MealPlannerRecipeCardProtocol {
                     HStack {
                         Text(Localization.basket.swapProduct.localised)
                             .foregroundColor(Color.mealzColor(.primary))
-                            .miamFontStyle(style: MiamFontStyleProvider().bodyMediumBoldStyle)
+                            .miamFontStyle(style: MiamFontStyleProvider.sharedInstance.bodyMediumBoldStyle)
                             .padding(dimensions.lPadding)
                             .onTapGesture {
                                 onReplaceRecipeFromMealPlanner()
